@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright 2018 <Wendley S. Silva (http://github.com/wendley)>.
+# Jul 2018
 #
 # This is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

@@ -11,20 +11,30 @@
 
 pausa=3
 
-echo "\n Descomprimindo os arquivos... \n"
+echo "\n Removendo GR-LQE... \n"
 sleep $pausa
+
+cd ~ ;
+cd gr-lqe ;
+cd build ;
+
+sudo make uninstall ;
+
+# cd .. ;
+# rm build -rf ;
+
 
 tar -vzxf CodesGr2.tar.gz
 
 
 ### GR-LQE ###
-echo "\n Instalando GR-LQE... \n"
+echo "\n Reinstalando GR-LQE... \n"
 sleep $pausa
 
-cd ~ ;
-cd gr-lqe ;
-mkdir build ;
-cd build ;
+# cd ~ ;
+# cd gr-lqe ;
+# mkdir build ;
+# cd build ;
 cmake .. ;
 make ;
 sudo make install ;
@@ -40,9 +50,6 @@ sudo ldconfig ;
 # grcc ieee802_15_4_OQPSK_PHY.grc ;
 # #grcc -e transceiver.grc ;
 
-
-### Conclusao ###
-echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n ."
 
 
 
