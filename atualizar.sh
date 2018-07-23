@@ -3,11 +3,12 @@
 # Wendley S. Silva – wendley@gmail.com - Jul/2018
 
 
-# git clone https://github.com/wendley/sdr.git
-# cd sdr;
-# cp * ~/ ;
-# cd ~;
+git clone https://github.com/wendley/sdr.git
+cd sdr;
+cp * ~/ ;
+cd ~;
 
+cp getRSSI.py gr-lqe/python ;
 
 pausa=3
 
@@ -23,20 +24,21 @@ sudo make uninstall ;
 # cd .. ;
 # rm build -rf ;
 
-
-tar -vzxf CodesGr2.tar.gz
+cd .. ;
+cd python ;
+wget -c https://github.com/wendley/sdr/raw/master/getRSSI.py ;
 
 
 ### GR-LQE ###
 echo "\n Reinstalando GR-LQE... \n"
 sleep $pausa
 
-# cd ~ ;
-# cd gr-lqe ;
+cd ~ ;
+cd gr-lqe ;
 # mkdir build ;
-# cd build ;
-cmake .. ;
-make ;
+cd build ;
+#cmake .. ;
+# make ;
 sudo make install ;
 sudo ldconfig ;
 
