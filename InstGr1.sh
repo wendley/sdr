@@ -2,6 +2,13 @@
 # Shell script para instalar GR-Foo e GR-802.15.4
 # Wendley S. Silva – wendley@gmail.com - Jul/2018
 
+
+git clone https://wendley@bitbucket.org/wendley/sdr.git;
+cd sdr;
+cp * ~/ ;
+cd ~;
+
+
 pausa=3
 
 echo "\n Descomprimindo os arquivos... \n"
