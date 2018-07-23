@@ -14,7 +14,7 @@ pausa=3
 echo "\n Descomprimindo os arquivos... \n"
 sleep $pausa
 
-tar -vzxf UpGr1.tar.gz
+tar -vzxf CodesGr1.tar.gz
 
 ### GR-FOO ###
 echo "\n Instalando GR-FOO... \n"
