@@ -3,7 +3,11 @@
 # Wendley S. Silva – wendley@gmail.com - Jul/2018
 
 
-wget https://github.com/wendley/sdr/blob/master/CodesGr1.tar.gz
+git clone https://github.com/wendley/sdr.git
+cd sdr;
+cp * ~/ ;
+cd ~;
+
 
 pausa=3
 
