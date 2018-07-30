@@ -9,7 +9,7 @@ cp * ~/ ;
 cd ~;
 
 
-pausa=3
+pausa=2
 
 echo "\n Descomprimindo os arquivos... \n"
 sleep $pausa
@@ -78,17 +78,25 @@ sudo ldconfig ;
 
 
 ### GR-LQE ###
-# echo "\n Instalando GR-LQE... \n"
-# sleep $pausa
-#
-# cd ~ ;
-# cd gr-lqe ;
-# mkdir build ;
-# cd build ;
-# cmake .. ;
-# make ;
-# sudo make install ;
-# sudo ldconfig ;
+echo "\n Instalando GR-LQE... \n"
+echo "\n Descomprimindo os arquivos do GR-LQE... \n"
+sleep $pausa
+
+tar -vzxf CodesGr2.tar.gz
+
+
+### GR-LQE ###
+echo "\n Instalando GR-LQE... \n"
+sleep $pausa
+
+cd ~ ;
+cd gr-lqe ;
+mkdir build ;
+cd build ;
+cmake .. ;
+make ;
+sudo make install ;
+sudo ldconfig ;
 
 
 ### GRC Compile ###
