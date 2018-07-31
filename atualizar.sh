@@ -1,10 +1,10 @@
 #!/bin/sh
-# Shell script para instalar GR-Foo e GR-802.15.4
+# Shell script para atualizar o arquivo getRSSI.py do modulo gr-LQE
 # Wendley S. Silva – wendley@gmail.com - Jul/2018
 
 
 cd ~/ ;
-rm sdr -rf ;
+# rm sdr/ -rf ;
 git clone https://github.com/wendley/sdr.git ;
 # cd sdr;
 # cp * ~/ ;
@@ -12,8 +12,9 @@ git clone https://github.com/wendley/sdr.git ;
 
 cp sdr/getRSSI.py gr-lqe/python ;
 
-pausa=3
-
+pausa=2
+sleep $pausa
+sleep $pausa
 echo "\n Removendo GR-LQE... \n"
 sleep $pausa
 
@@ -38,16 +39,6 @@ sleep $pausa
 # make ;
 sudo make install ;
 sudo ldconfig ;
-
-
-### GRC Compile ###
-# echo "\n Compilando ieee802_15_4_PHY.grc... \n"
-# sleep $pausa
-#
-# cd ~ ;
-# cd gr-802154-wy/examples ;
-# grcc ieee802_15_4_OQPSK_PHY.grc ;
-# #grcc -e transceiver.grc ;
 
 
 

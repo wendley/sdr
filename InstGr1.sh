@@ -82,6 +82,7 @@ echo "\n Instalando GR-LQE... \n"
 echo "\n Descomprimindo os arquivos do GR-LQE... \n"
 sleep $pausa
 
+cd ~ ;
 tar -vzxf CodesGr2.tar.gz
 
 
@@ -111,8 +112,19 @@ grcc ieee802_15_4_OQPSK_PHY.grc ;
 
 ### Conclusao ###
 echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n ."
+sleep $pausa
 
+cd ~ ;
+echo "\n Atualizando PIP e instalando scikit-learn... \n"
+sleep $pausa
+sudo pip install --upgrade pip
+sudo pip install -U scikit-learn
 
+# echo "\n . \n .. Removendo pasta temporaria sdr \n .. \n ."
+# sleep $pausa
+#
+# cd ~/ ;
+# rm sdr/ -rf ;
 
 ############  GIT  ############
 
