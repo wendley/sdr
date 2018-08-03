@@ -28,6 +28,7 @@ import numpy, pmt
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
+from sklearn import svm
 
 
 class getRSSI(gr.sync_block):
