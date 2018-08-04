@@ -120,6 +120,9 @@ sleep $pausa
 sudo pip install --upgrade pip
 sudo pip install -U scikit-learn
 
+cd ~;
+chmod +x atualizar.sh
+
 # echo "\n . \n .. Removendo pasta temporaria sdr \n .. \n ."
 # sleep $pausa
 #

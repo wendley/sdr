@@ -9,14 +9,14 @@ git clone https://github.com/wendley/sdr.git ;
 # cd sdr;
 # cp * ~/ ;
 # cd ~;
-
+pausa=3
+sleep $pausa
 cp sdr/getRSSI.py gr-lqe/python ;
 
-pausa=2
-sleep $pausa
+
 sleep $pausa
 echo "\n Removendo GR-LQE... \n"
-sleep $pausa
+
 
 cd ~ ;
 cd gr-lqe ;
