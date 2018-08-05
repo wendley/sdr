@@ -78,12 +78,12 @@ sudo ldconfig ;
 
 
 ### GR-LQE ###
-echo "\n Instalando GR-LQE... \n"
-echo "\n Descomprimindo os arquivos do GR-LQE... \n"
-sleep $pausa
-
-cd ~ ;
-tar -vzxf CodesGr2.tar.gz
+# echo "\n Instalando GR-LQE... \n"
+# echo "\n Descomprimindo os arquivos do GR-LQE... \n"
+# sleep $pausa
+#
+# cd ~ ;
+# tar -vzxf CodesGr2.tar.gz
 
 
 ### GR-LQE ###
@@ -122,6 +122,8 @@ sudo pip install -U scikit-learn
 
 cd ~;
 chmod +x atualizar.sh
+
+cd gr-802154-wy/examples
 
 # echo "\n . \n .. Removendo pasta temporaria sdr \n .. \n ."
 # sleep $pausa
