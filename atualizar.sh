@@ -6,12 +6,12 @@
 cd ~/ ;
 rm sdr/ -rf ;
 git clone https://github.com/wendley/sdr.git ;
-# cd sdr;
-# cp * ~/ ;
-# cd ~;
+cd sdr;
+cp * ~/ ;
+cd ~;
 pausa=3
 sleep $pausa
-cp sdr/getRSSI.py gr-lqe/python ;
+cp getRSSI.py gr-lqe/python ;
 
 
 sleep $pausa
