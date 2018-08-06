@@ -4,7 +4,7 @@
 
 
 cd ~/ ;
-# rm sdr/ -rf ;
+rm sdr/ -rf ;
 git clone https://github.com/wendley/sdr.git ;
 # cd sdr;
 # cp * ~/ ;
