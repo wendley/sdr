@@ -362,8 +362,10 @@ class getRSSI(gr.sync_block):
 			del(self.tempML[0])
 			del(self.serieTarget[0])
 
-		self.tempML.append(self.estimPRR, self.estimRssi)
-		self.serieML.append(list(tempML))
+		self.tempML.append(self.estimPRR)
+		self.tempML.append(self.estimRssi)
+		self.serieML.append(list(self.tempML))
+		self.tempML=[]
 		self.serieTarget.append(self.estimPRR2)
 
 		#SVMR
