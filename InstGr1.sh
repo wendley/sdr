@@ -7,6 +7,7 @@ git clone https://github.com/wendley/sdr.git ;
 cd sdr ;
 cp * ~/ ;
 cd ~;
+mkdir Experimentos ;
 
 
 pausa=2
