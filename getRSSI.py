@@ -374,10 +374,11 @@ class getRSSI(gr.sync_block):
 		print(self.serieML)
 		print "---------- IMPRIMINDO SERIE-TARGET -----------"
 		print(self.serieTarget)
-		self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
-		estimSVMR = self.clf.predict(self.serieML[-1]) # Predizer somente o ultimo valor da serie
-		erroSVMR = estimSVMR - self.serieTarget[-1]
-		print "ERRO do SVMR: %f" %erroSVMR
+		if len(self.serieML) >= 10:
+			self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+			estimSVMR = self.clf.predict(self.serieML[-1]) # Predizer somente o ultimo valor da serie
+			erroSVMR = estimSVMR - self.serieTarget[-1]
+			print "ERRO do SVMR: %f" %erroSVMR
 
  ## TODO: Atualizar e testar BAR
 		#################################################
