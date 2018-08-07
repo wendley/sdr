@@ -3,8 +3,8 @@
 # Wendley S. Silva – wendley@gmail.com - Jul/2018
 
 
-git clone https://github.com/wendley/sdr.git
-cd sdr;
+git clone https://github.com/wendley/sdr.git ;
+cd sdr ;
 cp * ~/ ;
 cd ~;
 
@@ -14,7 +14,12 @@ pausa=2
 echo "\n Descomprimindo os arquivos... \n"
 sleep $pausa
 
-tar -vzxf CodesGr1.tar.gz
+tar -vzxf CodesGr1.tar.gz ;
+
+# Atualiza o arquivo getRSSI:
+cd sdr;
+cp getRSSI.py gr-lqe/python ;
+cd ~;
 
 ### GR-FOO ###
 echo "\n Instalando GR-FOO... \n"
@@ -117,13 +122,13 @@ sleep $pausa
 cd ~ ;
 echo "\n Atualizando PIP e instalando scikit-learn... \n"
 sleep $pausa
-sudo pip install --upgrade pip
-sudo pip install -U scikit-learn
+sudo pip install --upgrade pip ;
+sudo pip install -U scikit-learn ;
 
-cd ~;
-chmod +x atualizar.sh
+cd ~ ;
+chmod +x atualizar.sh ;
 
-cd gr-802154-wy/examples
+cd gr-802154-wy/examples ;
 
 # echo "\n . \n .. Removendo pasta temporaria sdr \n .. \n ."
 # sleep $pausa
