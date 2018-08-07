@@ -17,8 +17,7 @@ sleep $pausa
 tar -vzxf CodesGr1.tar.gz ;
 
 # Atualiza o arquivo getRSSI:
-cd sdr;
-cp getRSSI.py gr-lqe/python ;
+cp sdr/getRSSI.py gr-lqe/python ;
 cd ~;
 
 ### GR-FOO ###
