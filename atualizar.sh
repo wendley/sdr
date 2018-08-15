@@ -11,7 +11,9 @@ cp * ~/ ;
 cd ~;
 pausa=3
 sleep $pausa
+
 cp getRSSI.py gr-lqe/python ;
+cp powerControl.py gr-lqe/python ;
 
 
 sleep $pausa
