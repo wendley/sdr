@@ -164,9 +164,8 @@ public:
 
                 d_num_packets_received++;
                 //LOG dout << "MAC: correct crc. Propagate packet to APP layer." << std::endl;
-                //LOG
-                printf("Pacote recebido - ID: %u - Endereco de origem: %u%u\n", (unsigned char)recPackage[2],
-                        (unsigned char)recPackage[7], (unsigned char)recPackage[8]);
+                //LOG printf("Pacote recebido - ID: %u - Endereco de origem: %u%u\n", (unsigned char)recPackage[2],
+                        //(unsigned char)recPackage[7], (unsigned char)recPackage[8]);
 
                 pmt::pmt_t mac_payload = pmt::make_blob((char*) pmt::blob_data(blob) + 9, data_len - 9 - 2);
                 message_port_pub(pmt::mp("app out"), pmt::cons(pmt::PMT_NIL, mac_payload));
@@ -175,6 +174,7 @@ public:
                 if(addr_bc_1 != recPackage[5] || addr_bc_2 != recPackage[6]){
                     char dAck[5];
                     generateAck(recPackage, dAck);
+                    printf("PASSOU");
 
                     pmt::pmt_t packAck = pmt::cons(pmt::PMT_NIL, pmt::make_blob(dAck, 6));
                     SendPackage* packageAck = new SendPackage(packAck, recPackage[2], true);
