@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>TXOnlyLQE2018</value>
+      <value>RXOnlyLQE2018</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -337,7 +337,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>60</value>
+      <value>80</value>
     </param>
   </block>
   <block>
