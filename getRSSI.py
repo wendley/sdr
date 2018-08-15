@@ -33,7 +33,7 @@ from sklearn import svm
 
 class getRSSI(gr.sync_block):
 	"""
-	Get the RSSI using message format and process it using a time series estimator.
+	Estimates the Link Quality using RSSI, PRR or PRR2.
 	[1] https://github.com/osh/gr-uhdgps
 	[2] https://github.com/osh/gr-eventstream
 	"""
