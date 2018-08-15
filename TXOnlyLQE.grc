@@ -608,7 +608,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>120</value>
+      <value>60</value>
     </param>
   </block>
   <block>
@@ -859,7 +859,7 @@
     </param>
     <param>
       <key>igtx</key>
-      <value>120</value>
+      <value>60</value>
     </param>
     <param>
       <key>randomGain</key>

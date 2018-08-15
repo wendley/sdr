@@ -131,6 +131,7 @@ sudo pip install -U scikit-learn ;
 
 cd ~ ;
 chmod +x atualizar.sh ;
+chmod +x clone.sh ;
 
 cd gr-802154-wy/examples ;
 
