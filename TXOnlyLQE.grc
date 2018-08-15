@@ -38,7 +38,7 @@
     </param>
     <param>
       <key>generate_options</key>
-      <value>no_gui</value>
+      <value>wx_gui</value>
     </param>
     <param>
       <key>hier_block_src_path</key>
@@ -514,15 +514,15 @@
     </param>
     <param>
       <key>num</key>
-      <value>100</value>
+      <value>80</value>
     </param>
     <param>
       <key>interval</key>
-      <value>100</value>
+      <value>75</value>
     </param>
     <param>
       <key>quit</key>
-      <value>False</value>
+      <value>True</value>
     </param>
   </block>
   <block>
