@@ -399,11 +399,11 @@ class getRSSI(gr.sync_block):
 
 			#print "RSSI method in use"
 			#This sets the gain
-
+			# FIXME
 			aux = float(self.emaRssi)
 			#print "RSSI ------------ %2.4f\n" % (float(aux))
 			# self.message_port_pub(pmt.intern("estimation"), pmt.from_double(self.gainTx))
-	s
+
 		elif self.method == 3:
 			# Estimator using ONLY traditional PRR:
 
