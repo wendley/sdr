@@ -163,7 +163,8 @@ public:
                 //mim". Só trata o pacote se as duas condições forem verdadeiras.
 
                 d_num_packets_received++;
-                //LOG dout << "MAC: correct crc. Propagate packet to APP layer." << std::endl;
+                //LOG
+                dout << "MAC: correct crc. Propagate packet to APP layer." << std::endl;
                 //LOG printf("Pacote recebido - ID: %u - Endereco de origem: %u%u\n", (unsigned char)recPackage[2],
                         //(unsigned char)recPackage[7], (unsigned char)recPackage[8]);
 
