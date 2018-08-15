@@ -174,7 +174,6 @@ public:
                 if(addr_bc_1 != recPackage[5] || addr_bc_2 != recPackage[6]){
                     char dAck[5];
                     generateAck(recPackage, dAck);
-                    printf("PASSOU");
 
                     pmt::pmt_t packAck = pmt::cons(pmt::PMT_NIL, pmt::make_blob(dAck, 6));
                     SendPackage* packageAck = new SendPackage(packAck, recPackage[2], true);
