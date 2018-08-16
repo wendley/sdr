@@ -60,7 +60,7 @@ class powerControl(gr.sync_block):
 
     def handler(self,pdu):
         estimativa = pmt.to_float(pdu) #Estimativa entre 0,0 e 1,0
-        print "Estimativa: --- %6.2f" % (estimativa)
+        # print "Estimativa: --- %6.2f" % (estimativa)
 
         newGain = 72*(1-estimativa)+28 #Normalização
         # print "Ganho de Tx: --- %6.2f" % (newGain)
