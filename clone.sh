@@ -9,3 +9,7 @@ git clone https://github.com/wendley/sdr.git ;
 cd sdr;
 cp * ~/ ;
 cd ~;
+
+cd ~ ;
+chmod +x atualizar.sh ;
+chmod +x clone.sh ;
