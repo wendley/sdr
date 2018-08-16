@@ -45,6 +45,7 @@ class mac_impl : public mac {
     long int sifs = 1;//milisecounds
     long int resend_waiting = 80;//milisecounds
     int lostPacks = 0;
+    int numMsg = 0;
 
     short max_retr = 5;
 
@@ -233,7 +234,7 @@ public:
      */
     void app_in(pmt::pmt_t msg) {
         pmt::pmt_t blob;
-        if (pmt::is_eof_object(msg) || pack->getId()==99) { //99 indica o max de msgs enviadas
+        if (pmt::is_eof_object(msg) || numMsg==99) { //99 indica o max de msgs enviadas
             dout << "MAC: exiting in few seconds" << std::endl;
             endOfFile = true;
             if (!data_ready){
@@ -387,6 +388,7 @@ public:
         message_port_pub(pmt::mp("pdu out"), pmt_pack);
         lastPackAckedOrTimeToResendFinished = false;
         printf("Enviou pacote dados %u\n", pack->getId());
+        numMsg = pack->getId(); // é usado para limitar a qtde de msgs p gerar o EOF
         gettimeofday(&now, NULL);
         pack->setTime((now.tv_sec * 1000) + (now.tv_usec / 1000));
 
