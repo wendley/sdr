@@ -964,7 +964,7 @@
     </param>
     <param>
       <key>type</key>
-      <value>intx</value>
+      <value>long</value>
     </param>
     <param>
       <key>value</key>
