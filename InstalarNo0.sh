@@ -21,6 +21,10 @@ tar -vzxf CodesGr1.tar.gz ;
 cp sdr/getRSSI.py gr-lqe/python ;
 cd ~;
 
+# Atualiza o arquivo mac de gr-802154
+cp sdr/mac.cc gr-802154-wy/lib/ ;
+cd ~;
+
 ### GR-FOO ###
 echo "\n Instalando GR-FOO... \n"
 sleep $pausa

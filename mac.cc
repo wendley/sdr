@@ -234,6 +234,7 @@ public:
      */
     void app_in(pmt::pmt_t msg) {
         pmt::pmt_t blob;
+        printf("Numero da msg %u\n", numMsg);  // IDEIA
         if (pmt::is_eof_object(msg) || numMsg==99) { //99 indica o max de msgs enviadas
             dout << "MAC: exiting in few seconds" << std::endl;
             endOfFile = true;
