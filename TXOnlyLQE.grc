@@ -514,7 +514,7 @@
     </param>
     <param>
       <key>num</key>
-      <value>80</value>
+      <value>numMsg</value>
     </param>
     <param>
       <key>interval</key>
@@ -926,6 +926,49 @@
     <param>
       <key>note</key>
       <value>you can connect to the Socket PDU with: 'nc -u localhost 52002'</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(24, 236)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>numMsg</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>100</value>
     </param>
   </block>
   <block>
