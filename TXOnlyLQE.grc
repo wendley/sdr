@@ -940,7 +940,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -964,11 +964,11 @@
     </param>
     <param>
       <key>type</key>
-      <value>long</value>
+      <value>intx</value>
     </param>
     <param>
       <key>value</key>
-      <value>20</value>
+      <value>100</value>
     </param>
   </block>
   <block>
