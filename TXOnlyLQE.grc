@@ -486,11 +486,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(24, 131)</value>
+      <value>(0, 104)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -514,7 +514,7 @@
     </param>
     <param>
       <key>num</key>
-      <value>numMsg</value>
+      <value>50</value>
     </param>
     <param>
       <key>interval</key>
@@ -523,6 +523,69 @@
     <param>
       <key>quit</key>
       <value>True</value>
+    </param>
+  </block>
+  <block>
+    <key>foo_random_periodic_msg_source</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(0, 336)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>foo_random_periodic_msg_source_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>msg_len</key>
+      <value>16</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num</key>
+      <value>50</value>
+    </param>
+    <param>
+      <key>interval</key>
+      <value>100</value>
+    </param>
+    <param>
+      <key>quit</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -940,7 +1003,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -3220,6 +3283,18 @@
   </connection>
   <connection>
     <source_block_id>foo_periodic_msg_source_0</source_block_id>
+    <sink_block_id>lqe_getRSSI_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>sendOrder</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>foo_random_periodic_msg_source_0</source_block_id>
+    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>bcin</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>foo_random_periodic_msg_source_0</source_block_id>
     <sink_block_id>lqe_getRSSI_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>sendOrder</sink_key>
