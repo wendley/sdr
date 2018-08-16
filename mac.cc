@@ -236,8 +236,9 @@ public:
         pmt::pmt_t blob;
         dout << "PASSANDO" << std::endl; //FIXME
         printf("Numero da msg %u\n", numMsg);  // IDEA
-        if (pmt::is_eof_object(msg) || numMsg==99) { //99 indica o max de msgs enviadas
+        if (pmt::is_eof_object(msg) || numMsg==49) { //49 indica o max de msgs enviadas
             dout << "MAC: exiting in few seconds" << std::endl;
+            message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
             endOfFile = true;
             if (!data_ready){
                 message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
