@@ -119,6 +119,19 @@ grcc ieee802_15_4_OQPSK_PHY.grc ;
 #grcc -e transceiver.grc ;
 
 
+echo "\n Instalando GR-TRAFFICGEN... \n"
+sleep $pausa
+
+cd ~ ;
+cd gr-trafficgen ;
+mkdir build ;
+cd build ;
+cmake .. ;
+make ;
+sudo make install ;
+sudo ldconfig ;
+
+
 ### Conclusao ###
 echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n ."
 sleep $pausa

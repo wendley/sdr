@@ -1,6 +1,6 @@
 #!/bin/sh
 # Shell script para instalar GR-Foo, GR-802.15.4 e GR-LQE no No-0
-# Wendley S. Silva – wendley@gmail.com - Jul/2018
+# Wendley S. Silva – wendley@gmail.com - Ago/2018
 
 
 git clone https://github.com/wendley/sdr.git ;
@@ -117,6 +117,19 @@ cd ~ ;
 cd gr-802154-wy/examples ;
 grcc ieee802_15_4_OQPSK_PHY.grc ;
 #grcc -e transceiver.grc ;
+
+
+echo "\n Instalando GR-TRAFFICGEN... \n"
+sleep $pausa
+
+cd ~ ;
+cd gr-trafficgen ;
+mkdir build ;
+cd build ;
+cmake .. ;
+make ;
+sudo make install ;
+sudo ldconfig ;
 
 
 ### Conclusao ###
