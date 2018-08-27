@@ -211,7 +211,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -1016,97 +1016,6 @@
     <param>
       <key>value</key>
       <value>100</value>
-    </param>
-  </block>
-  <block>
-    <key>trafficgen_cbr_transmitter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>constant_value</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>content_type</key>
-      <value>trafficgen.CONTENT_CONSTANT</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>distribution_type</key>
-      <value>trafficgen.DIST_UNIFORM</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(32, 344)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>trafficgen_cbr_transmitter_0</value>
-    </param>
-    <param>
-      <key>logfile</key>
-      <value>/tmp/trafficgen_cbr_transmitter.log</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>distribution_max</key>
-      <value>255</value>
-    </param>
-    <param>
-      <key>distribution_mean</key>
-      <value>127</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>distribution_min</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>packet_interval</key>
-      <value>1000</value>
-    </param>
-    <param>
-      <key>packet_size</key>
-      <value>1500</value>
-    </param>
-    <param>
-      <key>distribution_scale</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>distribution_shape</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>distribution_std</key>
-      <value>42</value>
-    </param>
-    <param>
-      <key>use_acks</key>
-      <value>True</value>
     </param>
   </block>
   <block>
@@ -3445,18 +3354,6 @@
     <sink_block_id>lqe_powerControl_0</sink_block_id>
     <source_key>estimation</source_key>
     <sink_key>estimation</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>PDU</source_key>
-    <sink_key>bcin</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
-    <sink_block_id>lqe_getRSSI_0</sink_block_id>
-    <source_key>PDU</source_key>
-    <sink_key>sendOrder</sink_key>
   </connection>
   <connection>
     <source_block_id>uhd_usrp_source_0</source_block_id>
