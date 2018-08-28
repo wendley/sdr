@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Trafficgen
-# Generated: Tue Aug 28 15:52:02 2018
+# Generated: Tue Aug 28 15:56:37 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -54,11 +54,6 @@ class TrafficGen(gr.top_block, Qt.QWidget):
         self.restoreGeometry(self.settings.value("geometry").toByteArray())
 
         ##################################################
-        # Variables
-        ##################################################
-        self.samp_rate = samp_rate = 32000
-
-        ##################################################
         # Blocks
         ##################################################
         self.trafficgen_vbr_transmitter_0 = trafficgen.vbr_transmitter(True,
@@ -71,7 +66,7 @@ class TrafficGen(gr.top_block, Qt.QWidget):
         self.trafficgen_generator_uniform_0 = trafficgen.generator_uniform(trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL, 0, 1, 1000)
         self.trafficgen_generator_poisson_0 = trafficgen.generator_poisson(trafficgen.VBR_PORT_PACKET_SIZE, 0.5, 1000)
         self.trafficgen_generator_gaussian_0 = trafficgen.generator_gaussian(trafficgen.VBR_PORT_REQUEST_BURST_DURATION, 0.5, 0.1, 1000)
-        self.trafficgen_generator_constant_0 = trafficgen.generator_constant(trafficgen.VBR_PORT_BURST_INTERVAL, 400)
+        self.trafficgen_generator_constant_0 = trafficgen.generator_constant(trafficgen.VBR_PORT_BURST_INTERVAL, 300)
 
         ##################################################
         # Connections
@@ -90,12 +85,6 @@ class TrafficGen(gr.top_block, Qt.QWidget):
         self.settings = Qt.QSettings("GNU Radio", "TrafficGen")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
-
-    def get_samp_rate(self):
-        return self.samp_rate
-
-    def set_samp_rate(self, samp_rate):
-        self.samp_rate = samp_rate
 
 
 def main(top_block_cls=TrafficGen, options=None):
