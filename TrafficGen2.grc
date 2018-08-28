@@ -203,7 +203,7 @@
     </param>
   </block>
   <block>
-    <key>trafficgen_cbr_transmitter</key>
+    <key>trafficgen_generator_constant</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -213,20 +213,8 @@
       <value></value>
     </param>
     <param>
-      <key>constant_value</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>content_type</key>
-      <value>trafficgen.CONTENT_CONSTANT</value>
-    </param>
-    <param>
       <key>affinity</key>
       <value></value>
-    </param>
-    <param>
-      <key>distribution_type</key>
-      <value>trafficgen.DIST_UNIFORM</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -234,7 +222,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(392, 224)</value>
+      <value>(296, 228)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -242,55 +230,78 @@
     </param>
     <param>
       <key>id</key>
-      <value>trafficgen_cbr_transmitter_0</value>
-    </param>
-    <param>
-      <key>logfile</key>
-      <value>/tmp/trafficgen_cbr_transmitter.log</value>
+      <value>trafficgen_generator_constant_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>distribution_max</key>
-      <value>255</value>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
     <param>
-      <key>distribution_mean</key>
-      <value>127</value>
+      <key>vbr_port</key>
+      <value>trafficgen.VBR_PORT_BURST_INTERVAL</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>400</value>
+    </param>
+  </block>
+  <block>
+    <key>trafficgen_generator_gaussian</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(160, 432)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>trafficgen_generator_gaussian_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>mean</key>
+      <value>0.5</value>
     </param>
     <param>
       <key>minoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>distribution_min</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>packet_interval</key>
+      <key>multiplier</key>
       <value>1000</value>
     </param>
     <param>
-      <key>packet_size</key>
-      <value>1500</value>
+      <key>std</key>
+      <value>0.1</value>
     </param>
     <param>
-      <key>distribution_scale</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>distribution_shape</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>distribution_std</key>
-      <value>42</value>
-    </param>
-    <param>
-      <key>use_acks</key>
-      <value>True</value>
+      <key>vbr_port</key>
+      <value>trafficgen.VBR_PORT_REQUEST_BURST_DURATION</value>
     </param>
   </block>
   <block>
@@ -313,7 +324,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(568, 160)</value>
+      <value>(608, 228)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -345,6 +356,61 @@
     </param>
   </block>
   <block>
+    <key>trafficgen_generator_uniform</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(168, 552)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>trafficgen_generator_uniform_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>maximum</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minimum</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>multiplier</key>
+      <value>1000</value>
+    </param>
+    <param>
+      <key>vbr_port</key>
+      <value>trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL</value>
+    </param>
+  </block>
+  <block>
     <key>trafficgen_receiver</key>
     <param>
       <key>alias</key>
@@ -364,7 +430,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(672, 252)</value>
+      <value>(928, 412)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -399,7 +465,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -458,7 +524,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 360)</value>
+      <value>(552, 424)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -580,27 +646,57 @@
     </param>
   </block>
   <connection>
-    <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
+    <source_block_id>trafficgen_generator_constant_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Burst Interval</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_generator_gaussian_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Burst Duration</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_generator_poisson_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Packet Size</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_generator_uniform_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Packet Interval</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
     <sink_block_id>trafficgen_receiver_0</sink_block_id>
     <source_key>PDU</source_key>
     <sink_key>input</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_time_trigger_0</source_block_id>
-    <sink_block_id>trafficgen_cbr_transmitter_0</sink_block_id>
-    <source_key>trigger</source_key>
-    <sink_key>Trigger Start</sink_key>
+    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
+    <sink_block_id>trafficgen_generator_constant_0</sink_block_id>
+    <source_key>Request</source_key>
+    <sink_key>Request</sink_key>
   </connection>
   <connection>
-    <source_block_id>trigger_start</source_block_id>
-    <sink_block_id>trafficgen_cbr_transmitter_0</sink_block_id>
-    <source_key>trigger</source_key>
-    <sink_key>Trigger Start</sink_key>
+    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
+    <sink_block_id>trafficgen_generator_gaussian_0</sink_block_id>
+    <source_key>Request</source_key>
+    <sink_key>Request</sink_key>
   </connection>
   <connection>
-    <source_block_id>trigger_stop</source_block_id>
-    <sink_block_id>trafficgen_cbr_transmitter_0</sink_block_id>
-    <source_key>trigger</source_key>
-    <sink_key>Trigger Stop</sink_key>
+    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
+    <sink_block_id>trafficgen_generator_poisson_0</sink_block_id>
+    <source_key>Request</source_key>
+    <sink_key>Request</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
+    <sink_block_id>trafficgen_generator_uniform_0</sink_block_id>
+    <source_key>Request</source_key>
+    <sink_key>Request</sink_key>
   </connection>
 </flow_graph>
