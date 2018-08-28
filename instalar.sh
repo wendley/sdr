@@ -45,16 +45,12 @@ case $1 in
          echo "MAC - No 1"
          cd ~;
          ;;
-   # "-v") # Atualiza o arquivo mac de gr-802154, pois é o Nó 1 (muda só o endereco mac):
-   #       cp sdr/macNo1.cc gr-802154-wy/lib/mac.cc ;
-   #       cd ~;
-   #       ;;
    *) echo "Opção inválida!"
       exit 1
       ;;
 esac
 
-exit;
+# exit;
 
 ### GR-FOO ###
 echo "\n Instalando GR-FOO... \n"
@@ -118,15 +114,6 @@ sudo ldconfig ;
 
 
 ### GR-LQE ###
-# echo "\n Instalando GR-LQE... \n"
-# echo "\n Descomprimindo os arquivos do GR-LQE... \n"
-# sleep $pausa
-#
-# cd ~ ;
-# tar -vzxf CodesGr2.tar.gz
-
-
-### GR-LQE ###
 echo "\n Instalando GR-LQE... \n"
 sleep $pausa
 
@@ -184,26 +171,3 @@ cd gr-802154-wy/examples ;
 #
 # cd ~/ ;
 # rm sdr/ -rf ;
-
-############  GIT  ############
-
-
-#wget https://raw.githubusercontent.com/wendley/Temp/master/InstalarXBee.sh
-
-
-# One time, configure:
-# git git config --global user.name "John Doe"
-# git config --global user.email johndoe@example.com
-
-
-# Inside the folder, do:
-
-# git init
-# git remote add origin https://wendley@bitbucket.org/wendley/gr-ieee802-15-4.git
-# echo "Wendley S. Silva" >> contributors.txt
-# git add contributors.txt
-# git commit -m 'Initial commit with contributors'
-# git push -u origin master
-# git add -A
-# git commit -m 'Initial commit'
-# git push -u origin master
