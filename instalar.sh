@@ -1,6 +1,17 @@
 #!/bin/sh
-# Shell script para instalar GR-Foo, GR-802.15.4 e GR-LQE no No-0
-# Wendley S. Silva – wendley@gmail.com - Jul/2018
+# Shell script para instalar GR-Foo, GR-802.15.4, GR-LQE etc.
+# Wendley S. Silva – wendley@ufc.br - Ago/2018
+# ------
+# Usar da seguinte forma:
+# ./Instalar 0   ou    ./Instalar 1 etc.
+
+
+if [ $# -lt 1 ]; then
+   echo "Faltou informar o numero do Nó, 0 ou 1"
+   exit 1
+fi
+
+NumeroNo=$1 ;
 
 
 git clone https://github.com/wendley/sdr.git ;
@@ -21,9 +32,29 @@ tar -vzxf CodesGr1.tar.gz ;
 cp sdr/getRSSI.py gr-lqe/python ;
 cd ~;
 
-# Atualiza o arquivo mac de gr-802154, pois é o Nó 1 (muda só o endereco mac):
-cp sdr/macNo1.cc gr-802154-wy/lib/mac.cc ;
+# Atualiza o arquivo mac de gr-802154
+cp sdr/mac.cc gr-802154-wy/lib/ ;
 cd ~;
+
+
+case $1 in
+   "0") echo "MAC - No zero"
+         ;;
+   "1") # Atualiza o arquivo mac de gr-802154, pois é o Nó 1 (muda só o endereco mac):
+         cp sdr/macNo1.cc gr-802154-wy/lib/mac.cc ;
+         echo "MAC - No 1"
+         cd ~;
+         ;;
+   # "-v") # Atualiza o arquivo mac de gr-802154, pois é o Nó 1 (muda só o endereco mac):
+   #       cp sdr/macNo1.cc gr-802154-wy/lib/mac.cc ;
+   #       cd ~;
+   #       ;;
+   *) echo "Opção inválida!"
+      exit 1
+      ;;
+esac
+
+exit;
 
 ### GR-FOO ###
 echo "\n Instalando GR-FOO... \n"
