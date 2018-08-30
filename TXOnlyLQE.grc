@@ -553,7 +553,7 @@
     </param>
     <param>
       <key>num</key>
-      <value>20</value>
+      <value>50</value>
     </param>
     <param>
       <key>interval</key>
@@ -647,7 +647,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>60</value>
+      <value>68</value>
     </param>
   </block>
   <block>
