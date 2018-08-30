@@ -64,6 +64,7 @@ class getRSSI(gr.sync_block):
 		self.serieML=[] # For Machine Learning fit
 		self.tempML = []
 		self.serieTarget=[]
+		self.finalSerieML = []
 		self.ackCount = 0
 		self.sendedPacks = 0
 		self.kRssi = 0.0
@@ -367,6 +368,7 @@ class getRSSI(gr.sync_block):
 		self.serieML.append(list(self.tempML))
 		self.tempML=[]
 		self.serieTarget.append(self.estimPRR2)
+		self.finalSerieML = numpy.array(self.serieML)
 
 		#SVMR
 		# clf = svm.SVR() # Movido para inicio do codigo
