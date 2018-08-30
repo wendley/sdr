@@ -458,7 +458,7 @@ class getRSSI(gr.sync_block):
 				self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1];
 				self.finalSerieML = numpy.arange(2).reshape(1,-1)
-				estimSVMR = self.clf.predict(self.finalSerieML) # Predizer somente o ultimo valor da serie
+				estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 				erroSVMR = estimSVMR - self.serieTarget[-1]
 				# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %estimSVMR
 				# print "ERRO do SVMR: %f" %erroSVMR
