@@ -460,7 +460,7 @@ class getRSSI(gr.sync_block):
 				self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				estimSVMR = self.clf.predict(self.finalSerieML) # Predizer somente o ultimo valor da serie
 				erroSVMR = estimSVMR - self.serieTarget[-1]
-				# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %estimSVMR
+				print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %estimSVMR
 				# print "ERRO do SVMR: %f" %erroSVMR
 
 
