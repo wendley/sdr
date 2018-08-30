@@ -126,6 +126,8 @@ cd ~ ;
 cd gr-trafficgen ;
 compilar ; #funcao compilar
 
+cd ~;
+grcc TrafficGenHier.grc ;
 
 ### Conclusao ###
 echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n ."
