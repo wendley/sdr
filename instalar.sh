@@ -59,11 +59,11 @@ compilar()
 }
 
 ### GR-FOO ###
-echo "\n Instalando GR-FOO... \n"
+echo "\n Instalando GR-FOO-2016... \n"
 sleep $pausa
 
 cd ~ ;
-cd gr-foo ;
+cd gr-foo-2016 ;
 compilar ; #funcao compilar
 
 
@@ -126,6 +126,7 @@ cd ~ ;
 cd gr-trafficgen ;
 compilar ; #funcao compilar
 
+# Compilar Bloco Hierarquico TrafficGenHier
 cd ~;
 grcc TrafficGenHier.grc ;
 
