@@ -659,11 +659,11 @@
     </param>
     <param>
       <key>num</key>
-      <value>30</value>
+      <value>20</value>
     </param>
     <param>
       <key>interval</key>
-      <value>100</value>
+      <value>50</value>
     </param>
     <param>
       <key>quit</key>
