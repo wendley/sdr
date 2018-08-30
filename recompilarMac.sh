@@ -9,7 +9,7 @@ git clone https://github.com/wendley/sdr.git ;
 cd sdr;
 cp * ~/ ;
 cd ~;
-pausa=1
+pausa=0
 sleep $pausa
 
 cp mac.cc gr-802154-wy/lib/ ;

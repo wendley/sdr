@@ -9,7 +9,7 @@ git clone https://github.com/wendley/sdr.git ;
 cd sdr;
 cp * ~/ ;
 cd ~;
-pausa=3
+pausa=0
 sleep $pausa
 
 cp getRSSI.py gr-lqe/python ;
