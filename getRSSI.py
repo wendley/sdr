@@ -377,9 +377,10 @@ class getRSSI(gr.sync_block):
 		print "---------- IMPRIMINDO SERIE-TARGET -----------"
 		print(self.serieTarget)
 		if len(self.serieML) >= 10:
-			self.serieML=numpy.array(self.serieML)
+			self.finalSerieML=numpy.array(self.serieML)
 			print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
-			print(self.serieML)
+			print(self.finalSerieML)
+			
 			self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 			self.finalSerieML = self.serieML[-1];
 			self.finalSerieML = numpy.arange(2).reshape(1,-1)
