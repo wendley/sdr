@@ -360,7 +360,7 @@ class getRSSI(gr.sync_block):
 
 		if len(self.serieML) >= 20: # Arbitrary value to training
 			del(self.serieML[0])
-			del(self.tempML[0])
+			# del(self.tempML[0])
 			del(self.serieTarget[0])
 
 		self.tempML.append(self.estimPRR)
@@ -380,7 +380,7 @@ class getRSSI(gr.sync_block):
 			self.finalSerieML=numpy.array(self.serieML)
 			print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
 			print(self.finalSerieML)
-			
+
 			self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 			self.finalSerieML = self.serieML[-1];
 			self.finalSerieML = numpy.arange(2).reshape(1,-1)
