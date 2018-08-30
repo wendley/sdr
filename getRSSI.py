@@ -357,29 +357,29 @@ class getRSSI(gr.sync_block):
 		#													#
 		#####################################################
 
-		if len(self.serieML) >= 20: # Arbitrary value to training
-			del(self.serieML[0])
-			del(self.tempML[0])
-			del(self.serieTarget[0])
-
-		self.tempML.append(self.estimPRR)
-		self.tempML.append(self.estimRssi)
-		self.serieML.append(list(self.tempML))
-		self.tempML=[]
-		self.serieTarget.append(self.estimPRR2)
-
-		#SVMR
-		# clf = svm.SVR() # Movido para inicio do codigo
-		print "---------- IMPRIMINDO SERIE-ML -----------"
-		print(self.serieML)
-		print "---------- IMPRIMINDO SERIE-TARGET -----------"
-		print(self.serieTarget)
-		if len(self.serieML) >= 10:
-			self.serieML=numpy.array(self.serieML)
-			self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
-			estimSVMR = self.clf.predict(self.serieML[-1]) # Predizer somente o ultimo valor da serie
-			erroSVMR = estimSVMR - self.serieTarget[-1]
-			print "ERRO do SVMR: %f" %erroSVMR
+		# if len(self.serieML) >= 20: # Arbitrary value to training
+		# 	del(self.serieML[0])
+		# 	del(self.tempML[0])
+		# 	del(self.serieTarget[0])
+		#
+		# self.tempML.append(self.estimPRR)
+		# self.tempML.append(self.estimRssi)
+		# self.serieML.append(list(self.tempML))
+		# self.tempML=[]
+		# self.serieTarget.append(self.estimPRR2)
+		#
+		# #SVMR
+		# # clf = svm.SVR() # Movido para inicio do codigo
+		# print "---------- IMPRIMINDO SERIE-ML -----------"
+		# print(self.serieML)
+		# print "---------- IMPRIMINDO SERIE-TARGET -----------"
+		# print(self.serieTarget)
+		# if len(self.serieML) >= 10:
+		# 	self.serieML=numpy.array(self.serieML)
+		# 	self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+		# 	estimSVMR = self.clf.predict(self.serieML[-1]) # Predizer somente o ultimo valor da serie
+		# 	erroSVMR = estimSVMR - self.serieTarget[-1]
+		# 	print "ERRO do SVMR: %f" %erroSVMR
 
 
 		#################################################
