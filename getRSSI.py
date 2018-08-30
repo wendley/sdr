@@ -378,6 +378,8 @@ class getRSSI(gr.sync_block):
 		print(self.serieTarget)
 		if len(self.serieML) >= 10:
 			self.serieML=numpy.array(self.serieML)
+			print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
+			print(self.serieML)
 			self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 			estimSVMR = self.clf.predict(self.serieML[-1]) # Predizer somente o ultimo valor da serie
 			erroSVMR = estimSVMR - self.serieTarget[-1]
