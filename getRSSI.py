@@ -62,6 +62,7 @@ class getRSSI(gr.sync_block):
 		self.seriePCK=[]
 		self.serieLPCK=[] # Long range
 		self.serieML=[] # For Machine Learning fit
+		self.estimSVMR = 0.0
 		self.tempML = []
 		self.serieTarget=[]
 		self.finalSerieML = []
@@ -352,7 +353,46 @@ class getRSSI(gr.sync_block):
 		self.estimPRR2 = float(min(self.geralPRR,self.geralLPRR, self.estimRssi)) # PRR2 Full
 
 
+		#####################################################
+		#													#
+		# IDEA: Construcao da serie para Machine Learning:	#
+		#													#
+		#####################################################
 
+		if len(self.serieML) >= 20: # Arbitrary value to training
+			del(self.serieML[0])
+			# del(self.tempML[0])
+			del(self.serieTarget[0])
+
+		self.tempML.append(self.estimPRR)
+		self.tempML.append(self.estimRssi)
+		self.serieML.append(list(self.tempML))
+		self.tempML=[]
+		self.serieTarget.append(self.estimPRR2)
+		self.finalSerieML = numpy.array(self.serieML)
+
+		#SVMR
+		# clf = svm.SVR() # Movido para inicio do codigo
+		# print "---------- IMPRIMINDO SERIE-ML -----------"
+		# print(self.serieML)
+		# print "---------- IMPRIMINDO SERIE-TARGET -----------"
+		# print(self.serieTarget)
+		estimSVMR = 0.0 #: FIXME Corrigir logica
+		if len(self.serieML) >= 10:
+			self.finalSerieML=numpy.array(self.serieML)
+			# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
+			# print(self.finalSerieML)
+
+			self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+			self.finalSerieML = self.serieML[-1];
+			self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
+			erroSVMR = self.estimSVMR - self.serieTarget[-1]
+			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %estimSVMR
+			# print "ERRO do SVMR: %f" %erroSVMR
+
+
+		#---------------
 
 		if self.method == 1:
 			# No estimator - constant gain
@@ -424,49 +464,8 @@ class getRSSI(gr.sync_block):
 
 		elif self.method == 7:
 			# Machine Learning SVMR
-
-			#####################################################
-			#													#
-			# IDEA: Construcao da serie para Machine Learning:	#
-			#													#
-			#####################################################
-
-			if len(self.serieML) >= 20: # Arbitrary value to training
-				del(self.serieML[0])
-				# del(self.tempML[0])
-				del(self.serieTarget[0])
-
-			self.tempML.append(self.estimPRR)
-			self.tempML.append(self.estimRssi)
-			self.serieML.append(list(self.tempML))
-			self.tempML=[]
-			self.serieTarget.append(self.estimPRR2)
-			self.finalSerieML = numpy.array(self.serieML)
-
-			#SVMR
-			# clf = svm.SVR() # Movido para inicio do codigo
-			# print "---------- IMPRIMINDO SERIE-ML -----------"
-			# print(self.serieML)
-			# print "---------- IMPRIMINDO SERIE-TARGET -----------"
-			# print(self.serieTarget)
-			estimSVMR = 0.0 #: FIXME Corrigir logica
-			if len(self.serieML) >= 10:
-				self.finalSerieML=numpy.array(self.serieML)
-				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
-				# print(self.finalSerieML)
-
-				self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
-				self.finalSerieML = self.serieML[-1];
-				self.finalSerieML = numpy.arange(2).reshape(1,-1)
-				estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
-				erroSVMR = estimSVMR - self.serieTarget[-1]
-				# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %estimSVMR
-				# print "ERRO do SVMR: %f" %erroSVMR
-
-
-			#---------------
-			print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %estimSVMR
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(estimSVMR))
+			print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
 
 
