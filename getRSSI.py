@@ -373,10 +373,10 @@ class getRSSI(gr.sync_block):
 
 		#SVMR
 		# clf = svm.SVR() # Movido para inicio do codigo
-		# print "---------- IMPRIMINDO SERIE-ML -----------"
-		# print(self.serieML)
-		# print "---------- IMPRIMINDO SERIE-TARGET -----------"
-		# print(self.serieTarget)
+		print "---------- IMPRIMINDO SERIE-ML -----------"
+		print(self.serieML)
+		print "---------- IMPRIMINDO SERIE-TARGET -----------"
+		print(self.serieTarget)
 		# estimSVMR = 0.0 #: FIXME Corrigir logica
 		if len(self.serieML) >= 10:
 			self.finalSerieML=numpy.array(self.serieML)
