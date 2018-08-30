@@ -465,7 +465,7 @@ class getRSSI(gr.sync_block):
 
 
 			#---------------
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_float(estimSVMR))
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(estimSVMR))
 
 
 
