@@ -240,11 +240,11 @@ public:
             dout << "MAC: exiting in few seconds" << std::endl;
             message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
             endOfFile = true;
-            block::stop();
+            exec->interrupt();
             if (!data_ready){
                 message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
                 detail().get()->set_done(true);
-                block::stop();
+                exec->interrupt();
             }
             // detail().get()->set_done(true);
             return;
