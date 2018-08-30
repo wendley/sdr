@@ -466,7 +466,7 @@ class getRSSI(gr.sync_block):
 
 			#---------------
 
-			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
+			print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
 
