@@ -647,7 +647,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>68</value>
+      <value>60</value>
     </param>
   </block>
   <block>
@@ -3262,6 +3262,12 @@
     <sink_block_id>es_sink_0</sink_block_id>
     <source_key>which_stream</source_key>
     <sink_key>schedule_event</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>foo_periodic_msg_source_1</source_block_id>
+    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>bcin</sink_key>
   </connection>
   <connection>
     <source_block_id>foo_periodic_msg_source_1</source_block_id>
