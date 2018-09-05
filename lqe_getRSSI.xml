@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<block>
+  <name>LQE</name>
+  <key>lqe_getRSSI</key>
+  <category>lqe</category>
+  <import>import lqe</import>
+  <make>lqe.getRSSI($printPower, $method, $filters, $window, $minRSSI, $maxRSSI, $alphaHW, $betaHW, $gammaHW)</make>
+
+
+  <param>
+    <name>Print power</name>
+    <key>printPower</key>
+    <value>False</value>
+    <type>bool</type>
+
+    <option>
+      <name>Enable</name>
+      <key>True</key>
+    </option>
+
+    <option>
+      <name>Disable</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <param>
+    <name>LQE method</name>
+    <key>method</key>
+    <value>1</value>
+    <type>int</type>
+
+    <option>
+      <name>No method: constant gain</name>
+      <key>1</key>
+    </option>
+
+    <option>
+      <name>RSSI</name>
+      <key>2</key>
+    </option>
+
+    <option>
+      <name>PRR</name>
+      <key>3</key>
+    </option>
+
+    <option>
+      <name>PRR 2 levels - full</name>
+      <key>4</key>
+    </option>
+
+    <option>
+      <name>PRR 2 levels - without RSSI</name>
+      <key>5</key>
+    </option>
+
+    <option>
+      <name>Traditional PRR + RSSI</name>
+      <key>6</key>
+    </option>
+
+    <option>
+      <name>Machine Learning SVMR</name>
+      <key>7</key>
+    </option>
+
+  </param>
+
+  <param>
+    <name>Filter</name>
+    <key>filters</key>
+    <value>1</value>
+    <type>int</type>
+
+    <option>
+      <name>No filter</name>
+      <key>1</key>
+    </option>
+
+    <option>
+      <name>Exponential Moving Average</name>
+      <key>2</key>
+    </option>
+
+    <option>
+      <name>Kalman filter</name>
+      <key>3</key>
+    </option>
+
+    <option>
+      <name>Savitzky-Golay filter</name>
+      <key>4</key>
+    </option>
+
+    <option>
+      <name>Dynamic filter mode</name>
+      <key>5</key>
+    </option>
+  </param>
+
+  <param>
+    <name>Observation window length</name>
+    <key>window</key>
+    <value>40</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Max RSSI</name>
+    <key>maxRSSI</key>
+    <value>-56</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Min RSSI</name>
+    <key>minRSSI</key>
+    <value>-100</value>
+    <type>int</type>
+  </param>
+
+
+  <param>
+    <name>Alpha HW param</name>
+    <key>alphaHW</key>
+    <value>0.2</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Beta HW param</name>
+    <key>betaHW</key>
+    <value>0.1</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Gamma HW param</name>
+    <key>gammaHW</key>
+    <value>0.05</value>
+    <type>float</type>
+  </param>
+
+
+  <sink>
+    <name>RSSIin</name>
+    <type>message</type>
+  </sink>
+
+  <sink>
+    <name>Ackin</name>
+    <type>message</type>
+    <optional>1</optional>
+  </sink>
+
+  <sink>
+    <name>SNR</name>
+    <type>message</type>
+    <optional>1</optional>
+  </sink>
+
+  <sink>
+    <name>sendPacks</name>
+    <type>message</type>
+    <optional>1</optional>
+  </sink>
+
+  <sink>
+    <name>sendOrder</name>
+    <type>message</type>
+    <optional>1</optional>
+  </sink>
+
+  <sink>
+    <name>lostPacks</name>
+    <type>message</type>
+    <optional>1</optional>
+  </sink>
+
+  <source>
+    <name>estimation</name>
+    <type>message</type>
+  </source>
+
+
+</block>

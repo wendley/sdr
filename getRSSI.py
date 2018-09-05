@@ -70,6 +70,7 @@ class getRSSI(gr.sync_block):
 		self.sendedPacks = 0
 		self.kRssi = 0.0
 		self.Rssi = 0
+		self.snr = 0.0
 		self.emaRssi = 0
 		self.geralPRR = 0  # Short range
 		self.geralLPRR = 0 # Long range
@@ -87,6 +88,7 @@ class getRSSI(gr.sync_block):
 
 		self.message_port_register_in(pmt.intern("RSSIin"))
 		self.message_port_register_in(pmt.intern("Ackin"))
+		self.message_port_register_in(pmt.intern("SNR"))
 		self.message_port_register_in(pmt.intern("sendPacks"))
 		self.message_port_register_in(pmt.intern("sendOrder"))
 		self.message_port_register_in(pmt.intern("lostPacks"))
@@ -94,6 +96,7 @@ class getRSSI(gr.sync_block):
 
 		self.set_msg_handler(pmt.intern("RSSIin"), self.handler)
 		self.set_msg_handler(pmt.intern("Ackin"), self.handlerAck)
+		self.set_msg_handler(pmt.intern("SNR"), self.handlerSNR)
 		self.set_msg_handler(pmt.intern("lostPacks"), self.handlerPack)
 		self.set_msg_handler(pmt.intern("sendPacks"), self.handlerSendPack)
 		self.set_msg_handler(pmt.intern("sendOrder"), self.handlerSendOrder)
@@ -145,6 +148,11 @@ class getRSSI(gr.sync_block):
 		elif tipo == 999: # Sinaliza final de arquivo ou de msg, após esvaziar buffer do MAC
 			self.statSummary()
 
+
+	def handlerSNR(self, pdu): # Acionado sempre que uma leitura de SNR é calculada
+		self.snr = pmt.to_python(pdu)
+		print self.snr
+		
 
 	def handlerPack(self, pdu): # Acionado sempre que ocorre um aviso (gerado pela camada MAC) de pacote perdido
 		self.sendedPacks += 1

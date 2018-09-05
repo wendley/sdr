@@ -141,7 +141,8 @@ sudo pip install --upgrade pip ;
 sudo pip install -U scikit-learn ;
 
 cd ~ ;
-chmod +x atualizar.sh ;
+chmod +x recompilarMac.sh ;
+chmod +x recompilarLQE.sh ;
 chmod +x clone.sh ;
 
 cd gr-802154-wy/examples ;
