@@ -337,6 +337,57 @@
     </param>
   </block>
   <block>
+    <key>digital_probe_mpsk_snr_est_c</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alpha</key>
+      <value>0.001</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(808, 264)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_probe_mpsk_snr_est_c_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>msg_nsamples</key>
+      <value>10000</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>2</value>
+    </param>
+  </block>
+  <block>
     <key>es_handler_pdu</key>
     <param>
       <key>alias</key>
@@ -819,7 +870,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(824, 563)</value>
+      <value>(832, 528)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1725,7 +1776,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(680, 459)</value>
+      <value>(656, 432)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3283,6 +3334,12 @@
     <sink_key>bcin</sink_key>
   </connection>
   <connection>
+    <source_block_id>digital_probe_mpsk_snr_est_c_0</source_block_id>
+    <sink_block_id>lqe_getRSSI_0</sink_block_id>
+    <source_key>snr</source_key>
+    <sink_key>SNR</sink_key>
+  </connection>
+  <connection>
     <source_block_id>es_handler_pdu_0</source_block_id>
     <sink_block_id>uhdgps_cpdu_average_power_0</sink_block_id>
     <source_key>pdus_out</source_key>
@@ -3389,6 +3446,12 @@
     <sink_block_id>lqe_powerControl_0</sink_block_id>
     <source_key>estimation</source_key>
     <sink_key>estimation</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_usrp_source_0</source_block_id>
+    <sink_block_id>digital_probe_mpsk_snr_est_c_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>uhd_usrp_source_0</source_block_id>
