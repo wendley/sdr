@@ -157,7 +157,7 @@ class getRSSI(gr.sync_block):
 			self.serieSNR.append(self.snr)
 			if len(self.serieSNR) > 20 :
 				del(self.serieSNR[0])
-			self.mediaSNR=sma(self.serieSNR,20)
+			self.mediaSNR=self.sma(self.serieSNR,20)
 		# print self.mediaSNR
 
 
