@@ -62,6 +62,7 @@ class getRSSI(gr.sync_block):
 		self.seriePCK=[]
 		self.serieLPCK=[] # Long range
 		self.serieML=[] # For Machine Learning fit
+		self.serieSNR=[]
 		self.estimSVMR = 0.0
 		self.tempML = []
 		self.serieTarget=[]
@@ -78,6 +79,7 @@ class getRSSI(gr.sync_block):
 		self.geralPRR2modif = 0
 		self.geralSends = 0 # Total number of sends
 		self.geralSendOrder = -1 # Total number of send orders
+		self.mediaSNR = 0.0
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
 		self.fnRSSIKalman="/home/wendley/Experimentos/SerieRSSIKalman.txt"
@@ -126,10 +128,8 @@ class getRSSI(gr.sync_block):
 			if self.printPower: print "Potencia do meio: %6.2f dB" % (self.Rssi)
 
 			# Cria janela móvel limitada (para não extrapolar a memória) para cálculo das médias
-			if len(self.serie) < self.window*4:
-				self.serie.append(self.Rssi)
-			else:
-				self.serie.append(self.Rssi)
+			self.serie.append(self.Rssi)
+			if len(self.serie) > self.window*4:
 				del(self.serie[0])
 
 			if len(self.serie)>2*self.window/2: # limitação da EMA
@@ -151,8 +151,15 @@ class getRSSI(gr.sync_block):
 
 	def handlerSNR(self, pdu): # Acionado sempre que uma leitura de SNR é calculada
 		self.snr = pmt.to_python(pdu)
-		print self.snr
-		
+
+		# Cria janela móvel limitada para cálculo da média do SNR
+		if numpy.isnan(self.snr) == False : # só processa se o valor não for NaN
+			self.serieSNR.append(self.snr)
+			if len(self.serieSNR) > 20 :
+				del(self.serieSNR[0])
+			self.mediaSNR=sma(self.serieSNR,20)
+		# print self.mediaSNR
+
 
 	def handlerPack(self, pdu): # Acionado sempre que ocorre um aviso (gerado pela camada MAC) de pacote perdido
 		self.sendedPacks += 1
@@ -432,6 +439,10 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR_Rssi))
 
 		elif self.method == 7:
+			# Foresee 4C (like)
+
+
+		elif self.method == 8:
 			# Machine Learning SVMR
 			#####################################################
 			#													#
@@ -446,13 +457,14 @@ class getRSSI(gr.sync_block):
 
 			self.tempML.append(self.estimPRR)
 			self.tempML.append(self.estimRssi)
+			self.tempML.append(self.snr)
 			self.serieML.append(list(self.tempML))
 			self.tempML=[]
 			self.serieTarget.append(self.estimPRR2)
 			self.finalSerieML = numpy.array(self.serieML)
 
 			#SVMR
-			# clf = svm.SVR() # Movido para inicio do codigo
+
 			#print "---------- IMPRIMINDO SERIE-ML -----------"
 			#print(self.serieML)
 			#print "---------- IMPRIMINDO SERIE-TARGET -----------"

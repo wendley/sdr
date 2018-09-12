@@ -61,8 +61,13 @@
     </option>
 
     <option>
-      <name>Machine Learning SVMR</name>
+      <name>Foresee 4C</name>
       <key>7</key>
+    </option>
+
+    <option>
+      <name>Machine Learning SVMR</name>
+      <key>8</key>
     </option>
 
   </param>
