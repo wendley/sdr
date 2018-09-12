@@ -28,6 +28,8 @@ tar -vzxf CodesGr1.tar.gz ;
 
 # Atualiza os arquivos getRSSI e mac de gr-80214:
 cp sdr/getRSSI.py gr-lqe/python ;
+cp sdr/powerControl.py gr-lqe/python ;
+cp sdr/lqe_getRSSI.xml gr-lqe/grc ;
 cd ~;
 
 

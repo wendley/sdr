@@ -440,7 +440,7 @@ class getRSSI(gr.sync_block):
 
 		elif self.method == 7:
 			# Foresee 4C (like)
-
+			print "Foresee ainda nao implementado"
 
 		elif self.method == 8:
 			# Machine Learning SVMR

@@ -11,5 +11,6 @@ cp * ~/ ;
 cd ~;
 
 cd ~ ;
-chmod +x atualizar.sh ;
+chmod +x recompilarLQE.sh ;
+chmod +x recompilarMac.sh ;
 chmod +x clone.sh ;
