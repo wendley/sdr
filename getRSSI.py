@@ -387,10 +387,13 @@ class getRSSI(gr.sync_block):
 			elif self.filter == 3: #Kalman
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimRssiKalman))
 
+				print "DEBUG---------- RSSI KALMAN -----------"
+				print(self.estimRssiKalman)
+
 			#print "RSSI method in use"
 			#This sets the gain
 			# FIXME
-			aux = float(self.emaRssi)
+			# aux = float(self.emaRssi)
 			#print "RSSI ------------ %2.4f\n" % (float(aux))
 			# self.message_port_pub(pmt.intern("estimation"), pmt.from_double(self.gainTx))
 
