@@ -476,7 +476,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #: FIXME Corrigir logica
-			if len(self.serieML) >= 10:
+			if len(self.serieML) >= 4:
 				self.finalSerieML=numpy.array(self.serieML)
 				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
 				# print(self.finalSerieML)
