@@ -591,7 +591,7 @@ class getRSSI(gr.sync_block):
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
-		print "-   Tamanho serie erro ML SVMR: %6.2f percent" %(len(self.serieErroSVMR))
+		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
 		print "============================================================== \n"
 
 
