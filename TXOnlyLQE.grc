@@ -866,7 +866,7 @@
     </param>
     <param>
       <key>filters</key>
-      <value>2</value>
+      <value>3</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -886,7 +886,7 @@
     </param>
     <param>
       <key>method</key>
-      <value>3</value>
+      <value>2</value>
     </param>
     <param>
       <key>maxoutbuf</key>
