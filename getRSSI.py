@@ -469,8 +469,8 @@ class getRSSI(gr.sync_block):
 
 			#SVMR
 
-			print "DEBUG---------- IMPRIMINDO SERIE-ML -----------"
-			print(self.serieML)
+			# print "DEBUG---------- IMPRIMINDO SERIE-ML -----------"
+			# print(self.serieML)
 			#print "DEBUG---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #: FIXME Corrigir logica
