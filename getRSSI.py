@@ -366,10 +366,10 @@ class getRSSI(gr.sync_block):
 
 		self.estimPRR2levels = float(min(self.geralPRR,self.geralLPRR)) # PRR with 2 levels without RSSI
 		self.estimPRR2 = float(min(self.geralPRR,self.geralLPRR, self.estimRssi)) # PRR2 Full
-		print "---------- IMPRIMINDO SERIE-ESTIM-PRR2 desmembrada -----------"
-		print(self.geralPRR)
-		print(self.geralLPRR)
-		print(self.estimRssi)
+		# print "DEBUG---------- IMPRIMINDO SERIE-ESTIM-PRR2 desmembrada -----------"
+		# print(self.geralPRR)
+		# print(self.geralLPRR)
+		# print(self.estimRssi)
 
 
 
@@ -469,9 +469,9 @@ class getRSSI(gr.sync_block):
 
 			#SVMR
 
-			#print "---------- IMPRIMINDO SERIE-ML -----------"
-			#print(self.serieML)
-			#print "---------- IMPRIMINDO SERIE-TARGET -----------"
+			print "DEBUG---------- IMPRIMINDO SERIE-ML -----------"
+			print(self.serieML)
+			#print "DEBUG---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #: FIXME Corrigir logica
 			if len(self.serieML) >= 10:
