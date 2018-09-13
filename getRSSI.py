@@ -67,6 +67,7 @@ class getRSSI(gr.sync_block):
 		self.tempML = []
 		self.serieTarget=[]
 		self.finalSerieML = []
+		self.serieErroSVMR = []
 		self.ackCount = 0
 		self.sendedPacks = 0
 		self.kRssi = 0.0
@@ -489,8 +490,9 @@ class getRSSI(gr.sync_block):
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 				erroSVMR = numpy.abs(self.estimSVMR - self.serieTarget[-1])
-				print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
-				print "ERRO do SVMR: %f" %erroSVMR
+				self.serieErroSVMR.append(erroSVMR)
+				# print "DEBUG - ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
+				# print "DEBUG - ERRO do SVMR: %f" %erroSVMR
 
 
 			#---------------
@@ -587,6 +589,9 @@ class getRSSI(gr.sync_block):
 		print "-   Quantidade de retransmissões: %d" % (self.geralSends - self.geralSendOrder)
 		print "-   Relação envios/pacotes recebidos: %6.2f" %(calcRel)
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
+		print "-   ------------------------------------"
+		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
+		print "-   Tamanho serie erro ML SVMR: %6.2f percent" %(len(self.serieErroSVMR))
 		print "============================================================== \n"
 
 
