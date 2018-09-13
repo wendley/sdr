@@ -199,7 +199,7 @@ class getRSSI(gr.sync_block):
 
 		# Cria janela móvel limitada (para não extrapolar a memória) para cálculo das médias
 
-		if self.method == 4 or self.method == 5 or self.method == 7: # PRR 2 levels (short and long range)
+		if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels (short and long range)
 
 			if type == 1: # Acionado por um ack recebido (handlerAck)
 				self.serieACK.append(1)
@@ -262,7 +262,7 @@ class getRSSI(gr.sync_block):
 			# No filter in use
 			self.geralPRR = sum(self.serieACK)/float(sum(self.seriePCK)) # PRR from short range
 
-			if self.method == 4 or self.method == 5 or self.method == 7: # PRR 2 levels
+			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels
 				self.geralLPRR = sum(self.serieLACK)/float(sum(self.serieLPCK)) # PRR from long range
 				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
@@ -272,7 +272,7 @@ class getRSSI(gr.sync_block):
 			# Exponential Moving Average filter
 			self.geralPRR = self.preEMA(self.serieACK,self.seriePCK, self.window/2)  # PRR from short range
 
-			if self.method == 4 or self.method == 5 or self.method == 7: # PRR 2 levels
+			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels
 				self.geralLPRR = self.preEMA(self.serieLACK, self.serieLPCK, self.window*4) # PRR from long range
 				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
@@ -291,7 +291,7 @@ class getRSSI(gr.sync_block):
 
 			self.geralPRR = self.preEMA(self.serieACK,self.seriePCK, self.window/2)  # PRR from short range
 
-			if self.method == 4 or self.method == 5 or self.method == 7 : # PRR 2 levels
+			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8 : # PRR 2 levels
 				self.geralLPRR = self.preEMA(self.serieLACK, self.serieLPCK, self.window*4) # PRR from long range
 				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
