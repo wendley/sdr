@@ -463,8 +463,10 @@ class getRSSI(gr.sync_block):
 			self.tempML.append(self.estimRssi)
 			self.tempML.append(self.mediaSNR)
 			self.serieML.append(list(self.tempML))
+			self.serieML.append(list(self.tempML)) # Duplicar append para ter dois targets com as mesmas entradas
 			self.tempML=[]
-			self.serieTarget.append(self.estimPRR2)
+			self.serieTarget.append(self.estimRssi) # Target 1
+			self.serieTarget.append(self.estimPRR2) # Target 2
 			self.finalSerieML = numpy.array(self.serieML)
 
 			#SVMR
