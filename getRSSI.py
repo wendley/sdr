@@ -366,6 +366,10 @@ class getRSSI(gr.sync_block):
 
 		self.estimPRR2levels = float(min(self.geralPRR,self.geralLPRR)) # PRR with 2 levels without RSSI
 		self.estimPRR2 = float(min(self.geralPRR,self.geralLPRR, self.estimRssi)) # PRR2 Full
+		print "---------- IMPRIMINDO SERIE-ESTIM-PRR2 desmembrada -----------"
+		print(self.geralPRR)
+		print(self.geralLPRR)
+		print(self.estimRssi)
 
 
 
@@ -472,8 +476,11 @@ class getRSSI(gr.sync_block):
 			# estimSVMR = 0.0 #: FIXME Corrigir logica
 			if len(self.serieML) >= 10:
 				self.finalSerieML=numpy.array(self.serieML)
-				print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
-				print(self.serieTarget)
+				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
+				# print(self.finalSerieML)
+
+				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
+				# print(self.serieTarget)
 
 				self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
