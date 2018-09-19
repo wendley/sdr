@@ -608,7 +608,7 @@
     </param>
     <param>
       <key>interval</key>
-      <value>50</value>
+      <value>80</value>
     </param>
     <param>
       <key>quit</key>
