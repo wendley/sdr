@@ -110,7 +110,7 @@ class getRSSI(gr.sync_block):
 		assert (False)
 
 
-	def handler(self, pdu):
+	def handler(self, pdu): # Acionado sempre que chega um valor de RSSI
 		self.Rssi = pmt.to_python(pdu)
 
 		if self.filter == 3: # Kalman
@@ -122,7 +122,7 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serie) > 10:
 				self.kRssi = self.kalmanFilter(self.serie)
-				# print "\n ------- RSSI with Kalman filter: %6.2f ----- \n"  % (self.kRssi)
+				print "\n DEBUG ------- RSSI with Kalman filter: %6.2f ----- \n"  % (self.kRssi)
 				# print type (self.kRssi)
 
 		else:
@@ -367,7 +367,7 @@ class getRSSI(gr.sync_block):
 
 		self.estimPRR2levels = float(min(self.geralPRR,self.geralLPRR)) # PRR with 2 levels without RSSI
 		self.estimPRR2 = float(min(self.geralPRR,self.geralLPRR, self.estimRssi)) # PRR2 Full
-		# print "DEBUG---------- IMPRIMINDO SERIE-ESTIM-PRR2 desmembrada -----------"
+		# print "# DEBUG---------- IMPRIMINDO SERIE-ESTIM-PRR2 desmembrada -----------"
 		# print(self.geralPRR)
 		# print(self.geralLPRR)
 		# print(self.estimRssi)
@@ -384,14 +384,14 @@ class getRSSI(gr.sync_block):
 
 			if self.filter == 2: #EMA
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimRssi))
-				print "DEBUG---------- RSSI EMA  -----------"
-				print(self.estimRssi)
-				
+				# print " DEBUG ---------- RSSI EMA  -----------"
+				# print(self.estimRssi)
+
 			elif self.filter == 3: #Kalman
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimRssiKalman))
 
-				print "DEBUG---------- RSSI KALMAN -----------"
-				print(self.estimRssiKalman)
+				# print " DEBUG ---------- RSSI KALMAN -----------"
+				# print(self.estimRssiKalman)
 
 			#print "RSSI method in use"
 			#This sets the gain
@@ -478,9 +478,9 @@ class getRSSI(gr.sync_block):
 
 			#SVMR
 
-			# print "DEBUG---------- IMPRIMINDO SERIE-ML -----------"
+			# print "DEBUG: ---------- IMPRIMINDO SERIE-ML -----------"
 			# print(self.serieML)
-			#print "DEBUG---------- IMPRIMINDO SERIE-TARGET -----------"
+			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #: FIXME Corrigir logica
 			if len(self.serieML) >= 4:
