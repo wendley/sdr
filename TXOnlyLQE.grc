@@ -910,7 +910,7 @@
     </param>
     <param>
       <key>printPower</key>
-      <value>True</value>
+      <value>False</value>
     </param>
   </block>
   <block>
