@@ -755,6 +755,10 @@
       <value></value>
     </param>
     <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
@@ -769,10 +773,6 @@
     <param>
       <key>id</key>
       <value>ieee802_15_4_oqpsk_phy_0</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -886,7 +886,7 @@
     </param>
     <param>
       <key>method</key>
-      <value>2</value>
+      <value>4</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -3419,15 +3419,15 @@
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
-    <sink_block_id>uhd_usrp_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
     <sink_block_id>ieee802_15_4_mac_0</sink_block_id>
     <source_key>rxout</source_key>
     <sink_key>pdu in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
+    <sink_block_id>uhd_usrp_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_rime_stack_0</source_block_id>
