@@ -10,7 +10,7 @@
     </param>
     <param>
       <key>window_size</key>
-      <value>1280, 1024</value>
+      <value>1400, 2048</value>
     </param>
     <param>
       <key>category</key>
@@ -368,7 +368,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 875)</value>
+      <value>(168, 916)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -411,7 +411,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(576, 739)</value>
+      <value>(664, 800)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -482,7 +482,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(72, 745)</value>
+      <value>(88, 808)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -827,7 +827,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(824, 563)</value>
+      <value>(832, 584)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -894,11 +894,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(544, 651)</value>
+      <value>(440, 660)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
@@ -1038,7 +1038,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 676)</value>
+      <value>(200, 1436)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1046,7 +1046,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>trafficgen_generator_constant_0</value>
+      <value>trafficgen_generator_constant_0_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1058,11 +1058,11 @@
     </param>
     <param>
       <key>vbr_port</key>
-      <value>trafficgen.VBR_PORT_BURST_INTERVAL</value>
+      <value>trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL</value>
     </param>
     <param>
       <key>value</key>
-      <value>300</value>
+      <value>200</value>
     </param>
   </block>
   <block>
@@ -1085,7 +1085,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(88, 848)</value>
+      <value>(200, 1144)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1093,7 +1093,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>trafficgen_generator_gaussian_0</value>
+      <value>trafficgen_generator_gaussian_0_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1140,7 +1140,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(768, 956)</value>
+      <value>(568, 1092)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1148,7 +1148,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>trafficgen_generator_poisson_0</value>
+      <value>trafficgen_generator_poisson_0_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1191,7 +1191,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(72, 944)</value>
+      <value>(176, 1288)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1199,7 +1199,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>trafficgen_generator_uniform_0</value>
+      <value>trafficgen_generator_uniform_0_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1207,7 +1207,7 @@
     </param>
     <param>
       <key>maximum</key>
-      <value>1</value>
+      <value>0.3</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -1223,7 +1223,7 @@
     </param>
     <param>
       <key>vbr_port</key>
-      <value>trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL</value>
+      <value>trafficgen.VBR_PORT_BURST_INTERVAL</value>
     </param>
   </block>
   <block>
@@ -1254,7 +1254,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(488, 832)</value>
+      <value>(584, 1272)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1262,7 +1262,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>trafficgen_vbr_transmitter_0</value>
+      <value>trafficgen_vbr_transmitter_0_0</value>
     </param>
     <param>
       <key>logfile</key>
@@ -3471,7 +3471,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(784, 840)</value>
+      <value>(696, 904)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3627,62 +3627,62 @@
     <sink_key>estimation</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_generator_constant_0</source_block_id>
-    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
-    <source_key>Value</source_key>
-    <sink_key>Burst Interval</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>trafficgen_generator_gaussian_0</source_block_id>
-    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
-    <source_key>Value</source_key>
-    <sink_key>Burst Duration</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>trafficgen_generator_poisson_0</source_block_id>
-    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
-    <source_key>Value</source_key>
-    <sink_key>Packet Size</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>trafficgen_generator_uniform_0</source_block_id>
-    <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
+    <source_block_id>trafficgen_generator_constant_0_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0_0</sink_block_id>
     <source_key>Value</source_key>
     <sink_key>Packet Interval</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
+    <source_block_id>trafficgen_generator_gaussian_0_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Burst Duration</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_generator_poisson_0_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Packet Size</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_generator_uniform_0_0</source_block_id>
+    <sink_block_id>trafficgen_vbr_transmitter_0_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>Burst Interval</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_vbr_transmitter_0_0</source_block_id>
     <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
     <source_key>PDU</source_key>
     <sink_key>bcin</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
+    <source_block_id>trafficgen_vbr_transmitter_0_0</source_block_id>
     <sink_block_id>lqe_getRSSI_0</sink_block_id>
     <source_key>PDU</source_key>
     <sink_key>sendOrder</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
-    <sink_block_id>trafficgen_generator_constant_0</sink_block_id>
+    <source_block_id>trafficgen_vbr_transmitter_0_0</source_block_id>
+    <sink_block_id>trafficgen_generator_constant_0_0</sink_block_id>
     <source_key>Request</source_key>
     <sink_key>Request</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
-    <sink_block_id>trafficgen_generator_gaussian_0</sink_block_id>
+    <source_block_id>trafficgen_vbr_transmitter_0_0</source_block_id>
+    <sink_block_id>trafficgen_generator_gaussian_0_0</sink_block_id>
     <source_key>Request</source_key>
     <sink_key>Request</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
-    <sink_block_id>trafficgen_generator_poisson_0</sink_block_id>
+    <source_block_id>trafficgen_vbr_transmitter_0_0</source_block_id>
+    <sink_block_id>trafficgen_generator_poisson_0_0</sink_block_id>
     <source_key>Request</source_key>
     <sink_key>Request</sink_key>
   </connection>
   <connection>
-    <source_block_id>trafficgen_vbr_transmitter_0</source_block_id>
-    <sink_block_id>trafficgen_generator_uniform_0</sink_block_id>
+    <source_block_id>trafficgen_vbr_transmitter_0_0</source_block_id>
+    <sink_block_id>trafficgen_generator_uniform_0_0</sink_block_id>
     <source_key>Request</source_key>
     <sink_key>Request</sink_key>
   </connection>
