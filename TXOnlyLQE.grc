@@ -1896,7 +1896,7 @@
     </param>
     <param>
       <key>samp_rate</key>
-      <value>4000000</value>
+      <value>5000000</value>
     </param>
     <param>
       <key>hide_cmd_port</key>
@@ -3239,7 +3239,7 @@
     </param>
     <param>
       <key>samp_rate</key>
-      <value>4000000</value>
+      <value>5000000</value>
     </param>
     <param>
       <key>hide_cmd_port</key>
