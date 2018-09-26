@@ -394,6 +394,10 @@
       <value></value>
     </param>
     <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
@@ -408,10 +412,6 @@
     <param>
       <key>id</key>
       <value>ieee802_15_4_oqpsk_phy_0</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1323,7 +1323,7 @@
     </param>
     <param>
       <key>nchan</key>
-      <value>1</value>
+      <value>2</value>
     </param>
     <param>
       <key>num_mboards</key>
@@ -1331,7 +1331,7 @@
     </param>
     <param>
       <key>samp_rate</key>
-      <value>4000000</value>
+      <value>5000000</value>
     </param>
     <param>
       <key>hide_cmd_port</key>
@@ -2674,7 +2674,7 @@
     </param>
     <param>
       <key>samp_rate</key>
-      <value>4000000</value>
+      <value>5000000</value>
     </param>
     <param>
       <key>hide_cmd_port</key>
@@ -2721,15 +2721,15 @@
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
-    <sink_block_id>uhd_usrp_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
     <sink_block_id>ieee802_15_4_mac_0</sink_block_id>
     <source_key>rxout</source_key>
     <sink_key>pdu in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
+    <sink_block_id>uhd_usrp_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_rime_stack_0</source_block_id>

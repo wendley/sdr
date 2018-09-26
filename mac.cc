@@ -236,7 +236,7 @@ public:
         pmt::pmt_t blob;
         // dout << "PASSANDO" << std::endl; //FIXME
         printf("Numero da msg: %u\n", numMsg);  // IDEA
-        if (pmt::is_eof_object(msg) || numMsg==99) { //99 indica o max de msgs enviadas
+        if (pmt::is_eof_object(msg)) {
             dout << "MAC: exiting in few seconds" << std::endl;
             message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
             endOfFile = true;
@@ -391,7 +391,7 @@ public:
         message_port_pub(pmt::mp("pdu out"), pmt_pack);
         lastPackAckedOrTimeToResendFinished = false;
         printf("Enviou pacote dados %u\n", pack->getId());
-        numMsg = pack->getId(); // é usado para limitar a qtde de msgs p gerar o EOF
+        numMsg = pack->getId(); // é usado para limitar a qtde de msgs p gerar o EOF // atualizacao: nao eh mais usado
         gettimeofday(&now, NULL);
         pack->setTime((now.tv_sec * 1000) + (now.tv_usec / 1000));
 

@@ -218,7 +218,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -242,6 +242,37 @@
     </param>
   </block>
   <block>
+    <key>blocks_message_debug</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(968, 272)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_message_debug_0</value>
+    </param>
+  </block>
+  <block>
     <key>trafficgen_cbr_transmitter</key>
     <param>
       <key>alias</key>
@@ -253,7 +284,7 @@
     </param>
     <param>
       <key>constant_value</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>content_type</key>
@@ -309,11 +340,11 @@
     </param>
     <param>
       <key>packet_interval</key>
-      <value>1000</value>
+      <value>1500</value>
     </param>
     <param>
       <key>packet_size</key>
-      <value>1500</value>
+      <value>100</value>
     </param>
     <param>
       <key>distribution_scale</key>
@@ -348,7 +379,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -399,11 +430,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(672, 252)</value>
+      <value>(896, 172)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -493,7 +524,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -618,6 +649,12 @@
       <value>cb2</value>
     </param>
   </block>
+  <connection>
+    <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
+    <sink_block_id>blocks_message_debug_0</sink_block_id>
+    <source_key>PDU</source_key>
+    <sink_key>print</sink_key>
+  </connection>
   <connection>
     <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
     <sink_block_id>trafficgen_receiver_0</sink_block_id>

@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Trafficgen
-# Generated: Tue Aug 28 15:56:37 2018
+# Generated: Wed Sep 26 14:56:44 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -17,6 +17,7 @@ if __name__ == '__main__':
             print "Warning: failed to XInitThreads()"
 
 from PyQt4 import Qt
+from gnuradio import blocks
 from gnuradio import eng_notation
 from gnuradio import gr
 from gnuradio.eng_option import eng_option
@@ -54,37 +55,45 @@ class TrafficGen(gr.top_block, Qt.QWidget):
         self.restoreGeometry(self.settings.value("geometry").toByteArray())
 
         ##################################################
+        # Variables
+        ##################################################
+        self.samp_rate = samp_rate = 32000
+
+        ##################################################
         # Blocks
         ##################################################
-        self.trafficgen_vbr_transmitter_0 = trafficgen.vbr_transmitter(True,
+        self.trafficgen_time_trigger_0 = trafficgen.time_trigger(True, 1000, 1000)
+        self.trafficgen_cbr_transmitter_0 = trafficgen.cbr_transmitter(100,
+        		1500,
+        		True,
         		trafficgen.CONTENT_CONSTANT,
-        		0,
+        		1,
+        		trafficgen.DIST_UNIFORM,
         		0,
         		255,
-        		'/tmp/trafficgen_vbr_transmitter.log')
-        self.trafficgen_receiver_0 = trafficgen.receiver('/tmp/trafficgen_receiver.log')
-        self.trafficgen_generator_uniform_0 = trafficgen.generator_uniform(trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL, 0, 1, 1000)
-        self.trafficgen_generator_poisson_0 = trafficgen.generator_poisson(trafficgen.VBR_PORT_PACKET_SIZE, 0.5, 1000)
-        self.trafficgen_generator_gaussian_0 = trafficgen.generator_gaussian(trafficgen.VBR_PORT_REQUEST_BURST_DURATION, 0.5, 0.1, 1000)
-        self.trafficgen_generator_constant_0 = trafficgen.generator_constant(trafficgen.VBR_PORT_BURST_INTERVAL, 300)
+        		127,
+        		42,
+        		1,
+        		1,
+        		'/tmp/trafficgen_cbr_transmitter.log')
+        self.blocks_message_debug_0 = blocks.message_debug()
 
         ##################################################
         # Connections
         ##################################################
-        self.msg_connect((self.trafficgen_generator_constant_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Burst Interval'))
-        self.msg_connect((self.trafficgen_generator_gaussian_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Burst Duration'))
-        self.msg_connect((self.trafficgen_generator_poisson_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Packet Size'))
-        self.msg_connect((self.trafficgen_generator_uniform_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Packet Interval'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_constant_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_gaussian_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_poisson_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_uniform_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'PDU'), (self.trafficgen_receiver_0, 'input'))
+        self.msg_connect((self.trafficgen_cbr_transmitter_0, 'PDU'), (self.blocks_message_debug_0, 'print'))
+        self.msg_connect((self.trafficgen_time_trigger_0, 'trigger'), (self.trafficgen_cbr_transmitter_0, 'Trigger Start'))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "TrafficGen")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
+
+    def get_samp_rate(self):
+        return self.samp_rate
+
+    def set_samp_rate(self, samp_rate):
+        self.samp_rate = samp_rate
 
 
 def main(top_block_cls=TrafficGen, options=None):

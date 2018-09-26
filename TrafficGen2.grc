@@ -82,7 +82,7 @@
     </param>
   </block>
   <block>
-    <key>trafficgen_generator_constant</key>
+    <key>blocks_message_debug</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -98,6 +98,198 @@
     <param>
       <key>_enabled</key>
       <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(912, 352)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_message_debug_0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_message_strobe</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(248, 20)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_message_strobe_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>msg</key>
+      <value>pmt.intern("TEST")</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>period</key>
+      <value>500</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_message_strobe_random</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dist</key>
+      <value>blocks.STROBE_UNIFORM</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(792, 32)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_message_strobe_random_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>mean</key>
+      <value>1000</value>
+    </param>
+    <param>
+      <key>msg</key>
+      <value>pmt.intern("TEST22")</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>std</key>
+      <value>1000</value>
+    </param>
+  </block>
+  <block>
+    <key>foo_periodic_msg_source</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(320, 168)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>foo_periodic_msg_source_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>msg</key>
+      <value>pmt.intern("Hello World!")</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num</key>
+      <value>5</value>
+    </param>
+    <param>
+      <key>interval</key>
+      <value>500</value>
+    </param>
+    <param>
+      <key>quit</key>
+      <value>True</value>
+    </param>
+  </block>
+  <block>
+    <key>trafficgen_generator_constant</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -144,7 +336,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -199,7 +391,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -219,7 +411,7 @@
     </param>
     <param>
       <key>mean</key>
-      <value>0.5</value>
+      <value>0.1</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -227,11 +419,11 @@
     </param>
     <param>
       <key>multiplier</key>
-      <value>1000</value>
+      <value>10</value>
     </param>
     <param>
       <key>vbr_port</key>
-      <value>trafficgen.VBR_PORT_PACKET_SIZE</value>
+      <value>trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL</value>
     </param>
   </block>
   <block>
@@ -250,7 +442,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -305,11 +497,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(864, 204)</value>
+      <value>(872, 236)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -379,11 +571,11 @@
     </param>
     <param>
       <key>constant_value</key>
-      <value>0</value>
+      <value>2</value>
     </param>
     <param>
       <key>content_type</key>
-      <value>trafficgen.CONTENT_CONSTANT</value>
+      <value>trafficgen.CONTENT_SEQUENTIAL</value>
     </param>
     <param>
       <key>affinity</key>
@@ -391,7 +583,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -431,6 +623,24 @@
     </param>
   </block>
   <connection>
+    <source_block_id>blocks_message_strobe_0</source_block_id>
+    <sink_block_id>trafficgen_generator_poisson_0</sink_block_id>
+    <source_key>strobe</source_key>
+    <sink_key>Request</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_message_strobe_random_0</source_block_id>
+    <sink_block_id>blocks_message_debug_0</sink_block_id>
+    <source_key>strobe</source_key>
+    <sink_key>print</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>foo_periodic_msg_source_0</source_block_id>
+    <sink_block_id>blocks_message_strobe_random_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>set_msg</sink_key>
+  </connection>
+  <connection>
     <source_block_id>trafficgen_generator_constant_0_0</source_block_id>
     <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
     <source_key>Value</source_key>
@@ -441,6 +651,12 @@
     <sink_block_id>trafficgen_vbr_transmitter_0</sink_block_id>
     <source_key>Value</source_key>
     <sink_key>Burst Duration</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_generator_poisson_0</source_block_id>
+    <sink_block_id>blocks_message_debug_0</sink_block_id>
+    <source_key>Value</source_key>
+    <sink_key>print</sink_key>
   </connection>
   <connection>
     <source_block_id>trafficgen_generator_poisson_0</source_block_id>

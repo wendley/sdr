@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Trafficgen2
-# Generated: Tue Sep 25 16:33:43 2018
+# Generated: Wed Sep 26 15:52:16 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -17,13 +17,14 @@ if __name__ == '__main__':
             print "Warning: failed to XInitThreads()"
 
 from PyQt4 import Qt
+from gnuradio import blocks
 from gnuradio import eng_notation
 from gnuradio import gr
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
+import pmt
 import sys
-import trafficgen
 from gnuradio import qtgui
 
 
@@ -56,30 +57,13 @@ class TrafficGen2(gr.top_block, Qt.QWidget):
         ##################################################
         # Blocks
         ##################################################
-        self.trafficgen_vbr_transmitter_0 = trafficgen.vbr_transmitter(True,
-        		trafficgen.CONTENT_CONSTANT,
-        		0,
-        		0,
-        		255,
-        		'/tmp/trafficgen_vbr_transmitter.log')
-        self.trafficgen_receiver_0 = trafficgen.receiver('/tmp/trafficgen_receiver.log')
-        self.trafficgen_generator_uniform_0 = trafficgen.generator_uniform(trafficgen.VBR_PORT_BURST_INTERVAL, 0, 0.3, 1000)
-        self.trafficgen_generator_poisson_0 = trafficgen.generator_poisson(trafficgen.VBR_PORT_PACKET_SIZE, 0.5, 1000)
-        self.trafficgen_generator_gaussian_0 = trafficgen.generator_gaussian(trafficgen.VBR_PORT_REQUEST_BURST_DURATION, 0.5, 0.1, 1000)
-        self.trafficgen_generator_constant_0_0 = trafficgen.generator_constant(trafficgen.VBR_PORT_REQUEST_PACKET_INTERVAL, 200)
+        self.blocks_message_strobe_random_0 = blocks.message_strobe_random(pmt.intern("TEST22"), blocks.STROBE_UNIFORM, 1000, 1000)
+        self.blocks_message_debug_0 = blocks.message_debug()
 
         ##################################################
         # Connections
         ##################################################
-        self.msg_connect((self.trafficgen_generator_constant_0_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Packet Interval'))
-        self.msg_connect((self.trafficgen_generator_gaussian_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Burst Duration'))
-        self.msg_connect((self.trafficgen_generator_poisson_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Packet Size'))
-        self.msg_connect((self.trafficgen_generator_uniform_0, 'Value'), (self.trafficgen_vbr_transmitter_0, 'Burst Interval'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_constant_0_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_gaussian_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_poisson_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'Request'), (self.trafficgen_generator_uniform_0, 'Request'))
-        self.msg_connect((self.trafficgen_vbr_transmitter_0, 'PDU'), (self.trafficgen_receiver_0, 'input'))
+        self.msg_connect((self.blocks_message_strobe_random_0, 'strobe'), (self.blocks_message_debug_0, 'print'))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "TrafficGen2")
