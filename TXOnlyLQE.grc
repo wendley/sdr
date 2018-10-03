@@ -596,7 +596,7 @@
     </param>
     <param>
       <key>msg</key>
-      <value>pmt.intern("TESTE2018")</value>
+      <value>pmt.intern("01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789")</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -604,11 +604,11 @@
     </param>
     <param>
       <key>num</key>
-      <value>1000</value>
+      <value>500</value>
     </param>
     <param>
       <key>interval</key>
-      <value>80</value>
+      <value>100</value>
     </param>
     <param>
       <key>quit</key>
