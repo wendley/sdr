@@ -196,53 +196,6 @@
     </param>
   </block>
   <block>
-    <key>blocks_message_strobe</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(156, 304)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>90</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_message_strobe_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>msg</key>
-      <value>pmt.intern("TEST")</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>period</key>
-      <value>50</value>
-    </param>
-  </block>
-  <block>
     <key>blocks_message_strobe_random</key>
     <param>
       <key>alias</key>
@@ -921,7 +874,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(912, 204)</value>
+      <value>(880, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1055,7 +1008,7 @@
     </param>
     <param>
       <key>igtx</key>
-      <value>60</value>
+      <value>69</value>
     </param>
     <param>
       <key>randomGain</key>
@@ -3678,18 +3631,6 @@
       <value>-60</value>
     </param>
   </block>
-  <connection>
-    <source_block_id>blocks_message_strobe_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>strobe</source_key>
-    <sink_key>bcin</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_message_strobe_0</source_block_id>
-    <sink_block_id>lqe_getRSSI_0</sink_block_id>
-    <source_key>strobe</source_key>
-    <sink_key>sendOrder</sink_key>
-  </connection>
   <connection>
     <source_block_id>blocks_message_strobe_random_0</source_block_id>
     <sink_block_id>lqe_contador_0</sink_block_id>
