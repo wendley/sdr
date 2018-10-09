@@ -273,6 +273,151 @@
     </param>
   </block>
   <block>
+    <key>foo_periodic_msg_source</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(216, 360)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>foo_periodic_msg_source_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>msg</key>
+      <value>pmt.intern("Hello World!")</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num</key>
+      <value>1000</value>
+    </param>
+    <param>
+      <key>interval</key>
+      <value>100</value>
+    </param>
+    <param>
+      <key>quit</key>
+      <value>True</value>
+    </param>
+  </block>
+  <block>
+    <key>lqe_contador</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(664, 376)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>lqe_contador_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>maxValor</key>
+      <value>numMsg</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(720, 36)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>numMsg</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>5</value>
+    </param>
+  </block>
+  <block>
     <key>trafficgen_cbr_transmitter</key>
     <param>
       <key>alias</key>
@@ -300,7 +445,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -340,7 +485,7 @@
     </param>
     <param>
       <key>packet_interval</key>
-      <value>1500</value>
+      <value>25</value>
     </param>
     <param>
       <key>packet_size</key>
@@ -469,7 +614,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -528,7 +673,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 360)</value>
+      <value>(400, 480)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -650,10 +795,22 @@
     </param>
   </block>
   <connection>
-    <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
+    <source_block_id>foo_periodic_msg_source_0</source_block_id>
+    <sink_block_id>lqe_contador_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>lqe_contador_0</source_block_id>
     <sink_block_id>blocks_message_debug_0</sink_block_id>
-    <source_key>PDU</source_key>
+    <source_key>out</source_key>
     <sink_key>print</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>
+    <sink_block_id>lqe_contador_0</sink_block_id>
+    <source_key>PDU</source_key>
+    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>trafficgen_cbr_transmitter_0</source_block_id>

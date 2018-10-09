@@ -101,7 +101,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(912, 352)</value>
+      <value>(992, 448)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -175,7 +175,7 @@
     </param>
     <param>
       <key>dist</key>
-      <value>blocks.STROBE_UNIFORM</value>
+      <value>blocks.STROBE_POISSON</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -271,6 +271,49 @@
     <param>
       <key>quit</key>
       <value>True</value>
+    </param>
+  </block>
+  <block>
+    <key>lqe_contador</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(888, 304)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>lqe_contador_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>maxValor</key>
+      <value>5</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
   </block>
   <block>
@@ -501,7 +544,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(872, 236)</value>
+      <value>(736, 220)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -630,15 +673,21 @@
   </connection>
   <connection>
     <source_block_id>blocks_message_strobe_random_0</source_block_id>
-    <sink_block_id>blocks_message_debug_0</sink_block_id>
+    <sink_block_id>lqe_contador_0</sink_block_id>
     <source_key>strobe</source_key>
-    <sink_key>print</sink_key>
+    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>foo_periodic_msg_source_0</source_block_id>
     <sink_block_id>blocks_message_strobe_random_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>set_msg</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>lqe_contador_0</source_block_id>
+    <sink_block_id>blocks_message_debug_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>print</sink_key>
   </connection>
   <connection>
     <source_block_id>trafficgen_generator_constant_0_0</source_block_id>
