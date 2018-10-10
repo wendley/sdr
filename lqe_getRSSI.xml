@@ -2,7 +2,7 @@
 <block>
   <name>LQE</name>
   <key>lqe_getRSSI</key>
-  <category>lqe</category>
+  <category>[lqe]</category>
   <import>import lqe</import>
   <make>lqe.getRSSI($printPower, $method, $filters, $window, $minRSSI, $maxRSSI, $alphaHW, $betaHW, $gammaHW)</make>
 
