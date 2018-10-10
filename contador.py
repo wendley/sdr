@@ -54,6 +54,6 @@ class contador(gr.sync_block):
         else:
             self.message_port_pub(pmt.intern("out"), pmt.get_PMT_EOF())
             # sys.exit(0)
-            break
+            pass
 
         self.conta +=1;
