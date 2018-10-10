@@ -44,6 +44,8 @@ class contador(gr.sync_block):
 
     def handler(self, pdu): # Acionado sempre que chega uma msg
         msg = pmt.to_python(pdu)
+        print ("Valor self conta: ")
+        print (self.conta)
 
         if self.conta < 60: #self.maxValor :
             self.message_port_pub(pmt.intern("out"), pmt.to_pmt(msg))
