@@ -52,7 +52,7 @@ class contador(gr.sync_block):
             print ("MSG: ")
             print (msg)
         else:
-            self.message_port_pub(pmt.intern("out"), pmt.intern("999"))
+            self.message_port_pub(pmt.intern("out"), pmt.get_PMT_EOF())
             sys.exit(0)
 
         self.conta +=1;
