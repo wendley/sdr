@@ -47,7 +47,8 @@ class contador(gr.sync_block):
 
         if self.conta < 60: #self.maxValor :
             self.message_port_pub(pmt.intern("out"), pmt.to_pmt(msg))
-            print msg
+            print ("MSG: ")
+            print (msg)
         else:
             self.message_port_pub(pmt.intern("out"), pmt.from_long(999))
 
