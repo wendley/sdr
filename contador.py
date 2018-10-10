@@ -19,7 +19,7 @@
 # Boston, MA 02110-1301, USA.
 #
 
-import numpy, pmt
+import numpy, pmt, sys
 from gnuradio import gr
 
 class contador(gr.sync_block):
@@ -53,5 +53,6 @@ class contador(gr.sync_block):
             print (msg)
         else:
             self.message_port_pub(pmt.intern("out"), pmt.intern("999"))
+            sys.exit(0)
 
         self.conta +=1;
