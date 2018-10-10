@@ -13,6 +13,7 @@ pausa=0
 sleep $pausa
 
 cp getRSSI.py gr-lqe/python ;
+cp contador.py gr-lqe/python ;
 cp powerControl.py gr-lqe/python ;
 cp lqe_getRSSI.xml gr-lqe/grc ;
 
