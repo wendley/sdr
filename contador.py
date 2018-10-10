@@ -32,7 +32,7 @@ class contador(gr.sync_block):
             in_sig=[],
             out_sig=[])
 
-        #self.maxValor = int(maxValor)
+        self.maxValor = int(maxValor)
 
         self.conta = 0
         self.message_port_register_in(pmt.intern("in"))
@@ -47,7 +47,7 @@ class contador(gr.sync_block):
         print ("Valor self conta: ")
         print (self.conta)
 
-        if self.conta < 60: #self.maxValor :
+        if self.conta < self.maxValor :
             self.message_port_pub(pmt.intern("out"), pmt.to_pmt(msg))
             print ("MSG: ")
             print (msg)
