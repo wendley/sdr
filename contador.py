@@ -53,6 +53,7 @@ class contador(gr.sync_block):
             print (msg)
         else:
             self.message_port_pub(pmt.intern("out"), pmt.get_PMT_EOF())
-            sys.exit('Encerrando a transmissao')
+            # sys.exit(0)
+            break
 
         self.conta +=1;
