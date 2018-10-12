@@ -657,7 +657,7 @@ private:
     bool d_debug;
     int d_msg_offset;
     int d_msg_len;
-    uint8_t d_seq_nr;
+    uint16_t d_seq_nr; // era uint8_t, mas contava somente de 0 a 255
     char d_msg[256];
 
     int d_num_packet_errors;
