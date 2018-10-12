@@ -148,18 +148,26 @@ public:
             dout << "MAC: wrong crc. Dropping packet!" << std::endl;
             return;
         } else {
-            if (isAckPack(recPackage)) {
+            if (isAckPack(recPackage)) { // se for ack...
+
+              unsigned char packId;
+              packId = recPackage[2];
+
+              std::list<SendPackage*>::iterator it = sendList.begin();
+              while (it != sendList.end()) {
+                  if ((*it)->getId() == packId) { // verifica se o ack recebido tem o id de algum pacote enviado
+                      message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
+                      removePackAcked(recPackage);
+                      break;
+                  }
+                  it++;
+              }
+
                 //printf("Package %u acked.\n\n", (unsigned char)recPackage[2]);
-                if((mac_addr_1 == recPackage[5] && mac_addr_2 == recPackage[6])) {
-                          //Verifica se o endereço de destino confere com o endereço MAC
-                          //local, ou seja, "é ednereçado a mim" e se o endereço de origem
-                          //é diferente do número MAC local, ou seja, "não foi enviado por
-                          //mim". Só considera que foi um ack para si, se as duas condições
-                          //forem verdadeiras.
-                          message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
-                          removePackAcked(recPackage);
-                }
-            } else if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) &&
+                //           message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
+                //           removePackAcked(recPackage);
+                // }
+            } else if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) && //se não for ack, ou seja, se for dados...
                     (mac_addr_1 == recPackage[5] && mac_addr_2 == recPackage[6])){
                 //Verifica se o endereço de destino confere com o endereço MAC
                 //local, ou seja, "é ednereçado a mim" e se o endereço de origem
@@ -323,7 +331,7 @@ public:
         //cenário onde a rede funcione de forma completa, estes endereços são
         //fornecidos por um nó de coordenação, que informa de tempos em tempos
         //quais são os nós presentes na rede.
-        addr0[0] = 0x40;
+        addr0[0] = 0x40; // Endereco do receptor
         addr0[1] = 0xe8;
 
         addr1[0] = 0x42;
@@ -482,7 +490,7 @@ public:
      * Função que faz a espera para reenvio.
      */
     void waitResendingTime(){
-        boost::posix_time::millisec workTimeResend(resend_waiting);
+        boost::posix_time::millisec workTimeResend(resend_waiting); //80 milisec
                     boost::this_thread::sleep(workTimeResend);
 
         lastPackAckedOrTimeToResendFinished = true;
