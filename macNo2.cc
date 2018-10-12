@@ -152,9 +152,16 @@ public:
             return;
         } else {
             if (isAckPack(recPackage)) {
-                //printf("Package %u acked.\n\n", (unsigned char)recPackage[2]);
-                message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
-                removePackAcked(recPackage);
+              if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) &&
+                      (mac_addr_1 == recPackage[5] && mac_addr_2 == recPackage[6])){
+                        //Verifica se o endereço de destino confere com o endereço MAC
+                        //local, ou seja, "é ednereçado a mim" e se o endereço de origem
+                        //é diferente do número MAC local, ou seja, "não foi enviado por
+                        //mim". Só considera que foi um ack para si, se as duas condições
+                        //forem verdadeiras.
+                        message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
+                        removePackAcked(recPackage);
+              }
             } else if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) &&
                     (mac_addr_1 == recPackage[5] && mac_addr_2 == recPackage[6])){
                 //Verifica se o endereço de destino confere com o endereço MAC
