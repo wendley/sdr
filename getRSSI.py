@@ -24,7 +24,7 @@
 # the USRP gain  (Tx). More details in https://bitbucket.org/wendley/gr-lqe
 
 
-import numpy, pmt
+import numpy, pmt, time
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
@@ -62,11 +62,16 @@ class getRSSI(gr.sync_block):
 		self.seriePCK=[]
 		self.serieLPCK=[] # Long range
 		self.serieML=[] # For Machine Learning fit
+		self.serieLQL=[] # For 4C - Foresee
 		self.serieSNR=[]
 		self.estimSVMR = 0.0
+		self.estimSVMRLQL = 0.0
 		self.tempML = []
-		self.serieTarget=[]
+		self.tempLQL = []
+		self.serieTarget=[] # For ML fit
+		self.serieTargetLQL=[] # For Foresee
 		self.finalSerieML = []
+		self.finalSerieLQL = []
 		self.serieErroSVMR = []
 		self.ackCount = 0
 		self.sendedPacks = 0
@@ -81,6 +86,8 @@ class getRSSI(gr.sync_block):
 		self.geralSends = 0 # Total number of sends
 		self.geralSendOrder = -1 # Total number of send orders
 		self.mediaSNR = 0.0
+		self.start = 0 # start time
+		self.split = 0 # split time
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
 		self.fnRSSIKalman="/home/wendley/Experimentos/SerieRSSIKalman.txt"
@@ -105,6 +112,8 @@ class getRSSI(gr.sync_block):
 		self.set_msg_handler(pmt.intern("sendOrder"), self.handlerSendOrder)
 
 		self.clf = svm.SVR()
+
+		self.start = time.time()
 
 	def work(self, input_items, output_items):
 		assert (False)
@@ -376,11 +385,15 @@ class getRSSI(gr.sync_block):
 
 
 		if self.method == 1:
+			#####################################################
 			# No estimator - constant gain
+			#####################################################
 			print "No estimator in use - the tx gain is constant"
 
 		elif self.method == 2:
+			#####################################################
 			# Estimator using ONLY RSSI:
+			#####################################################
 
 			if self.filter == 2: #EMA
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimRssi))
@@ -401,7 +414,9 @@ class getRSSI(gr.sync_block):
 			# self.message_port_pub(pmt.intern("estimation"), pmt.from_double(self.gainTx))
 
 		elif self.method == 3:
+			#####################################################
 			# Estimator using ONLY traditional PRR:
+			#####################################################
 
 			if self.filter == 3: #Kalman
 				print "\n--- WARNING: Kalman filter only for RSSI. Using EMA --- \n"
@@ -420,7 +435,9 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR))
 
 		elif self.method == 4:
+			#####################################################
 			# PRR 2 levels + RSSI (FULL)
+			#####################################################
 
 			# if self.geralPRR < 0.699 or self.geralLPRR < 0.699:
 			# 	self.estim = 0
@@ -436,7 +453,9 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2))
 
 		elif self.method == 5:
+			#####################################################
 			# PRR 2 levels without RSSI
+			#####################################################
 
 			# self.estim = float(min(self.geralPRR,self.geralLPRR))
 			# self.geralPRR2modif = self.estim
@@ -446,25 +465,87 @@ class getRSSI(gr.sync_block):
 			#print "Dynamic mode in use - under development - the tx gain is constant"
 
 		elif self.method == 6:
+			#####################################################
 			# Traditional PRR + RSSI
+			#####################################################
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR_Rssi))
 
+
 		elif self.method == 7:
-			# Foresee 4C (like)
-			print "Foresee ainda nao implementado"
+			#####################################################
+			# LQL - Link Quality Learning --- era Foresee 4C (like)
+			# [REF:] Di Caro, Gianni A., et al. "Online supervised incremental learning of link quality estimates
+			# in wireless networks." Ad Hoc Networking Workshop (MED-HOC-NET), 2013 12th Annual Mediterranean. IEEE, 2013.
+			#####################################################
+
+			if len(self.serieLQL) >= 20: # Arbitrary value to training
+				del(self.serieLQL[0])
+				# del(self.tempML[0])
+				del(self.serieTargetLQL[0])
+
+			#self.tempLQL.append(self.estimPRR)
+			self.tempLQL.append(self.estimRssi)
+			self.tempLQL.append(self.mediaSNR)
+			self.serieLQL.append(list(self.tempLQL))
+			#self.serieLQL.append(list(self.tempLQL)) # Duplicar append para ter dois targets com as mesmas entradas
+			self.tempLQL=[]
+			self.serieTargetLQL.append(self.estimPRR) # Target 1
+			#self.serieTarget.append(self.estimPRR2) # Target 2
+			self.finalSerieLQL = numpy.array(self.serieLQL)
+
+
+			#SVMR
+
+			# print "DEBUG: ---------- IMPRIMINDO SERIE-LQL -----------"
+			# print(self.serieLQL)
+			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET-LQL -----------"
+			#print(self.serieTargetLQL)
+			# estimSVMRLQL = 0.0 #
+			if len(self.serieLQL) >= 4:
+				self.finalSerieLQL=numpy.array(self.serieLQL)
+				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
+				# print(self.finalSerieLQL)
+
+				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
+				# print(self.serieTargetLQL)
+
+				self.clf.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
+				self.finalSerieLQL = self.serieLQL[-1]
+				self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+				self.estimSVMRLQL = float(self.clf.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
+				erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
+				self.serieErroSVMRLQL.append(erroSVMRLQL)
+				# print "DEBUG - ESTIMATIVA GERADA PELA ML-SVMR-LQL: %f" %self.estimSVMRLQL
+				# print "DEBUG - ERRO do SVMR: %f" %erroSVMRLQL
+
+
+			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMRLQL
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
+
+
 
 		elif self.method == 8:
-			# Machine Learning SVMR
-			#####################################################
-			#													#
-			# IDEA: Construcao da serie para Machine Learning:	#
-			#													#
-			#####################################################
+
+			######################################################
+			#													 #
+			# PROPOSTA - Machine Learning - LQR3				 #
+			# Link Quality Estimator using SVR with triple input #
+			#													 #													#
+			######################################################
+
+			self.split = time.time()
+			elapsed = self.split - self.start
+
+			if elapsed > 1.4: # se decorridos mais de 1.4 segundo, a serie e reduzida pela metade, apagando as entradas mais antigas
+				self.serieML = self.serieML[-(len(self.serieML)/2):]
+				self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
 
 			if len(self.serieML) >= 20: # Arbitrary value to training
 				del(self.serieML[0])
 				# del(self.tempML[0])
 				del(self.serieTarget[0])
+
+
 
 			self.tempML.append(self.estimPRR)
 			self.tempML.append(self.estimRssi)
@@ -482,7 +563,7 @@ class getRSSI(gr.sync_block):
 			# print(self.serieML)
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
-			# estimSVMR = 0.0 #: FIXME Corrigir logica
+			# estimSVMR = 0.0 #:
 			if len(self.serieML) >= 4:
 				self.finalSerieML=numpy.array(self.serieML)
 				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
@@ -505,6 +586,8 @@ class getRSSI(gr.sync_block):
 
 			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
+
+			self.start = time.time()
 
 
 
