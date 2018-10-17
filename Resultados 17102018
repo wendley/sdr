@@ -1,0 +1,37 @@
+
+RSSI+KLE
+PRR
+PRR2
+LQL
+LQR3
+
+
+
+SINGLE SENDER - CENÁRIO COM DELAY POISSON (1.2k s/1k s) - SEM RUIDO ARTIFICIAL
+
+
+KLE
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  55.98
+-   Desvio padrão:   3.32
+-   Tamanho da amostra: 298
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 199
+-   Total de envios efetivos: 298
+-   Total geral de acks recebidos: 200
+-   Quantidade de retransmissões: 99
+-   Relação envios/pacotes recebidos:   1.49
+-   Taxa de entrega: 100.50 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+==============================================================

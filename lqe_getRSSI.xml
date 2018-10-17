@@ -4,7 +4,7 @@
   <key>lqe_getRSSI</key>
   <category>lqe</category>
   <import>import lqe</import>
-  <make>lqe.getRSSI($printPower, $method, $filters, $window, $minRSSI, $maxRSSI, $alphaHW, $betaHW, $gammaHW)</make>
+  <make>lqe.getRSSI($printPower, $method, $filters, $window, $minRSSI, $maxRSSI, $timeout, $alphaHW, $betaHW, $gammaHW)</make>
 
 
   <param>
@@ -125,6 +125,12 @@
     <type>int</type>
   </param>
 
+  <param>
+    <name>Timeout ML</name>
+    <key>timeout</key>
+    <value>0.7</value>
+    <type>float</type>
+  </param>
 
   <param>
     <name>Alpha HW param</name>

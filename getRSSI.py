@@ -38,7 +38,7 @@ class getRSSI(gr.sync_block):
 	[2] https://github.com/osh/gr-eventstream
 	"""
 
-	def __init__(self, printPower=False, method=1, filters=1, window=40, minRSSI=-100, maxRSSI=-56, alphaHW=0.2, betaHW=0.1, gammaHW=0.05):
+	def __init__(self, printPower=False, method=1, filters=1, window=40, minRSSI=-100, maxRSSI=-56, timeout=0.7, alphaHW=0.2, betaHW=0.1, gammaHW=0.05):
 		gr.sync_block.__init__(self,
 							   name="LQE",
 							   in_sig=[],
@@ -53,6 +53,7 @@ class getRSSI(gr.sync_block):
 		self.betaHW = betaHW
 		self.gammaHW = gammaHW
 		self.filter = filters
+		self.timeoutML = timeout
 
 
 		self.serie=[]
@@ -537,7 +538,7 @@ class getRSSI(gr.sync_block):
 			self.split = time.time()
 			elapsed = self.split - self.startT
 
-			if elapsed > 1.4: # se decorridos mais de 1.4 segundo, a serie e reduzida pela metade, apagando as entradas mais antigas
+			if elapsed > self.timeoutML: # se decorridos mais de xx segundo, a serie eh reduzida pela metade, apagando as entradas mais antigas
 				self.serieML = self.serieML[-(len(self.serieML)/2):]
 				self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
 

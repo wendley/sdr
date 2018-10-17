@@ -235,7 +235,7 @@
     </param>
     <param>
       <key>mean</key>
-      <value>1200</value>
+      <value>600</value>
     </param>
     <param>
       <key>msg</key>
@@ -247,7 +247,7 @@
     </param>
     <param>
       <key>std</key>
-      <value>1000</value>
+      <value>500</value>
     </param>
   </block>
   <block>
@@ -970,6 +970,10 @@
     <param>
       <key>printPower</key>
       <value>False</value>
+    </param>
+    <param>
+      <key>timeout</key>
+      <value>0.7</value>
     </param>
   </block>
   <block>
