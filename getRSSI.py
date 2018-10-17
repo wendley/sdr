@@ -73,6 +73,7 @@ class getRSSI(gr.sync_block):
 		self.finalSerieML = []
 		self.finalSerieLQL = []
 		self.serieErroSVMR = []
+		self.serieErroSVMRLQL = []
 		self.ackCount = 0
 		self.sendedPacks = 0
 		self.kRssi = 0.0
