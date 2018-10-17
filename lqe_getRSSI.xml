@@ -2,7 +2,7 @@
 <block>
   <name>LQE</name>
   <key>lqe_getRSSI</key>
-  <category>[lqe]</category>
+  <category>lqe</category>
   <import>import lqe</import>
   <make>lqe.getRSSI($printPower, $method, $filters, $window, $minRSSI, $maxRSSI, $alphaHW, $betaHW, $gammaHW)</make>
 
@@ -58,15 +58,6 @@
     <option>
       <name>Traditional PRR + RSSI</name>
       <key>6</key>
-    </option>
-
-    <option>LQL</name>
-      <key>7</key>
-    </option>
-
-    <option>
-      <name>LQR3</name>
-      <key>8</key>
     </option>
 
   </param>
@@ -154,12 +145,6 @@
 
   <sink>
     <name>Ackin</name>
-    <type>message</type>
-    <optional>1</optional>
-  </sink>
-
-  <sink>
-    <name>SNR</name>
     <type>message</type>
     <optional>1</optional>
   </sink>
