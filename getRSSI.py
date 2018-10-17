@@ -86,7 +86,7 @@ class getRSSI(gr.sync_block):
 		self.geralSends = 0 # Total number of sends
 		self.geralSendOrder = -1 # Total number of send orders
 		self.mediaSNR = 0.0
-		self.start = 0 # start time
+		self.startT = 0 # start time
 		self.split = 0 # split time
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
@@ -113,7 +113,7 @@ class getRSSI(gr.sync_block):
 
 		self.clf = svm.SVR()
 
-		self.start = time.time()
+		self.startT = time.time()
 
 	def work(self, input_items, output_items):
 		assert (False)
@@ -534,7 +534,7 @@ class getRSSI(gr.sync_block):
 			######################################################
 
 			self.split = time.time()
-			elapsed = self.split - self.start
+			elapsed = self.split - self.startT
 
 			if elapsed > 1.4: # se decorridos mais de 1.4 segundo, a serie e reduzida pela metade, apagando as entradas mais antigas
 				self.serieML = self.serieML[-(len(self.serieML)/2):]
@@ -587,7 +587,7 @@ class getRSSI(gr.sync_block):
 			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
-			self.start = time.time()
+			self.startT = time.time()
 
 
 
