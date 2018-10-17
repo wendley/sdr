@@ -7,22 +7,20 @@ LQR3
 
 
 
-SINGLE SENDER - CENÁRIO COM DELAY POISSON (1.2k s/1k s) - SEM RUIDO ARTIFICIAL
+SINGLE SENDER - CENÁRIO COM DELAY POISSON (600ms / 500ms) - SEM RUIDO ARTIFICIAL
 
 
 KLE
 
-
 ============================================================== 
    :::  POWER CONTROL SUMMARY  :::
 
--   Média dos ganhos das transmissões:  55.98
--   Desvio padrão:   3.32
+-   Média dos ganhos das transmissões:  55.87
+-   Desvio padrão:   3.46
 -   Tamanho da amostra: 298
-============================================================== 
-
 
 ============================================================== 
+
    :::  LQE SUMMARY  :::
 
 -   Envios solicitados: 199
@@ -34,4 +32,10 @@ KLE
 -   ------------------------------------
 -   Erro medio Machine Learning SVMR:    nan percent
 -   Tamanho serie erro ML SVMR: 0 entradas 
-==============================================================
+============================================================== 
+
+
+PRR
+
+
+

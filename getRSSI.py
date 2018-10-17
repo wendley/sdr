@@ -86,7 +86,7 @@ class getRSSI(gr.sync_block):
 		self.geralPRR2 = 0
 		self.geralPRR2modif = 0
 		self.geralSends = 0 # Total number of sends
-		self.geralSendOrder = -1 # Total number of send orders
+		self.geralSendOrder = 0 # Total number of send orders
 		self.mediaSNR = 0.0
 		self.startT = 0 # start time
 		self.split = 0 # split time
