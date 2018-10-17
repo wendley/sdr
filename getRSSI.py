@@ -530,7 +530,7 @@ class getRSSI(gr.sync_block):
 			#													 #
 			# PROPOSTA - Machine Learning - LQR3				 #
 			# Link Quality Estimator using SVR with triple input #
-			#													 #													#
+			#													 #
 			######################################################
 
 			self.split = time.time()

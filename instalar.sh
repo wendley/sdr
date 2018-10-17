@@ -125,7 +125,7 @@ cd gr-lqe ;
 compilar ; #funcao compilar
 
 
-### GRC Compile ###
+### COMPILANDO GR-802-15-4 ###
 echo "\n Compilando ieee802_15_4_PHY.grc... \n"
 sleep $pausa
 
@@ -135,16 +135,16 @@ grcc ieee802_15_4_OQPSK_PHY.grc ;
 #grcc -e transceiver.grc ;
 
 
-echo "\n Instalando GR-TRAFFICGEN... \n"
-sleep $pausa
-
-cd ~ ;
-cd gr-trafficgen ;
-compilar ; #funcao compilar
-
-# Compilar Bloco Hierarquico TrafficGenHier
-cd ~;
-grcc TrafficGenHier.grc ;
+# echo "\n Instalando GR-TRAFFICGEN... \n"
+# sleep $pausa
+#
+# cd ~ ;
+# cd gr-trafficgen ;
+# compilar ; #funcao compilar
+#
+# # Compilar Bloco Hierarquico TrafficGenHier
+# cd ~;
+# grcc TrafficGenHier.grc ;
 
 ### Conclusao ###
 echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n ."
@@ -161,7 +161,7 @@ chmod +x recompilarMac.sh ;
 chmod +x recompilarLQE.sh ;
 chmod +x clone.sh ;
 
-cd gr-802154-wy/examples ;
+# cd gr-802154-wy/examples ;
 
 # echo "\n . \n .. Removendo pasta temporaria sdr \n .. \n ."
 # sleep $pausa

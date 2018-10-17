@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>TXOnlyLQE</value>
+      <value>TxDelay</value>
     </param>
     <param>
       <key>max_nouts</key>
