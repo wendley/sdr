@@ -60,6 +60,16 @@
       <key>6</key>
     </option>
 
+    <option>
+      <name>Foresee 4C</name>
+      <key>7</key>
+    </option>
+
+    <option>
+      <name>Machine Learning SVMR</name>
+      <key>8</key>
+    </option>
+
   </param>
 
   <param>
@@ -145,6 +155,12 @@
 
   <sink>
     <name>Ackin</name>
+    <type>message</type>
+    <optional>1</optional>
+  </sink>
+
+  <sink>
+    <name>SNR</name>
     <type>message</type>
     <optional>1</optional>
   </sink>
