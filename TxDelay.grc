@@ -196,45 +196,6 @@
     </param>
   </block>
   <block>
-    <key>TrafficGenHier</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(24, 352)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>TrafficGenHier_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
     <key>blocks_message_strobe_random</key>
     <param>
       <key>alias</key>
@@ -278,7 +239,7 @@
     </param>
     <param>
       <key>msg</key>
-      <value>pmt.intern("TEST22")</value>
+      <value>pmt.intern("0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789")</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -3407,12 +3368,6 @@
       <value>-60</value>
     </param>
   </block>
-  <connection>
-    <source_block_id>TrafficGenHier_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>bcin</sink_key>
-  </connection>
   <connection>
     <source_block_id>blocks_message_strobe_random_0</source_block_id>
     <sink_block_id>lqe_contador_0</sink_block_id>
