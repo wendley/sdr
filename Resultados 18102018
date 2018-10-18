@@ -40,14 +40,123 @@ KLE
 
 
 
+KLE
+2
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  63.64
+-   Desvio padrão:   3.12
+-   Tamanho da amostra: 688
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 688
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 189
+-   Relação envios/pacotes recebidos:   1.38
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+KLE
+3
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  68.52
+-   Desvio padrão:   5.97
+-   Tamanho da amostra: 740
+
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 740
+-   Total geral de acks recebidos: 497
+-   Quantidade de retransmissões: 240
+-   Relação envios/pacotes recebidos:   1.49
+-   Taxa de entrega:  99.40 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+KLE
+4
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  72.00
+-   Desvio padrão:   5.55
+-   Tamanho da amostra: 748
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 748
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 248
+-   Relação envios/pacotes recebidos:   1.50
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+KLE
+5
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  75.79   :::  LQE SUMMARY  :::
+
+-   Desvio padrão:   3.84
+
+-   Envios solicitados: 500
+-   Tamanho da amostra: 750
+
+
+-   Total de envios efetivos: 750
+
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 250
+-   Relação envios/pacotes recebidos:   1.51
+-   Taxa de entrega:  99.60 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+
+
 PRR
 1
 ============================================================== 
    :::  POWER CONTROL SUMMARY  :::
 
 -   Média dos ganhos das transmissões:  44.77
--   Tamanho serie erro ML SVMR: 0 entradas 
--   Qtde de reducoes da serie LQR3: 0 
 -   Desvio padrão:   2.40
 -   Tamanho da amostra: 1500
 
