@@ -34,7 +34,7 @@ class contador(gr.sync_block):
 
         self.maxValor = int(maxValor)
 
-        self.conta = 0
+        self.conta = 1
         self.message_port_register_in(pmt.intern("in"))
         self.message_port_register_out(pmt.intern("out"))
         self.set_msg_handler(pmt.intern("in"), self.handler)
