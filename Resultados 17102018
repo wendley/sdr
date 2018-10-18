@@ -179,3 +179,58 @@ LQR3
 -   Qtde de reducoes da serie LQR3: 37 
 ============================================================== 
 
+
+
+
+SINGLE SENDER - CENÁRIO COM DELAY POISSON (600ms / 500ms) - COM RUIDO ARTIFICIAL g69
+
+
+KLE
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  56.09
+-   Desvio padrão:   3.14
+-   Tamanho da amostra: 283
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 199
+-   Total de envios efetivos: 283
+-   Total geral de acks recebidos: 200
+-   Quantidade de retransmissões: 84
+-   Relação envios/pacotes recebidos:   1.42
+-   Taxa de entrega: 100.50 percent
+-   ------------------------------------
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 199
+-   Total de envios efetivos: 283
+-   Total geral de acks recebidos: 200
+-   Quantidade de retransmissões: 84
+-   Relação envios/pacotes recebidos:   1.42
+-   Taxa de entrega: 100.50 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
