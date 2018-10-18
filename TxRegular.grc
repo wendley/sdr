@@ -659,7 +659,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>69</value>
+      <value>66</value>
     </param>
   </block>
   <block>
@@ -872,6 +872,10 @@
     <param>
       <key>printPower</key>
       <value>False</value>
+    </param>
+    <param>
+      <key>timeout</key>
+      <value>0.7</value>
     </param>
   </block>
   <block>
