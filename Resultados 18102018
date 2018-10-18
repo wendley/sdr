@@ -13,3 +13,28 @@ SINGLE SENDER - CENÁRIO COM DELAY POISSON (500ms / 500ms) - SEM RUIDO ARTIFICIA
 KLE
 
 
+============================================================== 
+
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Média dos ganhos das transmissões:  65.05
+
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 822
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 322
+-   Relação envios/pacotes recebidos:   1.65
+-   Taxa de entrega:  99.60 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Desvio padrão:   5.02
+-   Tamanho da amostra: 822
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
