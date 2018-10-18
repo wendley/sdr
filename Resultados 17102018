@@ -153,7 +153,29 @@ LQL
 
 
 
+
 LQR3
 
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  58.55
+-   Desvio padrão:   2.74
+-   Tamanho da amostra: 302
+============================================================== 
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 200
+-   Total de envios efetivos: 302
+-   Total geral de acks recebidos: 200
+-   Quantidade de retransmissões: 102
+-   Relação envios/pacotes recebidos:   1.51
+-   Taxa de entrega: 100.00 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.05 percent
+-   Tamanho serie erro ML SVMR: 501 entradas 
+-   Qtde de reducoes da serie LQR3: 37 
+============================================================== 
 
