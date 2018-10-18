@@ -961,7 +961,7 @@
     </param>
     <param>
       <key>minRSSI</key>
-      <value>-110</value>
+      <value>-115</value>
     </param>
     <param>
       <key>window</key>
