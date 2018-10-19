@@ -368,3 +368,32 @@ PARA ENCONTRAR O GAIN MAX, COM FONTE DE RUIDO NO NO2 COM GAIN 89
 -   Qtde de reducoes da serie LQR3: 0 
 ============================================================== 
 
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  80.00
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 100
+
+-   Total de envios efetivos: 570
+-   Total geral de acks recebidos: 9
+-   Quantidade de retransmissões: 470
+-   Relação envios/pacotes recebidos:  63.33
+-   Taxa de entrega:   9.00 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+--------- 
+PRR: 0.0277
+---------
+
+-   Desvio padrão:   0.00
+-   Tamanho da amostra: 569
+==============================================================
