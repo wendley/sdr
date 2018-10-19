@@ -119,7 +119,7 @@ class getRSSI(gr.sync_block):
 
 		self.clf = svm.SVR()
 
-		self.startT = datetime.datetime.now()
+		self.startT = time.time()
 
 	def work(self, input_items, output_items):
 		assert (False)
