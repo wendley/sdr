@@ -121,3 +121,64 @@ LQL
 -   Tamanho serie erro ML SVMR: 0 entradas 
 -   Qtde de reducoes da serie LQR3: 0 
 ============================================================== 
+
+
+
+LQR3
+1
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.22
+-   Desvio padrão:   0.84
+-   Tamanho da amostra: 460
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 199
+-   Total de envios efetivos: 461
+-   Total geral de acks recebidos: 193
+-   Quantidade de retransmissões: 262
+-   Relação envios/pacotes recebidos:   2.39
+-   Taxa de entrega:  96.98 percent
+-   Tempo medio de recebimento de acks: 0:00:00.065905
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.05 percent
+-   Tamanho serie erro ML SVMR: 661 entradas 
+-   Qtde de reducoes da serie LQR3: 3 
+============================================================== 
+
+
+
+
+
+:::::::::::::::::::::
+:::::::::::::::::::::
+:::::::::::::::::::::
+
+
+500 pacotes
+
+
+:::::::::::::::::::::
+:::::::::::::::::::::
+:::::::::::::::::::::
+
+
+
+
+RSSI+KLE
+PRR
+PRR2
+LQL
+LQR3
+
+
+SINGLE SENDER - CENÁRIO COM DELAY POISSON (500ms / 500ms) - SEM RUIDO ARTIFICIAL
+(No 1 p/ no 4)
+
+
+KLE
+1
+
