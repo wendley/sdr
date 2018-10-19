@@ -40,3 +40,27 @@ KLE
 
 PRR
 1
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.92
+-   Desvio padrão:   1.50
+-   Tamanho da amostra: 474
+
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 199
+-   Total de envios efetivos: 475
+-   Total geral de acks recebidos: 184
+-   Quantidade de retransmissões: 276
+-   Relação envios/pacotes recebidos:   2.58
+-   Taxa de entrega:  92.46 percent
+-   Tempo medio de recebimento de acks: 0:00:00.038181
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
