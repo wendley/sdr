@@ -160,7 +160,7 @@ class getRSSI(gr.sync_block):
 			self.sendedPacks += 1
 
 			self.intAck = datetime.datetime.now()
-			diffTempo = self.outPck - self.intAck
+			diffTempo = self.intAck - self.outPck
 			print "Tempo p receber ack: "
 			print (diffTempo)
 			print "\n"
