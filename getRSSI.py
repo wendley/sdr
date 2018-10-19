@@ -697,8 +697,7 @@ class getRSSI(gr.sync_block):
 		print "-   Quantidade de retransmissões: %d" % (self.geralSends - self.geralSendOrder)
 		print "-   Relação envios/pacotes recebidos: %6.2f" %(calcRel)
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
-		print "-   Tempo medio de recebimento de acks: "
-		print self.tempoTotalAck/self.ackCount
+		print "-   Tempo medio de recebimento de acks: " + str(self.tempoTotalAck/self.ackCount)
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
