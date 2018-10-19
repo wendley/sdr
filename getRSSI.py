@@ -190,7 +190,7 @@ class getRSSI(gr.sync_block):
 
 	def handlerSendPack(self, pdu): # Acionado sempre que um pacote é de fato enviado (incluindo reenvios)
 		self.geralSends += 1
-		self.outPck = time.time()
+		self.outPck = datetime.datetime.now()
 		self.calcLQE()
 
 		# Salva arquivos para scatterplot
