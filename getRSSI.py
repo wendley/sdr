@@ -24,7 +24,7 @@
 # the USRP gain  (Tx). More details in https://bitbucket.org/wendley/gr-lqe
 
 
-import numpy, pmt, time
+import numpy, pmt, time, datetime
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
@@ -118,7 +118,7 @@ class getRSSI(gr.sync_block):
 
 		self.clf = svm.SVR()
 
-		self.startT = time.time()
+		self.startT = datetime.datetime.now()
 
 	def work(self, input_items, output_items):
 		assert (False)
@@ -159,9 +159,11 @@ class getRSSI(gr.sync_block):
 			# print "\n--------- \nTotal geral de acks recebidos: %d \n--------- \n" % (self.ackCount)
 			self.sendedPacks += 1
 
-			self.intAck = time.time()
+			self.intAck = datetime.datetime.now()
 			diffTempo = self.outPck - self.intAck
-			print "Tempo p receber ack: %6.2f" % (diffTempo)
+			print "Tempo p receber ack: "
+			print (diffTempo)
+			print "\n"
 
 			self.calcPRR(1)
 			self.calcLQE()
