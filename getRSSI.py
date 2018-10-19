@@ -166,6 +166,7 @@ class getRSSI(gr.sync_block):
 			print (diffTempo)
 			print "\n"
 
+			if self.tempoTotalAck ==0 : self.tempoTotalAck = diffTempo #muda o tipo para datetime
 			self.tempoTotalAck += diffTempo # vai somando para computar o tempo total de recebimento de acks
 
 			self.calcPRR(1)
