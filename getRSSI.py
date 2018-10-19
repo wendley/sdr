@@ -691,21 +691,21 @@ class getRSSI(gr.sync_block):
 		print "\n============================================================== "
 		print "   :::  LQE SUMMARY  :::"
 		if self.method == 1:
-			print "LQE: No method"
+			print "        LQE: No method"
 		elif self.method == 2:
-			print "LQE: RSSI"
+			print "        LQE: RSSI"
 		elif self.method == 3:
-			print "LQE: PRR"
+			print "        LQE: PRR"
 		elif self.method == 4:
-			print "LQE: PRR2 - full"
+			print "        LQE: PRR2 - full"
 		elif self.method == 5:
-			print "LQE: PRR2 - sem RSSI"
+			print "        LQE: PRR2 - sem RSSI"
 		elif self.method == 6:
-			print "LQE: Traditional PRR+RSSI"
+			print "        LQE: Traditional PRR+RSSI"
 		elif self.method == 7:
-			print "LQE: LQL"
+			print "        LQE: LQL"
 		elif self.method == 8:
-			print "LQE: LQR3"
+			print "        LQE: LQR3"
 
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)
