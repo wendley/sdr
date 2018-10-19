@@ -63,7 +63,7 @@ class powerControl(gr.sync_block):
         # print "Estimativa: --- %6.2f" % (estimativa)
 
         newGain = 72*(1-estimativa)+28 #Normalização
-        newGain = 60
+        newGain = 50
         # print "Ganho de Tx: --- %6.2f" % (newGain)
 
         self.uhd_usrp_sink.set_gain(newGain) #This sets the gain
