@@ -88,8 +88,10 @@ class getRSSI(gr.sync_block):
 		self.geralSends = 1 # Total number of sends
 		self.geralSendOrder = 0 # Total number of send orders
 		self.mediaSNR = 0.0
-		self.startT = 0 # start time
-		self.split = 0 # split time
+		self.startT = 0 # start time for ML
+		self.split = 0 # split time for ML
+		self.outPck = 0 # start time for packet time
+		self.intAck = 0 # end time for packet time
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
@@ -156,6 +158,11 @@ class getRSSI(gr.sync_block):
 			self.ackCount += 1
 			# print "\n--------- \nTotal geral de acks recebidos: %d \n--------- \n" % (self.ackCount)
 			self.sendedPacks += 1
+
+			self.intAck = time.time()
+			diffTempo = self.outPck - self.intAck
+			print "Tempo p receber ack: %6.2f" % (diffTempo)
+
 			self.calcPRR(1)
 			self.calcLQE()
 		elif tipo == 999: # Sinaliza final de arquivo ou de msg, após esvaziar buffer do MAC
@@ -181,6 +188,7 @@ class getRSSI(gr.sync_block):
 
 	def handlerSendPack(self, pdu): # Acionado sempre que um pacote é de fato enviado (incluindo reenvios)
 		self.geralSends += 1
+		self.outPck = time.time()
 		self.calcLQE()
 
 		# Salva arquivos para scatterplot
