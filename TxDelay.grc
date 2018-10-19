@@ -953,7 +953,7 @@
     </param>
     <param>
       <key>maxRSSI</key>
-      <value>-68</value>
+      <value>-54</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -961,7 +961,7 @@
     </param>
     <param>
       <key>minRSSI</key>
-      <value>-128</value>
+      <value>-100</value>
     </param>
     <param>
       <key>window</key>
