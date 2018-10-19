@@ -161,9 +161,11 @@ class getRSSI(gr.sync_block):
 
 			self.intAck = datetime.datetime.now()
 			diffTempo = self.intAck - self.outPck
-			print "Tempo p receber ack: "
+			print "\n ----- \nTempo p receber ack: "
 			print (diffTempo)
 			print "\n"
+
+			self.tempoTotalAck += diffTempo # vai somando para computar o tempo total de recebimento de acks
 
 			self.calcPRR(1)
 			self.calcLQE()
@@ -693,6 +695,8 @@ class getRSSI(gr.sync_block):
 		print "-   Quantidade de retransmissões: %d" % (self.geralSends - self.geralSendOrder)
 		print "-   Relação envios/pacotes recebidos: %6.2f" %(calcRel)
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
+		print "-   Tempo medio de recebimento de acks: "
+		print self.tempoTotalAck
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
