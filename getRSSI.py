@@ -408,8 +408,8 @@ class getRSSI(gr.sync_block):
 
 			if self.filter == 2: #EMA
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimRssi))
-				print " DEBUG ---------- RSSI EMA  -----------"
-				print(self.estimRssi)
+				# print " DEBUG ---------- RSSI EMA  -----------"
+				# print(self.estimRssi)
 
 			elif self.filter == 3: #Kalman
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimRssiKalman))
