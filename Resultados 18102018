@@ -607,3 +607,79 @@ LQR3
 -   Tamanho serie erro ML SVMR: 1186 entradas 
 -   Qtde de reducoes da serie LQR3: 6 
 ============================================================== 
+
+
+LQR3
+3
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  72.36
+-   Desvio padrão:   2.02
+-   Tamanho da amostra: 734
+ 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 735
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 236
+-   Relação envios/pacotes recebidos:   1.48
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.08 percent
+-   Tamanho serie erro ML SVMR: 1232 entradas 
+-   Qtde de reducoes da serie LQR3: 7 
+============================================================== 
+
+
+
+LQR3
+4
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  71.53
+-   Desvio padrão:   1.82
+-   Tamanho da amostra: 711
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 712
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 212
+-   Relação envios/pacotes recebidos:   1.43
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.07 percent
+-   Tamanho serie erro ML SVMR: 1209 entradas 
+-   Qtde de reducoes da serie LQR3: 6 
+============================================================== 
+
+
+LQR3
+5
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  71.83
+-   Desvio padrão:   1.80
+-   Tamanho da amostra: 689
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 690
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 190
+-   Relação envios/pacotes recebidos:   1.38
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.07 percent
+-   Tamanho serie erro ML SVMR: 1189 entradas 
+-   Qtde de reducoes da serie LQR3: 6 
+============================================================== 
