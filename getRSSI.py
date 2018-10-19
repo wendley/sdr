@@ -381,6 +381,7 @@ class getRSSI(gr.sync_block):
 		# RSSI Instantaneo + Kalman kRssi
 		# See calibration in datasheet of AD9361 (Analog Device of B210):
 		# http://www.analog.com/media/en/technical-documentation/user-guides/AD9361_Reference_Manual_UG-570.pdf
+		# https://www.analog.com/media/en/technical-documentation/data-sheets/AD9361.pdf
 
 		self.estimPRR = float(self.geralPRR)
 		self.estimPRR_Rssi = float(min(self.geralPRR, self.estimRssi)) # PRR + RSSI
