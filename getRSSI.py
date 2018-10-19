@@ -694,17 +694,17 @@ class getRSSI(gr.sync_block):
 			print "LQE: No method"
 		elif self.method == 2:
 			print "LQE: RSSI"
-		elif self.method == 2:
+		elif self.method == 3:
 			print "LQE: PRR"
-		elif self.method == 2:
+		elif self.method == 4:
 			print "LQE: PRR2 - full"
-		elif self.method == 2:
+		elif self.method == 5:
 			print "LQE: PRR2 - sem RSSI"
-		elif self.method == 2:
+		elif self.method == 6:
 			print "LQE: Traditional PRR+RSSI"
-		elif self.method == 2:
+		elif self.method == 7:
 			print "LQE: LQL"
-		elif self.method == 2:
+		elif self.method == 8:
 			print "LQE: LQR3"
 
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
@@ -721,6 +721,7 @@ class getRSSI(gr.sync_block):
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
 		print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
 		print "============================================================== \n"
+		print self.serieTempoTotalAck
 
 
 	def holtwinters(self, y, alpha, beta, gamma, c, debug=False):
