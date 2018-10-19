@@ -290,3 +290,81 @@ Tempo p receber ack:  -0.10
 -   Qtde de reducoes da serie LQR3: 0 
 ============================================================== 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PARA ENCONTRAR O GAIN MAX, COM FONTE DE RUIDO NO NO2 COM GAIN 89
+
+
+
+
+
+
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  60.00
+-   Desvio padrão:   0.00
+-   Tamanho da amostra: 594
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 100
+-   Total de envios efetivos: 595
+-   Total geral de acks recebidos: 0
+-   Quantidade de retransmissões: 495
+-   Relação envios/pacotes recebidos:   0.00
+-   Taxa de entrega:   0.00 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  70.00
+-   Desvio padrão:   0.00
+-   Tamanho da amostra: 513
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 100
+-   Total de envios efetivos: 514
+-   Total geral de acks recebidos: 24
+-   Quantidade de retransmissões: 414
+-   Relação envios/pacotes recebidos:  21.42
+-   Taxa de entrega:  24.00 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
