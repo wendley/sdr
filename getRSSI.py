@@ -92,6 +92,7 @@ class getRSSI(gr.sync_block):
 		self.split = 0 # split time for ML
 		self.outPck = 0 # start time for packet time
 		self.intAck = 0 # end time for packet time
+		self.tempoTotalAck = 0
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
@@ -696,7 +697,7 @@ class getRSSI(gr.sync_block):
 		print "-   Relação envios/pacotes recebidos: %6.2f" %(calcRel)
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   Tempo medio de recebimento de acks: "
-		print self.tempoTotalAck
+		print self.tempoTotalAck/self.ackCount
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
