@@ -683,3 +683,58 @@ LQR3
 -   Tamanho serie erro ML SVMR: 1189 entradas 
 -   Qtde de reducoes da serie LQR3: 6 
 ============================================================== 
+
+
+
+
+
+LQR3 500ms
+1
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.12
+-   Desvio padrão:   3.23
+-   Tamanho da amostra: 724
+
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 725
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 225
+-   Relação envios/pacotes recebidos:   1.45
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.04 percent
+-   Tamanho serie erro ML SVMR: 1223 entradas 
+-   Qtde de reducoes da serie LQR3: 82 
+
+============================================================== 
+
+
+LQR3 500ms
+2
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.68
+-   Desvio padrão:   3.59
+-   Tamanho da amostra: 740
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 741
+-   Total geral de acks recebidos: 496
+-   Quantidade de retransmissões: 241
+-   Relação envios/pacotes recebidos:   1.49
+-   Taxa de entrega:  99.20 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.05 percent
+-   Tamanho serie erro ML SVMR: 1238 entradas 
+-   Qtde de reducoes da serie LQR3: 68 
+============================================================== 
