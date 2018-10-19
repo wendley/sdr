@@ -890,7 +890,7 @@
     </param>
     <param>
       <key>maxValor</key>
-      <value>20</value>
+      <value>500</value>
     </param>
     <param>
       <key>minoutbuf</key>
