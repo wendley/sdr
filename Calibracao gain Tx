@@ -429,3 +429,43 @@ PRR: 0.0277
 -   Qtde de reducoes da serie LQR3: 0 
 ============================================================== 
 
+
+
+
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  70.00
+-   Desvio padrão:   0.00
+-   Tamanho da amostra: 467
+============================================================== 
+
+
+--------- 
+PRR: 0.3891
+---------
+
+Tempo p receber ack:  -0.05
+
+--------- 
+PRR: 0.4505
+---------
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 100
+-   Total de envios efetivos: 468
+-   Total geral de acks recebidos: 45
+-   Quantidade de retransmissões: 368
+-   Relação envios/pacotes recebidos:  10.40
+-   Taxa de entrega:  45.00 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
