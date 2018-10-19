@@ -166,8 +166,7 @@ class getRSSI(gr.sync_block):
 			# print (diffTempo)
 			# print "\n"
 
-			#if self.tempoTotalAck ==0 : self.tempoTotalAck = diffTempo #muda o tipo para datetime
-			self.serieTempoTotalAck.append(diffTempo.microseconds/1000.0) # vai somando para computar o tempo total de recebimento de acks
+			self.serieTempoTotalAck.append(diffTempo.microseconds/1000.0) # adiciona os milisegundos do tempo de recebimento de acks
 
 			self.calcPRR(1)
 			self.calcLQE()
@@ -691,6 +690,23 @@ class getRSSI(gr.sync_block):
 
 		print "\n============================================================== "
 		print "   :::  LQE SUMMARY  :::"
+		if self.method == 1:
+			print "LQE: No method"
+		elif self.method == 2:
+			print "LQE: RSSI"
+		elif self.method == 2:
+			print "LQE: PRR"
+		elif self.method == 2:
+			print "LQE: PRR2 - full"
+		elif self.method == 2:
+			print "LQE: PRR2 - sem RSSI"
+		elif self.method == 2:
+			print "LQE: Traditional PRR+RSSI"
+		elif self.method == 2:
+			print "LQE: LQL"
+		elif self.method == 2:
+			print "LQE: LQR3"
+
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)
 		print "-   Total geral de acks recebidos: %d" % (self.ackCount)
@@ -699,6 +715,7 @@ class getRSSI(gr.sync_block):
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   Tempo medio de recebimento de acks: %6.2f" %(numpy.mean(self.serieTempoTotalAck))
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck))
+		print "-   Tam amostra do tempo de recebimento de acks: %6.2f" %(len(self.serieTempoTotalAck))
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
