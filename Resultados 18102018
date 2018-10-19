@@ -556,6 +556,13 @@ LQL
 
 
 
+------------------
+------------------
+------------------
+------------------
+
+19/10/2018
+
 
 LQR3
 1
@@ -738,3 +745,175 @@ LQR3 500ms
 -   Tamanho serie erro ML SVMR: 1238 entradas 
 -   Qtde de reducoes da serie LQR3: 68 
 ============================================================== 
+
+
+LQR3
+550ms
+1
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  71.41
+-   Desvio padrão:   2.11
+-   Tamanho da amostra: 714
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 715
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 216
+-   Relação envios/pacotes recebidos:   1.43
+-   Taxa de entrega: 100.00 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.06 percent
+-   Tamanho serie erro ML SVMR: 1214 entradas 
+-   Qtde de reducoes da serie LQR3: 6 
+============================================================== 
+
+
+LQR3
+550ms
+2
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  70.96
+-   Desvio padrão:   2.35
+-   Tamanho da amostra: 788
+============================================================== 
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  70.96
+-   Desvio padrão:   2.35
+-   Tamanho da amostra: 788
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 789
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 289
+-   Relação envios/pacotes recebidos:   1.58
+-   Taxa de entrega:  99.60 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.06 percent
+-   Tamanho serie erro ML SVMR: 1290 entradas 
+-   Qtde de reducoes da serie LQR3: 7 
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 789
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 289
+-   Relação envios/pacotes recebidos:   1.58
+-   Taxa de entrega:  99.60 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.06 percent
+-   Tamanho serie erro ML SVMR: 1290 entradas 
+-   Qtde de reducoes da serie LQR3: 7 
+============================================================== 
+
+
+
+------------------
+------------------
+------------------
+------------------
+
+
+
+
+PRR2 - 19/10
+1
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.31
+-   Desvio padrão:   6.57
+-   Tamanho da amostra: 764
+
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 765
+-   Total geral de acks recebidos: 497
+-   Quantidade de retransmissões: 266
+-   Relação envios/pacotes recebidos:   1.54
+-   Taxa de entrega:  99.60 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+PRR2
+2
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  68.28
+-   Desvio padrão:   5.74
+-   Tamanho da amostra: 734
+============================================================== 
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  68.28
+-   Desvio padrão:   5.74
+-   Tamanho da amostra: 734
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 735
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 236
+-   Relação envios/pacotes recebidos:   1.48
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 735
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 236
+-   Relação envios/pacotes recebidos:   1.48
+-   Taxa de entrega:  99.80 percent
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
