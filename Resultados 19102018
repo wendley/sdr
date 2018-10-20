@@ -276,10 +276,7 @@ PRR
 -   Média dos ganhos das transmissões:  46.99
 -   Desvio padrão:   0.99
 -   Tamanho da amostra: 1206
-============================================================== 
 
-
-============================================================== 
    :::  LQE SUMMARY  :::
         LQE: PRR
 
@@ -292,12 +289,14 @@ PRR
 -   Tempo medio de recebimento de acks:  49.08
 -   Desvio padrao do tempo de recebimento de acks:  91.04
 -   ------------------------------------
-/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
-  warnings.warn("Mean of empty slice.", RuntimeWarning)
-/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
 -   Erro medio Machine Learning SVMR:    nan percent
 -   Tamanho serie erro ML SVMR: 0 entradas 
 -   Qtde de reducoes da serie LQR3: 0 
 ============================================================== 
+
+
+
+PRR2
+1
+
 

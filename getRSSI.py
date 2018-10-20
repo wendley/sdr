@@ -407,9 +407,11 @@ class getRSSI(gr.sync_block):
 
 		if self.method == 1:
 			#####################################################
-			# No estimator - constant gain
+			# No estimator - constant gain - maximum gain
 			#####################################################
-			print "No estimator in use - the tx gain is constant"
+			#print "No estimator in use - the tx gain is constant"
+			aux1 = 0.0
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(aux1))
 
 		elif self.method == 2:
 			#####################################################
@@ -695,7 +697,7 @@ class getRSSI(gr.sync_block):
 		print "\n============================================================== "
 		print "   :::  LQE SUMMARY  :::"
 		if self.method == 1:
-			print "        LQE: No method"
+			print "        LQE: No method - Fixo no maximo gain"
 		elif self.method == 2:
 			print "        LQE: RSSI"
 		elif self.method == 3:
