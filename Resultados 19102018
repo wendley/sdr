@@ -387,4 +387,84 @@ LQL
 LQL
 2
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.16
+-   Desvio padrão:   1.24
+-   Tamanho da amostra: 1220
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 1221
+-   Total geral de acks recebidos: 465
+-   Quantidade de retransmissões: 722
+-   Relação envios/pacotes recebidos:   2.63
+-   Taxa de entrega:  93.19 percent
+-   Tempo medio de recebimento de acks:  80.35
+-   Desvio padrao do tempo de recebimento de acks: 109.16
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+LQR3
+1
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.56
+-   Desvio padrão:   1.16
+-   Tamanho da amostra: 1105
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 1106
+-   Total geral de acks recebidos: 480
+-   Quantidade de retransmissões: 607
+-   Relação envios/pacotes recebidos:   2.30
+-   Taxa de entrega:  96.19 percent
+-   Tempo medio de recebimento de acks: 121.11
+-   Desvio padrao do tempo de recebimento de acks: 168.66
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.06 percent
+-   Tamanho serie erro ML SVMR: 1622 entradas 
+-   Qtde de reducoes da serie LQR3: 14 
+============================================================== 
+
+
+LQR3
+2
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.51
+-   Desvio padrão:   0.78
+-   Tamanho da amostra: 1056
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 498
+-   Total de envios efetivos: 1052
+-   Total geral de acks recebidos: 489
+-   Quantidade de retransmissões: 554
+-   Relação envios/pacotes recebidos:   2.15
+-   Taxa de entrega:  98.19 percent
+-   Tempo medio de recebimento de acks: 142.79
+-   Desvio padrao do tempo de recebimento de acks: 176.71
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.06 percent
+-   Tamanho serie erro ML SVMR: 1564 entradas 
+-   Qtde de reducoes da serie LQR3: 17 
+============================================================== 
 
