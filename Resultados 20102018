@@ -10,9 +10,303 @@ LQR3
 MULTIPLE SENDER - CENÁRIO COM DELAY POISSON (500ms / 500ms) - SEM RUIDO ARTIFICIAL
 (Varios p/ no 15)
 
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
 
 LQR3
 1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+No12
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.40
+-   Desvio padrão:   0.91
+-   Tamanho da amostra: 1120
+============================================================== 
+
+OOO
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 1121
+-   Total geral de acks recebidos: 486
+-   Quantidade de retransmissões: 621
+-   Relação envios/pacotes recebidos:   2.31
+-   Taxa de entrega:  97.20 percent
+-   Tempo medio de recebimento de acks: 104.18
+-   Desvio padrao do tempo de recebimento de acks: 152.95
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.05 percent
+-   Tamanho serie erro ML SVMR: 1633 entradas 
+-   Qtde de reducoes da serie LQR3: 13 
+============================================================== 
+
+
+no14
+============================================================== 
+
+   :::  POWER CONTROL SUMMARY  :::
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 500
+ 
+-   Média dos ganhos das transmissões:  48.57
+-   Total de envios efetivos: 837
+-   Total geral de acks recebidos: 494
+-   Desvio padrão:   1.40
+-   Tamanho da amostra: 836
+-   Quantidade de retransmissões: 337
+-   Relação envios/pacotes recebidos:   1.69
+============================================================== 
+
+-   Taxa de entrega:  98.80 percent
+-   Tempo medio de recebimento de acks:  23.93
+-   Desvio padrao do tempo de recebimento de acks:  40.42
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.11 percent
+-   Tamanho serie erro ML SVMR: 1341 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+no16
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.03
+-   Desvio padrão:   0.58
+-   Tamanho da amostra: 1631
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 1632
+-   Total geral de acks recebidos: 389
+-   Quantidade de retransmissões: 1133
+-   Relação envios/pacotes recebidos:   4.20
+-   Taxa de entrega:  77.96 percent
+-   Tempo medio de recebimento de acks: 149.57
+-   Desvio padrao do tempo de recebimento de acks: 164.83
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.16 percent
+-   Tamanho serie erro ML SVMR: 2149 entradas 
+-   Qtde de reducoes da serie LQR3: 11 
+============================================================== 
+
+
+no18
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.28
+-   Desvio padrão:   0.91
+-   Tamanho da amostra: 1429
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 1430
+-   Total geral de acks recebidos: 440
+-   Quantidade de retransmissões: 930
+-   Relação envios/pacotes recebidos:   3.25
+-   Taxa de entrega:  88.00 percent
+-   Tempo medio de recebimento de acks: 111.48
+-   Desvio padrao do tempo de recebimento de acks: 141.07
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.11 percent
+-   Tamanho serie erro ML SVMR: 1952 entradas 
+-   Qtde de reducoes da serie LQR3: 7 
+============================================================== 
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+Gain Fixo
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+no12
+
+============================================================== 
+thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.98
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 797
+-   Total geral de acks recebidos: 496
+-   Quantidade de retransmissões: 298
+-   Relação envios/pacotes recebidos:   1.61
+-   Taxa de entrega:  99.40 percent
+-   Tempo medio de recebimento de acks:  53.25
+-   Desvio padrao do tempo de recebimento de acks: 119.93
+-   ------------------------------------
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+-   Desvio padrão:   0.46
+-   Tamanho da amostra: 796
+============================================================== 
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+
+============================================================== 
+
+
+no14
+
+==============================================================    :::  POWER CONTROL SUMMARY  :::
+
+
+-   Média dos ganhos das transmissões:  69.98   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+
+-   Total de envios efetivos: 712
+-   Total geral de acks recebidos: 495
+-   Quantidade de retransmissões: 213
+-   Relação envios/pacotes recebidos:   1.44
+-   Taxa de entrega:  99.20 percent
+-   Tempo medio de recebimento de acks:  10.91
+-   Desvio padrao do tempo de recebimento de acks:  38.28
+ -   Desvio padrão:   0.49
+-   ------------------------------------
+-   Tamanho da amostra: 711
+============================================================== 
+
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+no16
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 680
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 181
+-   Relação envios/pacotes recebidos:   1.36
+-   Taxa de entrega: 100.00 percent
+-   Tempo medio de recebimento de acks:   9.45
+-   Desvio padrao do tempo de recebimento de acks:  31.35
+ -   ------------------------------------
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+-   Média dos ganhos das transmissões:  69.98
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+ -   Desvio padrão:   0.50
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tamanho da amostra: 679
+============================================================== 
+============================================================== 
+
+
+
+
+no18
+============================================================== 
+thread[   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 662
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 162
+-   Relação envios/pacotes recebidos:   1.33
+-   Taxa de entrega:  99.80 percent
+-   Tempo medio de recebimento de acks:   7.39
+-   Desvio padrao do tempo de recebimento de acks:   2.51
+-   ------------------------------------
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.98
+
+-   Desvio padrão:   0.51
+-   Tamanho da amostra: 661
+============================================================== 
+
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+LQL
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
 
 
 
