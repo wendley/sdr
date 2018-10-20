@@ -7,7 +7,7 @@
 
 
 if [ $# -lt 1 ]; then
-   echo "Faltou informar o numero do Nó, 0 ou 1"
+   echo "Faltou informar o numero do Nó, 0 ou 1 ou 2 etc."
    exit 1
 fi
 
