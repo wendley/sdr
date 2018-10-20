@@ -163,9 +163,9 @@ class getRSSI(gr.sync_block):
 
 			self.intAck = datetime.datetime.now()
 			diffTempo = self.intAck - self.outPck
-			print "\n ----- \nTempo p receber ack: "
-			print (diffTempo)
-			print "\n"
+			# print "\n ----- \nTempo p receber ack: "
+			# print (diffTempo)
+			# print "\n"
 
 			self.serieTempoTotalAck.append(diffTempo.microseconds/1000.0) # adiciona os milisegundos do tempo de recebimento de acks
 
