@@ -468,3 +468,60 @@ LQR3
 -   Qtde de reducoes da serie LQR3: 17 
 ============================================================== 
 
+
+
+FIXED GAIN (ESTIMATION 0)
+
+1
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.98
+-   Desvio padrão:   0.49
+-   Tamanho da amostra: 699
+
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 700
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 201
+-   Relação envios/pacotes recebidos:   1.40
+-   Taxa de entrega: 100.00 percent
+-   Tempo medio de recebimento de acks:  78.34
+-   Desvio padrao do tempo de recebimento de acks: 146.29
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+FG
+2
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  69.98
+-   Desvio padrão:   0.50
+-   Tamanho da amostra: 686
+
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 687
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 188
+-   Relação envios/pacotes recebidos:   1.38
+-   Taxa de entrega: 100.00 percent
+-   Tempo medio de recebimento de acks:  76.17
+-   Desvio padrao do tempo de recebimento de acks: 144.88
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
