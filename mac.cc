@@ -43,7 +43,7 @@ class mac_impl : public mac {
     long int real_backoff = 4;//number of slots
     long int difs = 5;//milisecounds
     long int sifs = 1;//milisecounds
-    long int resend_waiting = 80;//milisecounds
+    long int resend_waiting = 100;//milisecounds
     int lostPacks = 0;
     int numMsg = 0;
 
