@@ -174,7 +174,7 @@ class getRSSI(gr.sync_block):
 		elif tipo == 999: # Sinaliza final de arquivo ou de msg, após esvaziar buffer do MAC
 			if self.cont999 == 1:
 				self.cont999 = 2
-			elif self.cont999 == 2: #faz com que somente n0 segundo 999 (do buffer) e que haja a chamada do stat
+			elif self.cont999 == 2: #faz com que somente no segundo 999 (do buffer) eh que haja a chamada do stat
 				self.statSummary()
 
 

@@ -93,10 +93,10 @@ class powerControl(gr.sync_block):
             # arql.write(str(ganho)+'\n')
 
         elif pmt.to_float(pdu) == 999: # Sinaliza fim de arquivo e fila no mac vazia
-        	if self.cont999 == 1:
-				self.cont999 = 2
-			elif self.cont999 == 2: #faz com que somente n0 segundo 999 (do buffer) e que haja a chamada do stat
-				self.statSummary()
+            if self.cont999 == 1:
+                self.cont999 = 2
+            elif self.cont999 == 2: #faz com que somente no segundo 999 (do buffer) eh que haja a chamada do stat
+                self.statSummary()
 
     def statSummary(self):
 
