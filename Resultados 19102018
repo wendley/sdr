@@ -218,20 +218,7 @@ KLE
 -   Média dos ganhos das transmissões:  45.02
 -   Desvio padrão:   0.50
 -   Tamanho da amostra: 2399
-============================================================== 
 
-
---------- 
-PRR: 0.4348
----------
-
-
---------- 
-PRR: 0.4931
----------
-
-
-============================================================== 
    :::  LQE SUMMARY  :::
         LQE: RSSI
 
@@ -244,10 +231,6 @@ PRR: 0.4931
 -   Tempo medio de recebimento de acks:  11.57
 -   Desvio padrao do tempo de recebimento de acks:  16.72
 -   ------------------------------------
-/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
-  warnings.warn("Mean of empty slice.", RuntimeWarning)
-/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
 -   Erro medio Machine Learning SVMR:    nan percent
 -   Tamanho serie erro ML SVMR: 0 entradas 
 -   Qtde de reducoes da serie LQR3: 0 
@@ -257,4 +240,64 @@ PRR: 0.4931
 
 PRR
 1
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.11
+-   Desvio padrão:   1.08
+-   Tamanho da amostra: 1220
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 1221
+-   Total geral de acks recebidos: 466
+-   Quantidade de retransmissões: 722
+-   Relação envios/pacotes recebidos:   2.62
+-   Taxa de entrega:  93.39 percent
+-   Tempo medio de recebimento de acks:  40.03
+-   Desvio padrao do tempo de recebimento de acks:  79.87
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+PRR
+2
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.99
+-   Desvio padrão:   0.99
+-   Tamanho da amostra: 1206
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 1207
+-   Total geral de acks recebidos: 463
+-   Quantidade de retransmissões: 707
+-   Relação envios/pacotes recebidos:   2.61
+-   Taxa de entrega:  92.60 percent
+-   Tempo medio de recebimento de acks:  49.08
+-   Desvio padrao do tempo de recebimento de acks:  91.04
+-   ------------------------------------
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
 
