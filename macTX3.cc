@@ -255,6 +255,7 @@ public:
         pmt::pmt_t blob;
         if (pmt::is_eof_object(msg)) {
             dout << "MAC: exiting in few seconds" << std::endl;
+            message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
             endOfFile = true;
             if (!data_ready){
                 message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
