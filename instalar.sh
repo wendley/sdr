@@ -55,11 +55,12 @@ case $1 in
         echo "MAC - Node TX 3"
         touch no.TX3 ;
         cd ~;
-    "4") # Atualiza o arquivo mac de gr-802154, pois é o Nó 4 (muda somente o endereco mac):
-         cp sdr/macTX4.cc gr-802154-wy/lib/mac.cc ;
-         echo "MAC - Node TX 4"
-         touch no.TX4 ;
-         cd ~;
+        ;;
+   "4") # Atualiza o arquivo mac de gr-802154, pois é o Nó 4 (muda somente o endereco mac):
+        cp sdr/macTX4.cc gr-802154-wy/lib/mac.cc ;
+        echo "MAC - Node TX 4"
+        touch no.TX4 ;
+        cd ~;
         ;;
    *) echo "Opção inválida!"
         exit 1
