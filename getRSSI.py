@@ -725,7 +725,7 @@ class getRSSI(gr.sync_block):
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
 		print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
 		print "============================================================== \n"
-		#print self.serieTempoTotalAck
+		print self.serieTempoTotalAck
 
 
 	def holtwinters(self, y, alpha, beta, gamma, c, debug=False):
