@@ -438,4 +438,128 @@ LQR3
 ::::::::::::::
 
 
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.29
+-   Desvio padrão:   0.71
+-   Tamanho da amostra: 1194
+============================================================== 
+
+thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 1195
+-   Total geral de acks recebidos: 471
+-   Quantidade de retransmissões: 696
+-   Relação envios/pacotes recebidos:   2.54
+-   Taxa de entrega:  94.39 percent
+-   Tempo medio de recebimento de acks: 158.52
+-   Desvio padrao do tempo de recebimento de acks: 175.80
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.04 percent
+-   Tamanho serie erro ML SVMR: 1709 entradas 
+-   Qtde de reducoes da serie LQR3: 17 
+============================================================== 
+
+
+
+
+no14
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.17
+-   Desvio padrão:   1.07
+-   Tamanho da amostra: 875
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 876
+-   Total geral de acks recebidos: 489
+-   Quantidade de retransmissões: 377
+-   Relação envios/pacotes recebidos:   1.79
+-   Taxa de entrega:  98.00 percent
+-   Tempo medio de recebimento de acks:  42.73
+-   Desvio padrao do tempo de recebimento de acks:  67.28
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.09 percent
+-   Tamanho serie erro ML SVMR: 1376 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+no16
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.06
+-   Desvio padrão:   0.85
+-   Tamanho da amostra: 1476
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 1477
+-   Total geral de acks recebidos: 429
+-   Quantidade de retransmissões: 978
+-   Relação envios/pacotes recebidos:   3.44
+-   Taxa de entrega:  85.97 percent
+-   Tempo medio de recebimento de acks: 113.99
+-   Desvio padrao do tempo de recebimento de acks: 146.47
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.10 percent
+-   Tamanho serie erro ML SVMR: 2000 entradas 
+-   Qtde de reducoes da serie LQR3: 9 
+============================================================== 
+
+
+
+no18
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.80
+-   Desvio padrão:   0.82
+-   Tamanho da amostra: 1272
+thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 1273
+-   Total geral de acks recebidos: 460
+-   Quantidade de retransmissões: 773
+-   Relação envios/pacotes recebidos:   2.77
+-   Taxa de entrega:  92.00 percent
+-   Tempo medio de recebimento de acks:  66.68
+-   Desvio padrao do tempo de recebimento de acks:  91.72
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:   0.07 percent
+-   Tamanho serie erro ML SVMR: 1784 entradas 
+-   Qtde de reducoes da serie LQR3: 3 
+============================================================== 
 
