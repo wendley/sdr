@@ -182,3 +182,79 @@ SINGLE SENDER - CENÁRIO COM DELAY POISSON (500ms / 500ms) - SEM RUIDO ARTIFICIA
 KLE
 1
 
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::-   
+
+-   Média dos ganhos das transmissões:  45.01
+-   Desvio padrão:   0.28
+-   Tamanho da amostra: 2381
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI KALMAN
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 2382
+-   Total geral de acks recebidos: 231
+-   Quantidade de retransmissões: 1882
+-   Relação envios/pacotes recebidos:  10.31
+-   Taxa de entrega:  46.20 percent
+-   Tempo medio de recebimento de acks:  13.98
+-   Desvio padrao do tempo de recebimento de acks:  21.88
+------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+KLE
+2
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  45.02
+-   Desvio padrão:   0.50
+-   Tamanho da amostra: 2399
+============================================================== 
+
+
+--------- 
+PRR: 0.4348
+---------
+
+
+--------- 
+PRR: 0.4931
+---------
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 2400
+-   Total geral de acks recebidos: 209
+-   Quantidade de retransmissões: 1900
+-   Relação envios/pacotes recebidos:  11.48
+-   Taxa de entrega:  41.80 percent
+-   Tempo medio de recebimento de acks:  11.57
+-   Desvio padrao do tempo de recebimento de acks:  16.72
+-   ------------------------------------
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+PRR
+1
+
