@@ -43,7 +43,7 @@ class mac_impl : public mac {
     long int real_backoff = 4;//number of slots
     long int difs = 5;//milisecounds
     long int sifs = 1;//milisecounds
-    long int resend_waiting = 80;//milisecounds
+    long int resend_waiting = 100;//milisecounds
     int lostPacks = 0;
 
     short max_retr = 5;
@@ -57,7 +57,7 @@ class mac_impl : public mac {
     // FIXME Endereço para alterar aqui e na linha 318.
     // Se la tem 41, 42 e 43, aqui deve ter o 0x40
 
-    char mac_addr_1 = 0x42;
+    char mac_addr_1 = 0x40;
     char mac_addr_2 = 0xe8;
 
     //Endereço de broadcast
@@ -68,9 +68,10 @@ class mac_impl : public mac {
     char addr0[2];
     char addr1[2];
     char addr2[2];
+    char addr3[2];
 
     //array que vai conter os endereços das outras máquinas
-    char* addrs[3];
+    char* addrs[4];
 
     boost::shared_ptr<gr::thread::thread> exec;
     boost::shared_ptr<gr::thread::thread> waitSending;
@@ -151,25 +152,10 @@ public:
             dout << "MAC: wrong crc. Dropping packet!" << std::endl;
             return;
         } else {
-          if (isAckPack(recPackage)) { // se for ack...
-
-            unsigned char packId;
-            packId = recPackage[2];
-
-            std::list<SendPackage*>::iterator it = sendList.begin();
-            while (it != sendList.end()) {
-                if ((*it)->getId() == packId) { // verifica se o ack recebido tem o id de algum pacote enviado
-                    message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
-                    removePackAcked(recPackage);
-                    break;
-                }
-                it++;
-            }
-
-              //printf("Package %u acked.\n\n", (unsigned char)recPackage[2]);
-              //           message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
-              //           removePackAcked(recPackage);
-              // }
+            if (isAckPack(recPackage)) {
+                //printf("Package %u acked.\n\n", (unsigned char)recPackage[2]);
+                message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
+                removePackAcked(recPackage);
             } else if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) &&
                     (mac_addr_1 == recPackage[5] && mac_addr_2 == recPackage[6])){
                 //Verifica se o endereço de destino confere com o endereço MAC
@@ -333,18 +319,22 @@ public:
         //quais são os nós presentes na rede.
         // FIXME Enderecos
 
-        addr0[0] = 0x40;
+        addr0[0] = 0x41;
         addr0[1] = 0xe8;
 
-        addr1[0] = 0x41;
+        addr1[0] = 0x42;
         addr1[1] = 0xe8;
 
         addr2[0] = 0x43;
         addr2[1] = 0xe8;
 
+        addr3[0] = 0x44;
+        addr3[1] = 0xe8;
+
         addrs[0] = addr0;
         addrs[1] = addr1;
         addrs[2] = addr2;
+        addrs[3] = addr3;
 
         return block::start();
     }

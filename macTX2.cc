@@ -45,16 +45,19 @@ class mac_impl : public mac {
     long int sifs = 1;//milisecounds
     long int resend_waiting = 100;//milisecounds
     int lostPacks = 0;
-    int numMsg = 0;
 
-    short max_retr = 5; //5 tentativas de reenvios
+    short max_retr = 5;
 
     //Endereço MAC local. Os endereços possuem 2 bytes, assim, essas duas
     //variáveis representam apenas um endereço. Para testes, esse endereço deve
     //ser mudado para cada máquina. Deve-se lembrar de manter a coerência com
     //os endereços de outras máquinas atribuidos na função start() e com a
     //chamada da função generate_mac() feita na função app_in().
-    char mac_addr_1 = 0x41;
+
+    // FIXME Endereço para alterar aqui e na linha 318.
+    // Se la tem 41, 42 e 43, aqui deve ter o 0x40
+
+    char mac_addr_1 = 0x42;
     char mac_addr_2 = 0xe8;
 
     //Endereço de broadcast
@@ -65,9 +68,10 @@ class mac_impl : public mac {
     char addr0[2];
     char addr1[2];
     char addr2[2];
+    char addr3[2];
 
     //array que vai conter os endereços das outras máquinas
-    char* addrs[3];
+    char* addrs[4];
 
     boost::shared_ptr<gr::thread::thread> exec;
     boost::shared_ptr<gr::thread::thread> waitSending;
@@ -148,26 +152,26 @@ public:
             dout << "MAC: wrong crc. Dropping packet!" << std::endl;
             return;
         } else {
-            if (isAckPack(recPackage)) { // se for ack...
+          if (isAckPack(recPackage)) { // se for ack...
 
-              unsigned char packId;
-              packId = recPackage[2];
+            unsigned char packId;
+            packId = recPackage[2];
 
-              std::list<SendPackage*>::iterator it = sendList.begin();
-              while (it != sendList.end()) {
-                  if ((*it)->getId() == packId) { // verifica se o ack recebido tem o id de algum pacote enviado
-                      message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
-                      removePackAcked(recPackage);
-                      break;
-                  }
-                  it++;
-              }
+            std::list<SendPackage*>::iterator it = sendList.begin();
+            while (it != sendList.end()) {
+                if ((*it)->getId() == packId) { // verifica se o ack recebido tem o id de algum pacote enviado
+                    message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
+                    removePackAcked(recPackage);
+                    break;
+                }
+                it++;
+            }
 
-                //printf("Package %u acked.\n\n", (unsigned char)recPackage[2]);
-                //           message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
-                //           removePackAcked(recPackage);
-                // }
-            } else if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) && //se não for ack, ou seja, se for dados...
+              //printf("Package %u acked.\n\n", (unsigned char)recPackage[2]);
+              //           message_port_pub(pmt::mp("ackOut"), pmt::from_long(1));
+              //           removePackAcked(recPackage);
+              // }
+            } else if((mac_addr_1 != recPackage[7] || mac_addr_2 != recPackage[8]) &&
                     (mac_addr_1 == recPackage[5] && mac_addr_2 == recPackage[6])){
                 //Verifica se o endereço de destino confere com o endereço MAC
                 //local, ou seja, "é ednereçado a mim" e se o endereço de origem
@@ -201,7 +205,7 @@ public:
     bool isAckPack(char* recPack) {
         //printf("Recebeu pacote ack %u", (unsigned char)recPack[2]);
         //printf("ack: %x -- const: %x\n", recPack[0] & 0xff, 0x40 & 0xff);
-        bool isA = recPack[0] == 0x40; //endereco do receptor que envia os acks
+        bool isA = recPack[0] == 0x40;
         return isA;
     }
 
@@ -249,11 +253,8 @@ public:
      */
     void app_in(pmt::pmt_t msg) {
         pmt::pmt_t blob;
-        // dout << "PASSANDO" << std::endl; //FIXME
-        printf("Numero da msg: %u\n", numMsg);  // IDEA
         if (pmt::is_eof_object(msg)) {
             dout << "MAC: exiting in few seconds" << std::endl;
-            message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
             endOfFile = true;
             if (!data_ready){
                 message_port_pub(pmt::mp("ackOut"), pmt::from_long(999)); //999 sinaliza fim de transmissão
@@ -331,18 +332,24 @@ public:
         //cenário onde a rede funcione de forma completa, estes endereços são
         //fornecidos por um nó de coordenação, que informa de tempos em tempos
         //quais são os nós presentes na rede.
-        addr0[0] = 0x40; // Endereco do receptor
+        // FIXME Enderecos
+
+        addr0[0] = 0x40;
         addr0[1] = 0xe8;
 
-        addr1[0] = 0x42;
+        addr1[0] = 0x41;
         addr1[1] = 0xe8;
 
         addr2[0] = 0x43;
         addr2[1] = 0xe8;
 
+        addr3[0] = 0x44;
+        addr3[1] = 0xe8;
+
         addrs[0] = addr0;
         addrs[1] = addr1;
         addrs[2] = addr2;
+        addrs[3] = addr3;
 
         return block::start();
     }
@@ -406,7 +413,6 @@ public:
         message_port_pub(pmt::mp("pdu out"), pmt_pack);
         lastPackAckedOrTimeToResendFinished = false;
         printf("Enviou pacote dados %u\n", pack->getId());
-        numMsg = pack->getId(); // é usado para limitar a qtde de msgs p gerar o EOF // atualizacao: nao eh mais usado
         gettimeofday(&now, NULL);
         pack->setTime((now.tv_sec * 1000) + (now.tv_usec / 1000));
 
@@ -490,7 +496,7 @@ public:
      * Função que faz a espera para reenvio.
      */
     void waitResendingTime(){
-        boost::posix_time::millisec workTimeResend(resend_waiting); //80 milisec
+        boost::posix_time::millisec workTimeResend(resend_waiting);
                     boost::this_thread::sleep(workTimeResend);
 
         lastPackAckedOrTimeToResendFinished = true;
@@ -657,7 +663,7 @@ private:
     bool d_debug;
     int d_msg_offset;
     int d_msg_len;
-    uint8_t d_seq_nr; // de 0 a 255 - 1 octeto
+    uint8_t d_seq_nr;
     char d_msg[256];
 
     int d_num_packet_errors;

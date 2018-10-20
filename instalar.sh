@@ -34,27 +34,32 @@ cd ~;
 
 
 case $1 in
-   "0") cp sdr/mac.cc gr-802154-wy/lib/ ;
-        echo "MAC - Node TX1"
-        touch no.TX1 ;
-        ;;
-   "1") # Atualiza o arquivo mac de gr-802154, pois é o Nó 1 (muda somente o endereco mac):
-        cp sdr/macNo1.cc gr-802154-wy/lib/mac.cc ;
+   "0") cp sdr/macRX.cc gr-802154-wy/lib/mac.cc ;
         echo "MAC - Node RX"
         touch no.RX ;
+        ;;
+   "1") #Altera somente o endereco mac:
+        cp sdr/macTX1.cc gr-802154-wy/lib/mac.cc ;
+        echo "MAC - Node TX 1"
+        touch no.TX1 ;
         cd ~;
         ;;
    "2") # Atualiza o arquivo mac de gr-802154, pois é o Nó 2 (muda somente o endereco mac):
-        cp sdr/macNo2.cc gr-802154-wy/lib/mac.cc ;
-        echo "MAC - Node TX2"
+        cp sdr/macTX2.cc gr-802154-wy/lib/mac.cc ;
+        echo "MAC - Node TX 2"
         touch no.TX2 ;
         cd ~;
         ;;
    "3") # Atualiza o arquivo mac de gr-802154, pois é o Nó 3 (muda somente o endereco mac):
-        cp sdr/macNo3.cc gr-802154-wy/lib/mac.cc ;
-        echo "MAC - Node TX3"
+        cp sdr/macTX3.cc gr-802154-wy/lib/mac.cc ;
+        echo "MAC - Node TX 3"
         touch no.TX3 ;
         cd ~;
+    "4") # Atualiza o arquivo mac de gr-802154, pois é o Nó 4 (muda somente o endereco mac):
+         cp sdr/macTX4.cc gr-802154-wy/lib/mac.cc ;
+         echo "MAC - Node TX 4"
+         touch no.TX4 ;
+         cd ~;
         ;;
    *) echo "Opção inválida!"
         exit 1
