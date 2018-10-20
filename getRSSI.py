@@ -94,6 +94,7 @@ class getRSSI(gr.sync_block):
 		self.intAck = 0 # end time for packet time
 		self.serieTempoTotalAck = []
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
+		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
 		self.fnRSSIKalman="/home/wendley/Experimentos/SerieRSSIKalman.txt"
@@ -171,7 +172,10 @@ class getRSSI(gr.sync_block):
 			self.calcPRR(1)
 			self.calcLQE()
 		elif tipo == 999: # Sinaliza final de arquivo ou de msg, após esvaziar buffer do MAC
-			self.statSummary()
+			if self.cont999 == 1:
+				self.cont999 = 2
+			elif self.cont999 == 2: #faz com que somente n0 segundo 999 (do buffer) e que haja a chamada do stat
+				self.statSummary()
 
 
 	def handlerSNR(self, pdu): # Acionado sempre que uma leitura de SNR é calculada
@@ -715,13 +719,13 @@ class getRSSI(gr.sync_block):
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   Tempo medio de recebimento de acks: %6.2f" %(numpy.mean(self.serieTempoTotalAck))
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck))
-		print "-   Tam amostra do tempo de recebimento de acks: %6.2f" %(len(self.serieTempoTotalAck))
+		#print "-   Tam amostra do tempo de recebimento de acks: %6.2f" %(len(self.serieTempoTotalAck))
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
 		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
 		print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
 		print "============================================================== \n"
-		print self.serieTempoTotalAck
+		#print self.serieTempoTotalAck
 
 
 	def holtwinters(self, y, alpha, beta, gamma, c, debug=False):
