@@ -718,7 +718,7 @@ class getRSSI(gr.sync_block):
 		print "-   Relação envios/pacotes recebidos: %6.2f" %(calcRel)
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   Tempo medio de recebimento de acks: %6.2f" %(numpy.mean(self.serieTempoTotalAck))
-		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck))
+		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck, dtype=np.float64))
 		#print "-   Tam amostra do tempo de recebimento de acks: %6.2f" %(len(self.serieTempoTotalAck))
 		print "-   ------------------------------------"
 		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
