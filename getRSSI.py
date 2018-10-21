@@ -371,8 +371,8 @@ class getRSSI(gr.sync_block):
 
 		tempRssi = self.emaRssi
 
-		print "RSSI suavizado: "
-		print tempRssi
+		# print "RSSI suavizado: "
+		# print tempRssi
 
 		if tempRssi < minRSSI :
 			tempRssi = minRSSI
@@ -386,18 +386,18 @@ class getRSSI(gr.sync_block):
 		elif tempKalmanRssi > maxRSSI :
 			tempKalmanRssi = maxRSSI
 
-		print "RSSI suavizado: "
-		print tempKalmanRssi
+		# print "RSSI suavizado: "
+		# print tempKalmanRssi
 
 		self.estimRssi = float(1-(tempRssi-minRSSI)/rangeRSSI)
 
-		print "RSSI Estim: "
-		print self.estimRssi
+		# print "RSSI Estim: "
+		# print self.estimRssi
 
 		self.estimRssiKalman = float(1-(tempKalmanRssi-minRSSI)/rangeRSSI)
 
-		print "RSSI Estim Kalman: "
-		print self.estimRssiKalman
+		# print "RSSI Estim Kalman: "
+		# print self.estimRssiKalman
 
 		# RSSI Instantaneo + Kalman kRssi
 		# See calibration in datasheet of AD9361 (Analog Device of B210):
