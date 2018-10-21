@@ -618,7 +618,27 @@ PRR2
 
 PRR2
 3
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
 
+-   Média dos ganhos das transmissões:  50.03
+-   Desvio padrão:   5.98
+-   Tamanho da amostra: 1950
+
+21/10/2018 - 13:48:58
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+-   Envios solicitados: 1000
+-   Total de envios efetivos: 1951
+-   Total geral de acks recebidos: 978
+-   Quantidade de retransmissões: 951
+-   Relação envios/pacotes recebidos:   1.99
+-   Taxa de entrega:  97.80 percent
+-   Tempo medio de recebimento de acks:  28.71
+-   Desvio padrao do tempo de recebimento de acks:  33.33
+============================================================== 
 
 
 
