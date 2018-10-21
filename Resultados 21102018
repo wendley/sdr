@@ -928,3 +928,35 @@ LQR3 c time
 ============================================================== 
 
 
+
+
+Outro teste, com 250ms, s/ time
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.29
+-   Desvio padrão:   2.07
+-   Tamanho da amostra: 812
+============================================================== 
+
+============================================================== 
+21/10/2018 - 16:00:06
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 421
+-   Total de envios efetivos: 813
+-   Total geral de acks recebidos: 496
+-   Quantidade de retransmissões: 392
+-   Relação envios/pacotes recebidos:   1.64
+-   Taxa de entrega: 117.81 percent
+-   Tempo medio de recebimento de acks: 320.92
+-   Desvio padrao do tempo de recebimento de acks: 306.39
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.14 percent
+-   Tamanho serie erro ML LQR3: 1315 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 

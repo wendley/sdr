@@ -890,7 +890,7 @@
     </param>
     <param>
       <key>maxValor</key>
-      <value>200</value>
+      <value>500</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -945,7 +945,7 @@
     </param>
     <param>
       <key>method</key>
-      <value>8</value>
+      <value>1</value>
     </param>
     <param>
       <key>maxoutbuf</key>
