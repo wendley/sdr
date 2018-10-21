@@ -713,6 +713,10 @@ class getRSSI(gr.sync_block):
 		elif self.method == 8:
 			print "        LQE: LQR3"
 
+		print "\n"
+		agora = datetime.datetime.now()
+		print print agora.strftime("%d/%m/%Y - %H:%M:%S")
+
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)
 		print "-   Total geral de acks recebidos: %d" % (self.ackCount)
