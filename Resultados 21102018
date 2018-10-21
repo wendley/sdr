@@ -930,6 +930,100 @@ LQR3 c time
 
 
 
+
+
+
+
+
+FIXED GAIN
+1
+
+============================================================== 
+21/10/2018 - 16:43:05
+
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 692
+-   Total geral de acks recebidos: 499
+-   Quantidade de retransmissões: 192
+-   Relação envios/pacotes recebidos:   1.39
+-   Taxa de entrega:  99.80 percent
+-   Tempo medio de recebimento de acks:  33.63
+-   Desvio padrao do tempo de recebimento de acks:  42.97
+============================================================== 
+
+
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  88.94
+-   Desvio padrão:   1.56
+-   Tamanho da amostra: 691
+============================================================== 
+
+
+
+
+FIXED
+2
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  88.94
+-   Desvio padrão:   1.56
+-   Tamanho da amostra: 693
+
+21/10/2018 - 16:44:56
+
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 694
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 195
+-   Relação envios/pacotes recebidos:   1.39
+-   Taxa de entrega:  99.80 percent
+-   Tempo medio de recebimento de acks:  39.36
+-   Desvio padrao do tempo de recebimento de acks:  46.05
+============================================================== 
+
+
+FIXED
+3
+
+============================================================== 
+    :::  POWER CONTROL SUMMARY  :::
+
+
+-   Média dos ganhos das transmissões:  88.94
+-   Desvio padrão:   1.59
+-   Tamanho da amostra: 663
+
+21/10/2018 - 16:46:51
+
+   :::  LQE SUMMARY  :::
+        LQE: No method - Fixo no maximo gain
+
+-   Envios solicitados: 499
+-   Total de envios efetivos: 664
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 165
+-   Relação envios/pacotes recebidos:   1.33
+-   Taxa de entrega:  99.80 percent
+-   Tempo medio de recebimento de acks:  42.95
+-   Desvio padrao do tempo de recebimento de acks:  49.00
+============================================================== 
+
+
+
+
+
+
+
+
 Outro teste, com 250ms, s/ time
 
 
