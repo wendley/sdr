@@ -695,7 +695,10 @@ class getRSSI(gr.sync_block):
 
 
 		print "\n============================================================== "
-		print "   :::  LQE SUMMARY  :::"
+		agora = datetime.datetime.now()
+		print agora.strftime("%d/%m/%Y - %H:%M:%S")
+
+		print "\n   :::  LQE SUMMARY  :::"
 		if self.method == 1:
 			print "        LQE: No method - Fixo no maximo gain"
 		elif self.method == 2:
@@ -713,10 +716,6 @@ class getRSSI(gr.sync_block):
 		elif self.method == 8:
 			print "        LQE: LQR3"
 
-		print "\n"
-		agora = datetime.datetime.now()
-		print agora.strftime("%d/%m/%Y - %H:%M:%S")
-
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)
 		print "-   Total geral de acks recebidos: %d" % (self.ackCount)
@@ -725,17 +724,17 @@ class getRSSI(gr.sync_block):
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   Tempo medio de recebimento de acks: %6.2f" %(numpy.mean(self.serieTempoTotalAck))
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
-		#print "-   Tam amostra do tempo de recebimento de acks: %6.2f" %(len(self.serieTempoTotalAck))
-		print "-   ------------------------------------"
 
 		if self.method == 7: #LQL
+			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQL: %6.2f percent" %(numpy.mean(self.serieErroSVMRLQL))
 			print "-   Tamanho serie erro ML LQL: %d entradas " %(len(self.serieErroSVMRLQL))
 		elif self.method == 8: #LQR3
+			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQR3: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
 			print "-   Tamanho serie erro ML LQR3: %d entradas " %(len(self.serieErroSVMR))
 			print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
-			
+
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
 
