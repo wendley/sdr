@@ -63,7 +63,7 @@ class powerControl(gr.sync_block):
         estimativa = pmt.to_float(pdu) #Estimativa entre 0,0 e 1,0
         # print "Estimativa: --- %6.2f" % (estimativa)
 
-        newGain = 25*(1-estimativa)+45 #Normalização  70 - 45 = 25 --- 45 foi o minimo gain para tx
+        newGain = 25.0*(1-estimativa)+45 #Normalização  70 - 45 = 25 --- 45 foi o minimo gain para tx
         newGain = 45.5 # usado para fixar o valor durante a calibração
         # print "Ganho de Tx: --- %6.2f" % (newGain)
         # https://www.analog.com/media/en/technical-documentation/data-sheets/AD9361.pdf
