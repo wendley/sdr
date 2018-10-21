@@ -235,7 +235,7 @@
     </param>
     <param>
       <key>mean</key>
-      <value>250</value>
+      <value>400</value>
     </param>
     <param>
       <key>msg</key>
@@ -890,7 +890,7 @@
     </param>
     <param>
       <key>maxValor</key>
-      <value>500</value>
+      <value>200</value>
     </param>
     <param>
       <key>minoutbuf</key>
