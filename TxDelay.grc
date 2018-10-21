@@ -235,7 +235,7 @@
     </param>
     <param>
       <key>mean</key>
-      <value>400</value>
+      <value>150</value>
     </param>
     <param>
       <key>msg</key>
@@ -973,7 +973,7 @@
     </param>
     <param>
       <key>timeout</key>
-      <value>.400</value>
+      <value>.15</value>
     </param>
   </block>
   <block>
@@ -3431,12 +3431,6 @@
     <sink_block_id>lqe_getRSSI_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>sendOrder</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_mac_0</source_block_id>
-    <sink_block_id>lqe_getRSSI_0</sink_block_id>
-    <source_key>ackOut</source_key>
-    <sink_key>Ackin</sink_key>
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_mac_0</source_block_id>
