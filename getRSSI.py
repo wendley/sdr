@@ -162,6 +162,8 @@ class getRSSI(gr.sync_block):
 			# print "\n--------- \nTotal geral de acks recebidos: %d \n--------- \n" % (self.ackCount)
 			self.sendedPacks += 1
 
+			if self.outPck == 0:
+				self.outPck = datetime.datetime.now() # muda o tipo de integer para datetime
 			self.intAck = datetime.datetime.now()
 			diffTempo = self.intAck - self.outPck
 			# print "\n ----- \nTempo p receber ack: "
