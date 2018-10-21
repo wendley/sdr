@@ -609,11 +609,15 @@ class getRSSI(gr.sync_block):
 
 				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
 				# print(self.serieTarget)
-
+				tempo1 = datetime.datetime.now()
 				self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
+				tempo2 = datetime.datetime.now()
+				diferenca = tempo2-tempo1
+				print "Tempo para ML processar (ms)... "
+				print (diferenca.microseconds/1000.0) # adiciona os milisegundo
 				erroSVMR = numpy.abs(self.estimSVMR - self.serieTarget[-1])
 				self.serieErroSVMR.append(erroSVMR)
 				# print "DEBUG - ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
