@@ -973,7 +973,7 @@
     </param>
     <param>
       <key>timeout</key>
-      <value>.15</value>
+      <value>.400</value>
     </param>
   </block>
   <block>
