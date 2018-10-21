@@ -138,7 +138,7 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serie) > 10:
 				self.kRssi = self.kalmanFilter(self.serie)
-				# print "\n DEBUG ------- RSSI with Kalman filter: %6.2f ----- \n"  % (self.kRssi)
+				print "\n DEBUG ------- RSSI with Kalman filter: %6.2f ----- \n"  % (self.kRssi)
 				# print type (self.kRssi)
 
 		else:
