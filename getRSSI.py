@@ -715,7 +715,7 @@ class getRSSI(gr.sync_block):
 
 		print "\n"
 		agora = datetime.datetime.now()
-		print print agora.strftime("%d/%m/%Y - %H:%M:%S")
+		print agora.strftime("%d/%m/%Y - %H:%M:%S")
 
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)
