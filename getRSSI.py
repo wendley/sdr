@@ -129,6 +129,8 @@ class getRSSI(gr.sync_block):
 	def handler(self, pdu): # Acionado sempre que chega um valor de RSSI
 		self.Rssi = pmt.to_python(pdu)
 
+		if self.printPower: print "Potencia do meio: %6.2f dB" % (self.Rssi)
+
 		if self.filter == 3: # Kalman
 			if len(self.serie) < self.window*4:
 				self.serie.append(self.Rssi)
@@ -142,8 +144,6 @@ class getRSSI(gr.sync_block):
 				# print type (self.kRssi)
 
 		else:
-			if self.printPower: print "Potencia do meio: %6.2f dB" % (self.Rssi)
-
 			# Cria janela móvel limitada (para não extrapolar a memória) para cálculo das médias
 			self.serie.append(self.Rssi)
 			if len(self.serie) > self.window*4:
