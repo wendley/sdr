@@ -505,10 +505,13 @@ no18
 ::::::::::::::
 
 PRR2
+1
 
 ::::::::::::::
 ::::::::::::::
 ::::::::::::::
+
+
 
 
 no12
@@ -543,7 +546,7 @@ no14
    :::  POWER CONTROL SUMMARY  :::
 
 -   Média dos ganhos das transmissões:  55.86
-============================================================== 
+
 21/10/2018 - 17:28:24
 
    :::  LQE SUMMARY  :::
@@ -558,9 +561,7 @@ no14
 -   Quantidade de retransmissões: 245
 -   Relação envios/pacotes recebidos:   1.63
 -   Taxa de entrega:  99.25 percent
-============================================================== 
 -   Tempo medio de recebimento de acks:  10.13
-
 -   Desvio padrao do tempo de recebimento de acks:  22.50
 ============================================================== 
 
@@ -569,7 +570,8 @@ no14
 no16
 
  
-==============================================================    :::  POWER CONTROL SUMMARY  :::
+==============================================================    
+  :::  POWER CONTROL SUMMARY  :::
 
 21/10/2018 - 17:28:25
 
@@ -578,9 +580,7 @@ no16
 
         LQE: PRR2 - full
 -   Desvio padrão:   4.97
-
 -   Envios solicitados: 399-   Tamanho da amostra: 833
-============================================================== 
 
 
 -   Total de envios efetivos: 834
@@ -600,10 +600,8 @@ no18
 
 ============================================================== 
    :::  POWER CONTROL SUMMARY  :::
-thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
 
 -   Média dos ganhos das transmissões:  54.76
-============================================================== 
 
 21/10/2018 - 17:28:27
 
@@ -622,5 +620,20 @@ thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. 
 -   Tamanho da amostra: 747
 ============================================================== 
 
-============================================================== 
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+LQL
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
 
