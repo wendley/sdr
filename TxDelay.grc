@@ -235,7 +235,7 @@
     </param>
     <param>
       <key>mean</key>
-      <value>200</value>
+      <value>150</value>
     </param>
     <param>
       <key>msg</key>
@@ -890,7 +890,7 @@
     </param>
     <param>
       <key>maxValor</key>
-      <value>200</value>
+      <value>1000</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -953,7 +953,7 @@
     </param>
     <param>
       <key>maxRSSI</key>
-      <value>-68</value>
+      <value>-67</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -961,7 +961,7 @@
     </param>
     <param>
       <key>minRSSI</key>
-      <value>-108</value>
+      <value>-109</value>
     </param>
     <param>
       <key>window</key>
@@ -969,11 +969,11 @@
     </param>
     <param>
       <key>printPower</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>timeout</key>
-      <value>2</value>
+      <value>.15</value>
     </param>
   </block>
   <block>
