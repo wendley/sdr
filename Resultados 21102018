@@ -87,10 +87,7 @@ PRR2
 -   Média dos ganhos das transmissões:  47.97
 -   Desvio padrão:   2.84
 -   Tamanho da amostra: 189
-============================================================== 
 
-
-============================================================== 
    :::  LQE SUMMARY  :::
         LQE: PRR2 - full
 
@@ -105,5 +102,64 @@ PRR2
 -   Taxa de entrega:  97.00 percent
 -   Tempo medio de recebimento de acks: 110.37
 -   Desvio padrao do tempo de recebimento de acks: 258.57
+============================================================== 
+
+
+
+
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+
+-   Média dos ganhos das transmissões:  48.13
+-   Desvio padrão:   6.33
+21/10/2018 - 10:40:37
+
+   :::  LQE SUMMARY  :::-   Tamanho da amostra: 226
+        LQE: LQL
+
+
+-   Envios solicitados: 100
+-   Total de envios efetivos: 227
+-   Total geral de acks recebidos: 96
+-   Quantidade de retransmissões: 127
+-   Relação envios/pacotes recebidos:   2.36
+-   Taxa de entrega:  96.00 percent
+-   Tempo medio de recebimento de acks:  70.83
+-   Desvio padrao do tempo de recebimento de acks: 180.07
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.04 percent
+-   Tamanho serie erro ML LQL: 324 entradas 
+============================================================== 
+
+
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.19
+-   Desvio padrão:   3.09
+-   Tamanho da amostra: 214
+
+21/10/2018 - 10:47:32
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 99
+-   Total de envios efetivos: 215
+-   Total geral de acks recebidos: 97
+-   Quantidade de retransmissões: 116
+-   Relação envios/pacotes recebidos:   2.22
+-   Taxa de entrega:  97.98 percent
+-   Tempo medio de recebimento de acks: 128.44
+-   Desvio padrao do tempo de recebimento de acks: 249.89
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.03 percent
+-   Tamanho serie erro ML LQR3: 316 entradas 
+-   Qtde de reducoes da serie LQR3: 13 
 ============================================================== 
 
