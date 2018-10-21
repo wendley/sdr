@@ -618,10 +618,8 @@ class getRSSI(gr.sync_block):
 
 				tempo2 = datetime.datetime.now()
 				diferenca = tempo2-tempo1 # para calcular o tempo de processamento da ML
-				print "Diferenca ML instantaneo..."
-				print diferenca
 
-				self.serieTempoML.append(diferenca)
+				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona em miliseconds
 
 				erroSVMR = numpy.abs(self.estimSVMR - self.serieTarget[-1])
 				self.serieErroSVMR.append(erroSVMR)
