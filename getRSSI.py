@@ -138,7 +138,7 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serie) > 10:
 				self.kRssi = self.kalmanFilter(self.serie)
-				print "\n DEBUG ------- RSSI with Kalman filter: %6.2f ----- \n"  % (self.kRssi)
+				# print "\n DEBUG ------- RSSI with Kalman filter: %6.2f ----- \n"  % (self.kRssi)
 				# print type (self.kRssi)
 
 		else:
@@ -151,7 +151,7 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serie)>2*self.window/2: # limitação da EMA
 				self.emaRssi = self.ema(self.serie, self.window/2)
-			print "\n DEBUG ------- RSSI with EWMA filter: %6.2f ----- \n"  % (self.emaRssi)
+			# print "\n DEBUG ------- RSSI with EWMA filter: %6.2f ----- \n"  % (self.emaRssi)
 
 
 	def handlerAck(self, pdu):
