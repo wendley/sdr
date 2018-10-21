@@ -636,4 +636,273 @@ LQL
 
 
 
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.85
+-   Desvio padrão:   2.65
+-   Tamanho da amostra: 874
+
+21/10/2018 - 17:33:00
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 875
+-   Total geral de acks recebidos: 396
+-   Quantidade de retransmissões: 475
+-   Relação envios/pacotes recebidos:   2.21
+-   Taxa de entrega:  99.00 percent
+-   Tempo medio de recebimento de acks:  55.55
+-   Desvio padrao do tempo de recebimento de acks:  55.59
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.02 percent
+-   Tamanho serie erro ML LQL: 1284 entradas 
+============================================================== 
+
+
+
+no14
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.53
+-   Desvio padrão:   1.97
+-   Tamanho da amostra: 787
+
+21/10/2018 - 17:33:00
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 788
+-   Total geral de acks recebidos: 391
+-   Quantidade de retransmissões: 388
+-   Relação envios/pacotes recebidos:   2.02
+-   Taxa de entrega:  97.75 percent
+-   Tempo medio de recebimento de acks:  25.73
+-   Desvio padrao do tempo de recebimento de acks:  33.40
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.01 percent
+-   Tamanho serie erro ML LQL: 1190 entradas 
+============================================================== 
+
+
+
+no16
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
+
+-   Média dos ganhos das transmissões:  47.94
+-   Desvio padrão:   2.19
+-   Tamanho da amostra: 797
+
+21/10/2018 - 17:33:00
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 399
+-   Total de envios efetivos: 798
+-   Total geral de acks recebidos: 383
+-   Quantidade de retransmissões: 399
+-   Relação envios/pacotes recebidos:   2.08
+-   Taxa de entrega:  95.99 percent
+-   Tempo medio de recebimento de acks:  22.49
+-   Desvio padrao do tempo de recebimento de acks:  35.60
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.03 percent
+-   Tamanho serie erro ML LQL: 1206 entradas 
+============================================================== 
+
+
+no18
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.21
+-   Desvio padrão:   1.93
+-   Tamanho da amostra: 828
+
+21/10/2018 - 17:33:01
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 399
+-   Total de envios efetivos: 829
+-   Total geral de acks recebidos: 379
+-   Quantidade de retransmissões: 430
+-   Relação envios/pacotes recebidos:   2.19
+-   Taxa de entrega:  94.99 percent
+-   Tempo medio de recebimento de acks:  11.30
+-   Desvio padrao do tempo de recebimento de acks:  21.76
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.02 percent
+-   Tamanho serie erro ML LQL: 1234 entradas 
+============================================================== 
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+LQR3 s/ time control
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.07
+-   Desvio padrão:   1.32
+-   Tamanho da amostra: 692
+
+21/10/2018 - 17:38:12
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 381
+-   Total de envios efetivos: 679
+-   Total geral de acks recebidos: 406
+-   Quantidade de retransmissões: 298
+-   Relação envios/pacotes recebidos:   1.67
+-   Taxa de entrega: 106.56 percent
+-   Tempo medio de recebimento de acks: 313.61
+-   Desvio padrao do tempo de recebimento de acks: 286.30
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.18 percent
+-   Tamanho serie erro ML LQR3: 1086 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   5.60 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   4.59
+============================================================== 
+
+
+
+
+
+no14
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  52.51
+
+21/10/2018 - 17:38:04
+-   Desvio padrão:   1.77
+-   Tamanho da amostra: 546
+
+   :::  LQE SUMMARY  :::
+============================================================== 
+
+        LQE: LQR3
+
+-   Envios solicitados: 399
+-   Total de envios efetivos: 547
+-   Total geral de acks recebidos: 400
+-   Quantidade de retransmissões: 148
+-   Relação envios/pacotes recebidos:   1.37
+-   Taxa de entrega: 100.25 percent
+-   Tempo medio de recebimento de acks:  61.59
+-   Desvio padrao do tempo de recebimento de acks:  87.90
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.12 percent
+-   Tamanho serie erro ML LQR3: 951 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   7.42 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   4.18
+============================================================== 
+
+
+
+no16
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+ 
+============================================================== 
+-   Média dos ganhos das transmissões:  49.60
+
+21/10/2018 - 17:38:05
+
+   :::  LQE SUMMARY  :::-   Desvio padrão:   1.02
+-   Tamanho da amostra: 727
+============================================================== 
+
+
+        LQE: LQR3
+
+-   Envios solicitados: 399
+-   Total de envios efetivos: 728
+-   Total geral de acks recebidos: 394
+-   Quantidade de retransmissões: 329
+-   Relação envios/pacotes recebidos:   1.85
+-   Taxa de entrega:  98.75 percent
+-   Tempo medio de recebimento de acks:  75.51
+-   Desvio padrao do tempo de recebimento de acks: 107.70
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.08 percent
+-   Tamanho serie erro ML LQR3: 1127 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   6.77 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   4.16
+============================================================== 
+
+
+
+
+no18
+
+ 
+==============================================================
+    :::  POWER CONTROL SUMMARY  :::
+
+
+-   Média dos ganhos das transmissões:  50.53
+
+21/10/2018 - 17:38:06
+
+   :::  LQE SUMMARY  :::
+
+        LQE: LQR3-   Desvio padrão:   1.36
+
+-   Tamanho da amostra: 684
+
+-   Envios solicitados: 399
+
+
+-   Total de envios efetivos: 685
+-   Total geral de acks recebidos: 396
+-   Quantidade de retransmissões: 286
+-   Relação envios/pacotes recebidos:   1.73
+-   Taxa de entrega:  99.25 percent
+-   Tempo medio de recebimento de acks:  41.49
+-   Desvio padrao do tempo de recebimento de acks:  57.39
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.10 percent
+-   Tamanho serie erro ML LQR3: 1092 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   9.98 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   6.04
+============================================================== 
 
