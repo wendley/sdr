@@ -233,6 +233,8 @@ thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. 
 PRR
 
 
+
+
 PRR2
 
 
@@ -307,3 +309,160 @@ LQR3 sem redução temporal
 -   Tamanho serie erro ML LQR3: 281 entradas 
 -   Qtde de reducoes da serie LQR3: 0 
 ==============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+
+
+
+
+
+-----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------
+
+
+RSSI+KLE
+PRR
+PRR2
+LQL
+LQR3
+
+
+
+SINGLE SENDER - CENÁRIO COM DELAY POISSON 1000 pckt 100 bytes (150ms) - SEM RUIDO ARTIFICIAL
+(No 12 p/ no 15)
+
+
+
+
+
+KLE
+1
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  45.38
+-   Desvio padrão:   0.68
+-   Tamanho da amostra: 3632
+
+
+21/10/2018 - 13:04:07
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 1000
+-   Total de envios efetivos: 3633
+-   Total geral de acks recebidos: 762
+-   Quantidade de retransmissões: 2633
+-   Relação envios/pacotes recebidos:   4.77
+-   Taxa de entrega:  76.20 percent
+-   Tempo medio de recebimento de acks:  13.07
+-   Desvio padrao do tempo de recebimento de acks:  22.60
+==============================================================
+
+
+
+
+KLE
+2
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+
+-   Média dos ganhos das transmissões:  45.46
+-   Desvio padrão:   0.87
+-   Tamanho da amostra: 3443
+ 
+21/10/2018 - 13:11:31
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 1000
+-   Total de envios efetivos: 3444
+-   Total geral de acks recebidos: 791
+-   Quantidade de retransmissões: 2444
+-   Relação envios/pacotes recebidos:   4.35
+-   Taxa de entrega:  79.10 percent
+-   Tempo medio de recebimento de acks:   7.78
+-   Desvio padrao do tempo de recebimento de acks:   4.30
+
+============================================================== 
+
+
+
+KLE
+3
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  45.43
+-   Desvio padrão:   1.05
+-   Tamanho da amostra: 3621
+============================================================== 
+
+
+--------- 
+PRR: 0.7944
+---------
+
+
+============================================================== 
+21/10/2018 - 13:19:53
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 1000
+-   Total de envios efetivos: 3622
+-   Total geral de acks recebidos: 744
+-   Quantidade de retransmissões: 2622
+-   Relação envios/pacotes recebidos:   4.87
+-   Taxa de entrega:  74.40 percent
+-   Tempo medio de recebimento de acks:  13.08
+-   Desvio padrao do tempo de recebimento de acks:  21.09
+============================================================== 
