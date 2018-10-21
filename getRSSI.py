@@ -370,6 +370,9 @@ class getRSSI(gr.sync_block):
 
 		tempRssi = self.emaRssi
 
+		print "RSSI suavizado: "
+		print tempRssi
+
 		if tempRssi < minRSSI :
 			tempRssi = minRSSI
 		elif tempRssi > maxRSSI :
