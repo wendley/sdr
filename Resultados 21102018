@@ -1,0 +1,109 @@
+
+RSSI+KLE
+PRR
+PRR2
+LQL
+LQR3
+
+
+
+SINGLE SENDER - CENÁRIO COM DELAY POISSON 100 pckt 100 bytes (2000ms / 500ms) - SEM RUIDO ARTIFICIAL
+(No 12 p/ no 15)
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  45.00
+-   Desvio padrão:   0.00
+-   Tamanho da amostra: 430
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 99
+-   Total de envios efetivos: 431
+-   Total geral de acks recebidos: 62
+-   Quantidade de retransmissões: 332
+-   Relação envios/pacotes recebidos:   6.95
+-   Taxa de entrega:  62.63 percent
+-   Tempo medio de recebimento de acks:  10.51
+-   Desvio padrao do tempo de recebimento de acks:   7.23
+-   ------------------------------------
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/usr/lib/python2.7/dist-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+PRR
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+
+21/10/2018 - 10:24:34
+
+-   Envios solicitados: 99
+-   Total de envios efetivos: 205
+-   Total geral de acks recebidos: 97
+-   Quantidade de retransmissões: 106
+-   Relação envios/pacotes recebidos:   2.11
+-   Taxa de entrega:  97.98 percent
+-   Tempo medio de recebimento de acks:  41.70
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.39
+-   Desvio padrão:   4.38
+-   Tamanho da amostra: 204
+============================================================== 
+
+-   Desvio padrao do tempo de recebimento de acks: 132.12
+-   ------------------------------------
+-   Erro medio Machine Learning SVMR:    nan percent
+-   Tamanho serie erro ML SVMR: 0 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
+
+
+
+
+
+PRR2
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.97
+-   Desvio padrão:   2.84
+-   Tamanho da amostra: 189
+============================================================== 
+
+
+============================================================== 
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+
+21/10/2018 - 10:30:43
+
+-   Envios solicitados: 100
+-   Total de envios efetivos: 190
+-   Total geral de acks recebidos: 97
+-   Quantidade de retransmissões: 90
+-   Relação envios/pacotes recebidos:   1.96
+-   Taxa de entrega:  97.00 percent
+-   Tempo medio de recebimento de acks: 110.37
+-   Desvio padrao do tempo de recebimento de acks: 258.57
+============================================================== 
+
