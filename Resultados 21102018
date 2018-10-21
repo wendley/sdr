@@ -737,26 +737,100 @@ LQL
 
 
 
-LQR3
+LQR3 s/ time
 1
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.02
+-   Desvio padrão:   0.67
+-   Tamanho da amostra: 767
+
+21/10/2018 - 15:41:22
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 768
+-   Total geral de acks recebidos: 497
+-   Quantidade de retransmissões: 268
+-   Relação envios/pacotes recebidos:   1.55
+-   Taxa de entrega:  99.40 percent
+-   Tempo medio de recebimento de acks: 303.29
+-   Desvio padrao do tempo de recebimento de acks: 250.00
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.09 percent
+-   Tamanho serie erro ML LQR3: 1266 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
 
 
 
 
 
-
-
-LQR3
+LQR3 s/ time
 2
 
 
+============================================================== 
+
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.24
+-   Desvio padrão:   1.80
+-   Tamanho da amostra: 732
+
+21/10/2018 - 15:43:19
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 500
+-   Total de envios efetivos: 733
+-   Total geral de acks recebidos: 498
+-   Quantidade de retransmissões: 233
+-   Relação envios/pacotes recebidos:   1.47
+-   Taxa de entrega:  99.60 percent
+-   Tempo medio de recebimento de acks: 349.65
+-   Desvio padrao do tempo de recebimento de acks: 272.22
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.10 percent
+-   Tamanho serie erro ML LQR3: 1232 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
 
 
 
 
-
-
-
-LQR3
+LQR3 s/ time
 3
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.64
+-   Desvio padrão:   1.77
+-   Tamanho da amostra: 746
+
+21/10/2018 - 15:47:18
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 494
+-   Total de envios efetivos: 747
+-   Total geral de acks recebidos: 496
+-   Quantidade de retransmissões: 253
+-   Relação envios/pacotes recebidos:   1.51
+-   Taxa de entrega: 100.40 percent
+-   Tempo medio de recebimento de acks: 273.23
+-   Desvio padrao do tempo de recebimento de acks: 244.56
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.10 percent
+-   Tamanho serie erro ML LQR3: 1245 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+============================================================== 
+
