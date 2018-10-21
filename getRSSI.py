@@ -727,9 +727,15 @@ class getRSSI(gr.sync_block):
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
 		#print "-   Tam amostra do tempo de recebimento de acks: %6.2f" %(len(self.serieTempoTotalAck))
 		print "-   ------------------------------------"
-		print "-   Erro medio Machine Learning SVMR: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
-		print "-   Tamanho serie erro ML SVMR: %d entradas " %(len(self.serieErroSVMR))
-		print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
+
+		if self.method == 7: #LQL
+			print "-   Erro medio Machine Learning LQL: %6.2f percent" %(numpy.mean(self.serieErroSVMRLQL))
+			print "-   Tamanho serie erro ML LQL: %d entradas " %(len(self.serieErroSVMRLQL))
+		elif self.method == 8: #LQR3
+			print "-   Erro medio Machine Learning LQR3: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
+			print "-   Tamanho serie erro ML LQR3: %d entradas " %(len(self.serieErroSVMR))
+			print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
+			
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
 
