@@ -21,3 +21,177 @@ KLE
 ::::::::::::::
 ::::::::::::::
 ::::::::::::::
+
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.01
+-   Desvio padrão:   2.90
+-   Tamanho da amostra: 922
+
+
+21/10/2018 - 17:08:09
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 923
+-   Total geral de acks recebidos: 394
+-   Quantidade de retransmissões: 523
+-   Relação envios/pacotes recebidos:   2.34
+-   Taxa de entrega:  98.50 percent
+-   Tempo medio de recebimento de acks:  42.82
+-   Desvio padrao do tempo de recebimento de acks:  41.48
+============================================================== 
+
+
+
+no14
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+ 
+============================================================== 
+
+-   Média dos ganhos das transmissões:  47.8421/10/2018 - 17:08:09
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 400
+
+-   Total de envios efetivos: 795
+-   Total geral de acks recebidos: 400
+-   Quantidade de retransmissões: 396
+-   Relação envios/pacotes recebidos:   1.97
+-   Taxa de entrega: 100.00 percent
+-   Tempo medio de recebimento de acks:  14.66
+-   Desvio padrão:   2.08
+ -   Desvio padrao do tempo de recebimento de acks:  24.94
+-   Tamanho da amostra: 794
+============================================================== 
+
+
+
+
+no16
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+ 
+-   Média dos ganhos das transmissões:  45.11
+-   Desvio padrão:   1.28
+-   Tamanho da amostra: 1717
+
+21/10/2018 - 17:09:57
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 1718
+-   Total geral de acks recebidos: 193
+-   Quantidade de retransmissões: 1318
+-   Relação envios/pacotes recebidos:   8.90
+-   Taxa de entrega:  48.25 percent
+-   Tempo medio de recebimento de acks:  46.86
+-   Desvio padrao do tempo de recebimento de acks:  42.75
+============================================================== 
+
+
+
+
+no18
+
+============================================================== 
+
+21/10/2018 - 17:09:57
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 400   :::  POWER CONTROL SUMMARY  :::
+
+-   Total de envios efetivos: 1764
+-   Total geral de acks recebidos: 205
+-   Quantidade de retransmissões: 1364
+-   Relação envios/pacotes recebidos:   8.60
+-   Taxa de entrega:  51.25 percent
+ 
+-   Média dos ganhos das transmissões:  45.13
+-   Tempo medio de recebimento de acks:  26.34
+ -   Desvio padrão:   1.16
+-   Tamanho da amostra: 1763
+============================================================== 
+-   Desvio padrao do tempo de recebimento de acks:  38.86
+
+============================================================== 
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+KLE
+2
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+no12
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.19
+
+21/10/2018 - 17:13:01
+ -   Desvio padrão:   3.15
+-   Tamanho da amostra: 1008
+
+
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 1009
+-   Total geral de acks recebidos: 387
+-   Quantidade de retransmissões: 609
+-   Relação envios/pacotes recebidos:   2.61
+-   Taxa de entrega:  96.75 percent
+-   Tempo medio de recebimento de acks:  39.20
+-   Desvio padrao do tempo de recebimento de acks:  44.10
+============================================================== 
+
+
+no14
+
+============================================================== 
+
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.66
+-   Desvio padrão:   2.07
+21/10/2018 - 17:13:02
+-   Tamanho da amostra: 865
+
+
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 866
+-   Total geral de acks recebidos: 398
+-   Quantidade de retransmissões: 466
+-   Relação envios/pacotes recebidos:   2.18
+-   Taxa de entrega:  99.50 percent
+-   Tempo medio de recebimento de acks:  16.30
+-   Desvio padrao do tempo de recebimento de acks:  28.38
+============================================================== 
