@@ -12,7 +12,7 @@ SINGLE SENDER - CENÁRIO COM DELAY POISSON 100 pckt 100 bytes (2000ms / 500ms) -
 
 
 
-CENÁRIO COM 1000 PACOTES MAIS ABAIXO
+>>>>>>>>>>> CENÁRIO COM 1000 PACOTES MAIS ABAIXO <<<<<<<<<<<<<
 
 
 
@@ -558,7 +558,27 @@ PRR
 PRR2
 1
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
 
+-   Média dos ganhos das transmissões:  48.64
+-   Desvio padrão:   4.42
+-   Tamanho da amostra: 1928
+
+21/10/2018 - 13:40:09
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+-   Envios solicitados: 1000
+-   Total de envios efetivos: 1929
+-   Total geral de acks recebidos: 974
+-   Quantidade de retransmissões: 929
+-   Relação envios/pacotes recebidos:   1.98
+-   Taxa de entrega:  97.40 percent
+-   Tempo medio de recebimento de acks:   5.21
+-   Desvio padrao do tempo de recebimento de acks:   8.28
+============================================================== 
 
 
 
@@ -566,6 +586,30 @@ PRR2
 
 PRR2
 2
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  49.82
+-   Desvio padrão:   5.90
+-   Tamanho da amostra: 1934
+ 
+============================================================== 
+21/10/2018 - 13:44:25
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+-   Envios solicitados: 999
+-   Total de envios efetivos: 1935
+-   Total geral de acks recebidos: 976
+-   Quantidade de retransmissões: 936
+-   Relação envios/pacotes recebidos:   1.98
+-   Taxa de entrega:  97.70 percent
+-   Tempo medio de recebimento de acks:  34.92
+-   Desvio padrao do tempo de recebimento de acks:  36.06
+============================================================== 
+
+============================================================== 
 
 
 
