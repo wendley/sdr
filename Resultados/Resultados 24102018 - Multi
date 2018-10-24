@@ -517,6 +517,106 @@ PRR
 
 
 
+no12
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.32
+-   Desvio padrão:   1.22
+-   Tamanho da amostra: 635
+
+24/10/2018 - 19:27:32
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 636
+-   Total geral de acks recebidos: 251
+-   Quantidade de retransmissões: 386
+-   Relação envios/pacotes recebidos:   2.53
+-   Taxa de entrega: 100.40 percent
+-   Tempo medio de recebimento de acks:  51.65
+-   Desvio padrao do tempo de recebimento de acks:  75.75
+============================================================== 
+
+
+
+no14
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  46.61
+
+24/10/2018 - 19:27:32
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 462
+-   Total geral de acks recebidos: 243
+-   Quantidade de retransmissões: 211
+-   Relação envios/pacotes recebidos:   1.90
+-   Taxa de entrega:  96.81 percent
+-   Tempo medio de recebimento de acks:  45.53
+-   Desvio padrao do tempo de recebimento de acks:  66.46
+-   Desvio padrão:   1.30
+-   Tamanho da amostra: 461
+============================================================== 
+
+
+
+
+no16
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.24
+24/10/2018 - 19:27:32
+
+
+   :::  LQE SUMMARY  :::-   Desvio padrão:   1.86
+
+-   Tamanho da amostra: 540
+        LQE: PRR
+-   Envios solicitados: 250
+
+-   Total de envios efetivos: 541
+-   Total geral de acks recebidos: 236
+-   Quantidade de retransmissões: 291
+-   Relação envios/pacotes recebidos:   2.29
+-   Taxa de entrega:  94.40 percent
+-   Tempo medio de recebimento de acks:  20.17
+-   Desvio padrao do tempo de recebimento de acks:  46.79
+============================================================== 
+
+
+
+
+no18
+============================================================== 
+24/10/2018 - 19:27:33
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 251
+
+   :::  POWER CONTROL SUMMARY  :::-   Total de envios efetivos: 565
+
+-   Total geral de acks recebidos: 234
+-   Quantidade de retransmissões: 314
+-   Relação envios/pacotes recebidos:   2.41
+-   Taxa de entrega:  93.23 percent
+-   Média dos ganhos das transmissões:  48.91
+
+-   Tempo medio de recebimento de acks:   7.85
+-   Desvio padrao do tempo de recebimento de acks:   3.13
+ -   Desvio padrão:   2.44
+-   Tamanho da amostra: 564
+============================================================== 
 
 
 
@@ -531,6 +631,119 @@ PRR2
 ::::::::::::::
 ::::::::::::::
 ::::::::::::::
+
+
+
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  49.57
+-   Desvio padrão:   5.94
+-   Tamanho da amostra: 637
+ 
+============================================================== 
+24/10/2018 - 19:31:55
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 638
+-   Total geral de acks recebidos: 247
+-   Quantidade de retransmissões: 388
+-   Relação envios/pacotes recebidos:   2.58
+-   Taxa de entrega:  98.80 percent
+-   Tempo medio de recebimento de acks:  41.86
+-   Desvio padrao do tempo de recebimento de acks:  64.25
+============================================================== 
+
+
+
+no14
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  56.93
+-   Desvio padrão:   8.12
+-   Tamanho da amostra: 385
+============================================================== 
+
+
+============================================================== 
+24/10/2018 - 19:31:56
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 386
+-   Total geral de acks recebidos: 248
+-   Quantidade de retransmissões: 135
+-   Relação envios/pacotes recebidos:   1.56
+-   Taxa de entrega:  98.80 percent
+-   Tempo medio de recebimento de acks:  10.27
+-   Desvio padrao do tempo de recebimento de acks:  31.49
+============================================================== 
+
+
+
+no16
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  51.58
+24/10/2018 - 19:31:56
+
+-   Desvio padrão:   4.88
+   :::  LQE SUMMARY  :::
+
+        LQE: PRR2 - full
+-   Tamanho da amostra: 512
+
+-   Envios solicitados: 251============================================================== 
+
+
+-   Total de envios efetivos: 513
+-   Total geral de acks recebidos: 241
+-   Quantidade de retransmissões: 262
+-   Relação envios/pacotes recebidos:   2.13
+-   Taxa de entrega:  96.02 percent
+-   Tempo medio de recebimento de acks:   8.25
+-   Desvio padrao do tempo de recebimento de acks:   8.54
+============================================================== 
+
+
+
+no18
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+============================================================== 
+
+-   Média dos ganhos das transmissões:  55.14
+24/10/2018 - 19:31:57
+
+   :::  LQE SUMMARY  :::
+-   Desvio padrão:   7.99
+
+        LQE: PRR2 - full
+-   Tamanho da amostra: 560
+============================================================== 
+
+-   Envios solicitados: 251
+
+-   Total de envios efetivos: 561
+-   Total geral de acks recebidos: 236
+-   Quantidade de retransmissões: 310
+-   Relação envios/pacotes recebidos:   2.38
+-   Taxa de entrega:  94.02 percent
+-   Tempo medio de recebimento de acks:   7.59
+-   Desvio padrao do tempo de recebimento de acks:   7.37
+============================================================== 
 
 
 
