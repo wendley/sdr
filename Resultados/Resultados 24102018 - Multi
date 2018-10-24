@@ -4,6 +4,7 @@ PRR
 PRR2
 LQL
 LQR3
+MAXGain
 
 
 
@@ -257,8 +258,18 @@ no18
 
 
 
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
 KLE
 3
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
 
 
 
@@ -380,9 +391,196 @@ PRR: 0.2871
 
 
 
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+PRR
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+no12
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+ 
+24/10/2018 - 19:21:51
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 548
+-   Total geral de acks recebidos: 245
+-   Quantidade de retransmissões: 298
+-   Relação envios/pacotes recebidos:   2.24
+-   Taxa de entrega:  98.00 percent
+-   Tempo medio de recebimento de acks:  57.86
+-   Desvio padrao do tempo de recebimento de acks:  83.28
+
+-   Média dos ganhos das transmissões:  46.99
+-   Desvio padrão:   2.43
+-   Tamanho da amostra: 547
+============================================================== 
+
+
+no14
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.0124/10/2018 - 19:21:51
+
+-   Desvio padrão:   2.66
+-   Tamanho da amostra: 496
+
+   :::  LQE SUMMARY  :::
+
+        LQE: PRR
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 497
+-   Total geral de acks recebidos: 243
+-   Quantidade de retransmissões: 247
+-   Relação envios/pacotes recebidos:   2.05
+-   Taxa de entrega:  97.20 percent
+-   Tempo medio de recebimento de acks:  17.78
+-   Desvio padrao do tempo de recebimento de acks:  29.22
+============================================================== 
+
+
+no16
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  49.32
+-   Desvio padrão:   2.12
+ 
+-   Tamanho da amostra: 602
+
+24/10/2018 - 19:21:52
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 603
+-   Total geral de acks recebidos: 227
+-   Quantidade de retransmissões: 352
+-   Relação envios/pacotes recebidos:   2.66
+-   Taxa de entrega:  90.44 percent
+-   Tempo medio de recebimento de acks:   9.02
+-   Desvio padrao do tempo de recebimento de acks:  13.21
+============================================================== 
+
+
+no18
+============================================================== 
+24/10/2018 - 19:21:53
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 548
+-   Total geral de acks recebidos: 230
+-   Quantidade de retransmissões: 297
+-   Relação envios/pacotes recebidos:   2.38
+-   Taxa de entrega:  91.63 percent
+-   Tempo medio de recebimento de acks:   7.55
+
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.66
+-   Desvio padrão:   2.88
+-   Tamanho da amostra: 547
+-   Desvio padrao do tempo de recebimento de acks:   2.58
+============================================================== 
 
 
 
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+PRR
+2
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+PRR2
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+PRR2
+2
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+
+
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+LQL
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+LQL
+2
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
 
 
 
@@ -655,4 +853,33 @@ no18
 -   Tempo medio para processar LQR3:   6.42 miliseconds
 -   Desvio padrao do tempo para processar LQR3:   5.50
 ============================================================== 
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+MAXGain
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+MAXGain
+2
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
 
