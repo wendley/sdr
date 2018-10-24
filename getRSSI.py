@@ -575,7 +575,7 @@ class getRSSI(gr.sync_block):
 			elapsed = self.split - self.startT
 
 			# TIME CONTROL : RECURSO DE REDUÇÃO TEMPORAL DA SERIE:
-			timeControl = False #True ou False
+			timeControl = True #True para ativar ou False para desativar
 
 			if timeControl :
 				if elapsed > self.timeoutML: # se decorridos mais de xx segundo, a serie eh reduzida pela metade, apagando as entradas mais antigas
