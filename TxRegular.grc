@@ -871,7 +871,7 @@
     </param>
     <param>
       <key>printPower</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
       <key>timeout</key>
