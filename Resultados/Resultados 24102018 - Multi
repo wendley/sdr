@@ -7,7 +7,7 @@ LQR3
 
 
 
-MULTIPLE SENDER - CENÁRIO COM DELAY POISSON (250ms) - SEM RUIDO ARTIFICIAL
+MULTIPLE SENDER - CENÁRIO COM REGULAR TX (250ms) - SEM RUIDO ARTIFICIAL
 (Varios p/ no 15)
 
 ::::::::::::::
@@ -21,3 +21,281 @@ KLE
 ::::::::::::::
 ::::::::::::::
 ::::::::::::::
+
+
+
+
+
+
+
+
+
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+LQR3
+1
+
+::::::::::::::
+::::::::::::::
+::::::::::::::
+
+
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.83
+-   Desvio padrão:   1.96
+-   Tamanho da amostra: 670
+
+24/10/2018 - 17:09:20
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 671
+-   Total geral de acks recebidos: 236
+-   Quantidade de retransmissões: 420
+-   Relação envios/pacotes recebidos:   2.84
+-   Taxa de entrega:  94.02 percent
+-   Tempo medio de recebimento de acks: 259.52
+-   Desvio padrao do tempo de recebimento de acks: 276.72
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.13 percent
+-   Tamanho serie erro ML LQR3: 939 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:  14.33 miliseconds
+-   Desvio padrao do tempo para processar LQR3:  12.52
+============================================================== 
+
+
+no14
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  53.68
+-   Desvio padrão:   2.13
+-   Tamanho da amostra: 562
+
+24/10/2018 - 17:09:10
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 563
+-   Total geral de acks recebidos: 241
+-   Quantidade de retransmissões: 312
+-   Relação envios/pacotes recebidos:   2.34
+-   Taxa de entrega:  96.02 percent
+-   Tempo medio de recebimento de acks:  21.70
+-   Desvio padrao do tempo de recebimento de acks:  30.71
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.11 percent
+-   Tamanho serie erro ML LQR3: 817 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   6.46 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   4.09
+============================================================== 
+
+no16
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.96
+-   Desvio padrão:   2.15
+-   Tamanho da amostra: 770
+
+24/10/2018 - 17:09:15
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 243
+-   Total de envios efetivos: 760
+-   Total geral de acks recebidos: 212
+-   Quantidade de retransmissões: 517
+-   Relação envios/pacotes recebidos:   3.58
+-   Taxa de entrega:  87.24 percent
+-   Tempo medio de recebimento de acks: 208.79
+-   Desvio padrao do tempo de recebimento de acks: 266.77
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.07 percent
+-   Tamanho serie erro ML LQR3: 1021 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:  18.82 miliseconds
+-   Desvio padrao do tempo para processar LQR3:  13.25
+============================================================== 
+
+no18
+
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  51.97
+-   Desvio padrão:   3.29
+-   Tamanho da amostra: 638
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 639
+-   Total geral de acks recebidos: 228
+-   Quantidade de retransmissões: 389
+-   Relação envios/pacotes recebidos:   2.80
+-   Taxa de entrega:  91.20 percent
+-   Tempo medio de recebimento de acks: 148.84
+-   Desvio padrao do tempo de recebimento de acks: 259.79
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.09 percent
+-   Tamanho serie erro ML LQR3: 897 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:  13.42 miliseconds
+-   Desvio padrao do tempo para processar LQR3:  11.04
+============================================================== 
+
+
+
+
+
+LQR3
+2
+
+
+
+no12
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  51.19
+-   Desvio padrão:   1.85
+-   Tamanho da amostra: 541
+
+24/10/2018 - 17:14:41
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 245
+-   Total de envios efetivos: 542
+-   Total geral de acks recebidos: 241
+-   Quantidade de retransmissões: 297
+-   Relação envios/pacotes recebidos:   2.25
+-   Taxa de entrega:  98.37 percent
+-   Tempo medio de recebimento de acks: 210.30
+-   Desvio padrao do tempo de recebimento de acks: 245.18
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.08 percent
+-   Tamanho serie erro ML LQR3: 796 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:  10.46 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   8.47
+============================================================== 
+
+
+
+no14
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  54.70
+-   Desvio padrão:   3.42
+-   Tamanho da amostra: 406
+
+24/10/2018 - 17:14:37
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 407
+-   Total geral de acks recebidos: 249
+-   Quantidade de retransmissões: 157
+-   Relação envios/pacotes recebidos:   1.63
+-   Taxa de entrega:  99.60 percent
+-   Tempo medio de recebimento de acks:  23.60
+-   Desvio padrao do tempo de recebimento de acks:  54.55
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.14 percent
+-   Tamanho serie erro ML LQR3: 659 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   6.08 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   4.02
+============================================================== 
+
+
+no16
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+24/10/2018 - 17:14:37
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 710
+-   Total geral de acks recebidos: 245
+ -   Quantidade de retransmissões: 459
+
+-   Média dos ganhos das transmissões:  49.34
+-   Desvio padrão:   1.24
+-   Tamanho da amostra: 709
+
+
+-   Relação envios/pacotes recebidos:   2.90
+-   Taxa de entrega:  97.61 percent
+-   Tempo medio de recebimento de acks:  72.78
+-   Desvio padrao do tempo de recebimento de acks:  83.44
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.06 percent
+-   Tamanho serie erro ML LQR3: 967 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   7.74 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   5.66
+============================================================== 
+
+
+no18
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  50.88
+
+24/10/2018 - 17:14:39
+
+   :::  LQE SUMMARY  :::-   Desvio padrão:   2.76
+
+        LQE: LQR3-   Tamanho da amostra: 515
+
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 516
+-   Total geral de acks recebidos: 245
+-   Quantidade de retransmissões: 266
+-   Relação envios/pacotes recebidos:   2.11
+-   Taxa de entrega:  98.00 percent
+-   Tempo medio de recebimento de acks:  32.66
+-   Desvio padrao do tempo de recebimento de acks:  58.25
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.12 percent
+-   Tamanho serie erro ML LQR3: 772 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   6.42 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   5.50
+============================================================== 
+
