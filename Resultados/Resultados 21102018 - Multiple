@@ -627,8 +627,8 @@ no18
 ::::::::::::::
 ::::::::::::::
 
-PRR2
-1
+PRR
+3
 
 ::::::::::::::
 ::::::::::::::
@@ -642,8 +642,7 @@ no12
 ============================================================== 
    :::  POWER CONTROL SUMMARY  :::
 
--   Média dos ganhos das transmissões:  47.10thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
-
+-   Média dos ganhos das transmissões:  47.10
 -   Desvio padrão:   1.61
 -   Tamanho da amostra: 818
 ============================================================== 
@@ -1190,6 +1189,127 @@ LQR3 s/ time control
 
 
 
+
+
+no12
+
+============================================================== 
+21/10/2018 - 19:32:21
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 288
+-   Total de envios efetivos: 446
+-   Total geral de acks recebidos: 420
+-   Quantidade de retransmissões: 158
+-   Relação envios/pacotes recebidos:   1.06
+-   Taxa de entrega: 145.83 percent
+-   Tempo medio de recebimento de acks: 318.75
+-   Desvio padrao do tempo de recebimento de acks: 317.26
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.09 percent
+-   Tamanho serie erro ML LQR3: 867 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   6.69 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   5.33
+============================================================== 
+
+
+
+no14
+
+============================================================== 
+21/10/2018 - 19:32:21
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 288
+-   Total de envios efetivos: 446
+-   Total geral de acks recebidos: 420
+-   Quantidade de retransmissões: 158
+-   Relação envios/pacotes recebidos:   1.06
+-   Taxa de entrega: 145.83 percent
+-   Tempo medio de recebimento de acks: 318.75
+-   Desvio padrao do tempo de recebimento de acks: 317.26
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.09 percent
+-   Tamanho serie erro ML LQR3: 867 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   6.69 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   5.33
+============================================================== 
+
+
+
+
+no16
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::thread[thread-per-block[18]: <block contador (7)>]: SWIG director method error. Error detected when calling 'feval_p.eval'
+
+
+-   Média dos ganhos das transmissões:  49.82
+-   Desvio padrão:   1.83
+-   Tamanho da amostra: 725
+============================================================== 
+
+
+============================================================== 
+21/10/2018 - 19:32:14
+
+   :::  LQE SUMMARY  :::
+        LQE: LQR3
+
+-   Envios solicitados: 400
+-   Total de envios efetivos: 726
+-   Total geral de acks recebidos: 392
+-   Quantidade de retransmissões: 326
+-   Relação envios/pacotes recebidos:   1.85
+-   Taxa de entrega:  98.00 percent
+-   Tempo medio de recebimento de acks:  41.40
+-   Desvio padrao do tempo de recebimento de acks:  50.96
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.07 percent
+-   Tamanho serie erro ML LQR3: 1132 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:   7.62 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   4.31
+============================================================== 
+
+
+
+no18
+
+============================================================== 
+
+21/10/2018 - 19:32:16
+   :::  POWER CONTROL SUMMARY  :::
+   :::  LQE SUMMARY  :::
+
+        LQE: LQR3
+
+-   Envios solicitados: 399
+-   Total de envios efetivos: 667
+-   Total geral de acks recebidos: 393
+
+-   Média dos ganhos das transmissões:  50.90
+-   Desvio padrão:   1.79
+-   Quantidade de retransmissões: 268
+-   Tamanho da amostra: 666
+============================================================== 
+-   Relação envios/pacotes recebidos:   1.70
+
+-   Taxa de entrega:  98.50 percent
+-   Tempo medio de recebimento de acks:  83.08
+-   Desvio padrao do tempo de recebimento de acks: 150.74
+-   ------------------------------------
+-   Erro medio Machine Learning LQR3:   0.12 percent
+-   Tamanho serie erro ML LQR3: 1068 entradas 
+-   Qtde de reducoes da serie LQR3: 0 
+-   Tempo medio para processar LQR3:  10.41 miliseconds
+-   Desvio padrao do tempo para processar LQR3:   6.80
+============================================================== 
 
 
 
