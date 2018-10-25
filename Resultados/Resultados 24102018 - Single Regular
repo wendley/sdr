@@ -246,6 +246,28 @@ PRR2
 ::::::::::::::
 ::::::::::::::
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  48.08
+-   Desvio padrão:   3.29
+-   Tamanho da amostra: 526
+
+24/10/2018 - 22:25:33
+
+   :::  LQE SUMMARY  :::
+        LQE: PRR2 - full
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 527
+-   Total geral de acks recebidos: 243
+-   Quantidade de retransmissões: 277
+-   Relação envios/pacotes recebidos:   2.17
+-   Taxa de entrega:  97.20 percent
+-   Tempo medio de recebimento de acks:   9.93
+-   Desvio padrao do tempo de recebimento de acks:  11.34
+============================================================== 
+
 
 ::::::::::::::
 ::::::::::::::
@@ -260,6 +282,33 @@ LQL
 ::::::::::::::
 
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.57
+-   Desvio padrão:   2.96
+-   Tamanho da amostra: 543
+============================================================== 
+
+
+============================================================== 
+24/10/2018 - 22:28:23
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 544
+-   Total geral de acks recebidos: 241
+-   Quantidade de retransmissões: 294
+-   Relação envios/pacotes recebidos:   2.26
+-   Taxa de entrega:  96.40 percent
+-   Tempo medio de recebimento de acks:  99.09
+-   Desvio padrao do tempo de recebimento de acks: 126.73
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.02 percent
+-   Tamanho serie erro ML LQL: 796 entradas 
+============================================================== 
 
 
 ::::::::::::::
@@ -273,6 +322,34 @@ LQL
 ::::::::::::::
 ::::::::::::::
 ::::::::::::::
+
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  47.69
+-   Desvio padrão:   4.02
+-   Tamanho da amostra: 532
+============================================================== 
+
+
+============================================================== 
+24/10/2018 - 22:31:30
+
+   :::  LQE SUMMARY  :::
+        LQE: LQL
+
+-   Envios solicitados: 250
+-   Total de envios efetivos: 533
+-   Total geral de acks recebidos: 239
+-   Quantidade de retransmissões: 283
+-   Relação envios/pacotes recebidos:   2.23
+-   Taxa de entrega:  95.60 percent
+-   Tempo medio de recebimento de acks:  96.30
+-   Desvio padrao do tempo de recebimento de acks: 135.86
+-   ------------------------------------
+-   Erro medio Machine Learning LQL:   0.02 percent
+-   Tamanho serie erro ML LQL: 781 entradas 
+============================================================== 
 
 
 ::::::::::::::
