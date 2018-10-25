@@ -24,6 +24,28 @@ KLE
 ::::::::::::::
 ::::::::::::::
 
+============================================================== 
+   :::  POWER CONTROL SUMMARY  :::
+
+-   Média dos ganhos das transmissões:  45.15
+-   Desvio padrão:   0.86
+-   Tamanho da amostra: 1107
+
+24/10/2018 - 21:54:08
+
+   :::  LQE SUMMARY  :::
+        LQE: RSSI
+
+-   Envios solicitados: 251
+-   Total de envios efetivos: 1108
+-   Total geral de acks recebidos: 148
+-   Quantidade de retransmissões: 857
+-   Relação envios/pacotes recebidos:   7.49
+-   Taxa de entrega:  58.96 percent
+-   Tempo medio de recebimento de acks:  10.61
+-   Desvio padrao do tempo de recebimento de acks:  12.89
+============================================================== 
+
 
 
 ::::::::::::::
