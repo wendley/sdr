@@ -206,7 +206,7 @@ class getRSSI(gr.sync_block):
 
 		# Salva arquivos para scatterplot
 		arq1 = open(self.fnRSSI, "a")
-		arq1.write(str(self.estimRssi)+'\n')
+		arq1.write(str(self.Rssi)+'\n') # era self.estimRssi
 
 		arq2 = open(self.fnRSSIKalman, "a")
 		arq2.write(str(self.estimRssiKalman)+'\n')

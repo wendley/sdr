@@ -565,11 +565,11 @@
     </param>
     <param>
       <key>num</key>
-      <value>250</value>
+      <value>500</value>
     </param>
     <param>
       <key>interval</key>
-      <value>500</value>
+      <value>50</value>
     </param>
     <param>
       <key>quit</key>
