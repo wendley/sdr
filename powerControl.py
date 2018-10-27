@@ -64,7 +64,7 @@ class powerControl(gr.sync_block):
         # print "Estimativa: --- %6.2f" % (estimativa)
 
         newGain = 44.0*(1-estimativa)+45 #Normalização  89 - 45 = 44 --- 45 foi o minimo gain para tx
-        newGain = 0 # usado para fixar o valor durante a calibração
+        # newGain = 0 # usado para fixar o valor durante a calibração
         # print "Ganho de Tx: --- %6.2f" % (newGain)
         # https://www.analog.com/media/en/technical-documentation/data-sheets/AD9361.pdf
 
