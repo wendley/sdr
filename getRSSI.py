@@ -770,10 +770,11 @@ class getRSSI(gr.sync_block):
 		self.superVetor.append(self.serieTreinoTxEntrega)
 		self.superVetor.append(self.serieTreinoRelacao)
 
+		print self.superVetor
 		dft=pd.DataFrame(self.superVetor,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
 		dft.to_csv('saidaTraces.csv')
 
-		
+
 
 		print "\n============================================================== "
 		agora = datetime.datetime.now()
