@@ -569,7 +569,7 @@
     </param>
     <param>
       <key>interval</key>
-      <value>50</value>
+      <value>100</value>
     </param>
     <param>
       <key>quit</key>
@@ -847,7 +847,7 @@
     </param>
     <param>
       <key>method</key>
-      <value>1</value>
+      <value>2</value>
     </param>
     <param>
       <key>maxoutbuf</key>
