@@ -776,13 +776,13 @@ class getRSSI(gr.sync_block):
 			calcRel = 0.0
 
 		# Contrucao do supervetor para treinamento ML
-		self.superVetor.append(self.serieTreinoRssi)
-		self.superVetor.append(self.serieTreinoPRR)
-		self.superVetor.append(self.serieTreinoSNR)
-		self.superVetor.append(self.serieTreinoTxEntrega)
-		self.superVetor.append(self.serieTreinoRelacao)
-
-		print self.superVetor
+		# self.superVetor.append(self.serieTreinoRssi)
+		# self.superVetor.append(self.serieTreinoPRR)
+		# self.superVetor.append(self.serieTreinoSNR)
+		# self.superVetor.append(self.serieTreinoTxEntrega)
+		# self.superVetor.append(self.serieTreinoRelacao)
+		#
+		# print self.superVetor
 		dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
 		dft.to_csv('saidaTraces.csv')
 
