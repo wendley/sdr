@@ -264,7 +264,7 @@ class getRSSI(gr.sync_block):
 		self.matrix[self.contad].append(self.estimRssi)
 		self.matrix[self.contad].append(self.estimPRR)
 		#self.serieTreinoPRR2.append(self.estimPRR2)
-		self.matrix[self.contad].append(flot(self.mediaSNR))
+		self.matrix[self.contad].append(float(self.mediaSNR))
 		self.matrix[self.contad].append(calcTxE)
 		self.matrix[self.contad].append(calcRel)
 
