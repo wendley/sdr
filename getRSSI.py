@@ -253,7 +253,7 @@ class getRSSI(gr.sync_block):
 			calcTxE = 0.0
 			calcRel = 0.0
 
-		self.matrix[self.contad].append()
+		# self.matrix[self.contad].append(test)
 		# self.serieTreinoRssi.append(self.estimRssi)
 		# self.serieTreinoPRR.append(self.estimPRR)
 		# #self.serieTreinoPRR2.append(self.estimPRR2)
@@ -783,6 +783,7 @@ class getRSSI(gr.sync_block):
 		# self.superVetor.append(self.serieTreinoRelacao)
 		#
 		# print self.superVetor
+		print "Chegou aqui........"
 		dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
 		dft.to_csv('saidaTraces.csv')
 
