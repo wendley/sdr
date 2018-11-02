@@ -101,6 +101,8 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoSNR = []
 		self.serieTreinoTxEntrega = []
 		self.serieTreinoRelacao = []
+		self.contad = 0
+		self.matrix = [[],[],[],[],[]]
 		self.superVetor=[] # Vetor para montagem do DataFrame para coleta de dados
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
@@ -251,12 +253,22 @@ class getRSSI(gr.sync_block):
 			calcTxE = 0.0
 			calcRel = 0.0
 
-		self.serieTreinoRssi.append(self.estimRssi)
-		self.serieTreinoPRR.append(self.estimPRR)
+		self.matrix[self.contad].append()
+		# self.serieTreinoRssi.append(self.estimRssi)
+		# self.serieTreinoPRR.append(self.estimPRR)
+		# #self.serieTreinoPRR2.append(self.estimPRR2)
+		# self.serieTreinoSNR.append(flot(self.mediaSNR))
+		# self.serieTreinoTxEntrega.append(calcTxE)
+		# self.serieTreinoRelacao.append(calcRel)
+
+		self.matrix[self.contad].append(self.estimRssi)
+		self.matrix[self.contad].append(self.estimPRR)
 		#self.serieTreinoPRR2.append(self.estimPRR2)
-		self.serieTreinoSNR.append(self.mediaSNR)
-		self.serieTreinoTxEntrega.append(calcTxE)
-		self.serieTreinoRelacao.append(calcRel)
+		self.matrix[self.contad].append(flot(self.mediaSNR))
+		self.matrix[self.contad].append(calcTxE)
+		self.matrix[self.contad].append(calcRel)
+
+		self.contad+=1
 		#TODO: Falta adicionar append para latencia e Potencia
 
 		# Construcao do super vetor no final da execução, seção estatíticas
@@ -771,7 +783,7 @@ class getRSSI(gr.sync_block):
 		self.superVetor.append(self.serieTreinoRelacao)
 
 		print self.superVetor
-		dft=pd.DataFrame(self.superVetor,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
+		dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
 		dft.to_csv('saidaTraces.csv')
 
 
