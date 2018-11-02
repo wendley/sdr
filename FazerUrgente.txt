@@ -1,0 +1,18 @@
+A cada 0,5 seg., registrar:
+
+- SNR
+- RSSI
+- PRR
+- Potencia
+- Taxa de entrega
+- Latência
+- Taxa de pacotes reenviados/solicitações de envio
+- Potência utilizada na tranmissão
+
+
+Cenários:
+- sem ruído sintético, intervalo de tx regular
+- com ruído sintético, intervalo de tx random
+- sem ruído sintético, intervalo de tx random
+- com ruído sintético, intervalo de tx regular
+- 5 níveis de potência

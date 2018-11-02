@@ -25,6 +25,7 @@
 
 
 import numpy, pmt, time, datetime
+import pandas as pd
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
@@ -94,6 +95,13 @@ class getRSSI(gr.sync_block):
 		self.intAck = 0 # end time for packet time
 		self.serieTempoTotalAck = []
 		self.serieTempoML = []
+		self.serieTreinoRssi = []
+		self.serieTreinoPRR = []
+		self.serieTreinoPRR2 = []
+		self.serieTreinoSNR = []
+		self.serieTreinoTxEntrega = []
+		self.serieTreinoRelacao = []
+		self.superVetor=[] # Vetor para montagem do DataFrame para coleta de dados
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
 
@@ -222,6 +230,42 @@ class getRSSI(gr.sync_block):
 
 		arq6 = open(self.fnPRR2, "a")
 		arq6.write(str(self.estimPRR2)+'\n')
+
+
+		#####################################################
+		# #												  # #
+		# #												  # #
+		# #												  # #
+		# #		 	PARA COLETA DE DADOS P ML 			  # #
+		# #												  # #
+		# #												  # #
+		# #												  # #
+		#####################################################
+
+		# Coletar: rssi, prr, snr, prr2, tx entrega, latencia, potencia, variacao tx entrega, variacao prr
+
+		if self.ackCount > 0:
+			calcTxE = (float(self.ackCount)/self.geralSendOrder)*100.0
+			calcRel = float(self.geralSends)/self.ackCount
+		else:
+			calcTxE = 0.0
+			calcRel = 0.0
+
+		self.serieTreinoRssi.append(self.estimRssi)
+		self.serieTreinoPRR.append(self.estimPRR)
+		#self.serieTreinoPRR2.append(self.estimPRR2)
+		self.serieTreinoSNR.append(self.mediaSNR)
+		self.serieTreinoTxEntrega.append(calcTxE)
+		self.serieTreinoRelacao.append(calcRel)
+		#TODO: Falta adicionar append para latencia e Potencia
+
+		# Construcao do super vetor no final da execução, seção estatíticas
+
+
+
+
+
+
 
 
 	def handlerSendOrder(self, pdu): # Acionado sempre que uma ordem de transmissão é enviada
@@ -564,12 +608,14 @@ class getRSSI(gr.sync_block):
 
 		elif self.method == 8:
 
-			######################################################
-			#													 #
-			# PROPOSTA - Machine Learning - LQR3				 #
-			# Link Quality Estimator using SVR with triple input #
-			#													 #
-			######################################################
+			##########################################################
+			# #													   # #
+			# #													   # #
+			# # PROPOSTA - Machine Learning - LQR3				   # #
+			# # Link Quality Estimator using SVR with triple input # #
+			# #													   # #
+			# #													   # #
+			##########################################################
 
 			self.split = time.time()
 			elapsed = self.split - self.startT
@@ -717,7 +763,17 @@ class getRSSI(gr.sync_block):
 			calcTxE = 0.0
 			calcRel = 0.0
 
+		# Contrucao do supervetor para treinamento ML
+		self.superVetor.append(self.serieTreinoRssi)
+		self.superVetor.append(self.serieTreinoPRR)
+		self.superVetor.append(self.serieTreinoSNR)
+		self.superVetor.append(self.serieTreinoTxEntrega)
+		self.superVetor.append(self.serieTreinoRelacao)
 
+		dft=pd.DataFrame(self.superVetor,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
+		dft.to_csv('saidaTraces.csv')
+
+		
 
 		print "\n============================================================== "
 		agora = datetime.datetime.now()
