@@ -265,7 +265,10 @@ class getRSSI(gr.sync_block):
 			linha.append(float(self.mediaSNR))
 			linha.append(calcTxE) # Taxa de entrega
 			linha.append(calcRel) # Relacao
-			linha.append(self.diffTempo.microseconds/1000.0) # miliseconds
+			if self.diffTempo == 0.0:
+				linha.append(self.diffTempo)
+			else:
+				linha.append(self.diffTempo.microseconds/1000.0) # miliseconds
 			linha.append(potencia)
 
 			self.matrix.append(linha)
