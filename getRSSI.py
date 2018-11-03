@@ -249,20 +249,20 @@ class getRSSI(gr.sync_block):
 		if self.treinaML == True : # setado na linha 58
 			if self.ackCount > 0:
 				calcTxE = (float(self.ackCount)/self.geralSendOrder)*100.0
-				calcRel = float(self.geralSends)/self.ackCount
+				calcRel = self.geralSends/(self.ackCount*1.0) # to force float
 			else:
 				calcTxE = 0.0
 				calcRel = 0.0
 
 			linha=[]
 
-			linha.append(self.estimRssi)
+			linha.append(self.emaRssi)
 			linha.append(self.estimPRR)
 			linha.append(self.estimPRR2)
 			linha.append(float(self.mediaSNR))
 			linha.append(calcTxE) # Taxa de entrega
 			linha.append(calcRel) # Relacao
-			linha.append(self.diffTempo)
+			linha.append(self.diffTempo.microseconds)
 
 			self.matrix.append(linha)
 
@@ -773,7 +773,7 @@ class getRSSI(gr.sync_block):
 			calcRel = 0.0
 
 		if self.treinaML == True :
-			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia'])
+			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia-ms'])
 			dft.to_csv('saidaTraces.csv')
 
 
