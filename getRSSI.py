@@ -104,7 +104,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
 		self.treinaML = True
-		self.forcaLQE = 0.0 # Valor forçado para estimativa (usado na coleta dos dados)
+		self.forcaLQE = 0.5 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
@@ -256,10 +256,8 @@ class getRSSI(gr.sync_block):
 				calcTxE = 0.0
 				calcRel = 0.0
 
-			if calcRel > 1000 : calcRel = calcRel/1000
-
 			linha=[]
-			potencia = 44.0*(1-self.forcaLQE)+45 # calculo usado no powerControl
+			potencia = 44.0*(1-self.forcaLQE)+45 # calculo igual ao usado no powerControl
 
 			linha.append(self.emaRssi)
 			linha.append(self.estimPRR)
@@ -267,11 +265,11 @@ class getRSSI(gr.sync_block):
 			linha.append(float(self.mediaSNR))
 			linha.append(calcTxE) # Taxa de entrega
 			linha.append(calcRel) # Relacao
-			if self.diffTempo == 0.0 or self.diffTempo == 99999:
+			if self.diffTempo == 0.0 or self.diffTempo == 999:
 				linha.append(self.diffTempo)
 			else:
 				linha.append(self.diffTempo.microseconds/1000.0) # miliseconds
-			self.diffTempo = 99999 #para evitar leituras de tempo repetidas
+			self.diffTempo = 999 #para evitar leituras de tempo repetidas
 			linha.append(potencia)
 
 			self.matrix.append(linha)
