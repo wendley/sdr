@@ -259,7 +259,7 @@ class getRSSI(gr.sync_block):
 			linha=[]
 			potencia = 44.0*(1-self.forcaLQE)+45 # calculo igual ao usado no powerControl
 
-			linha.append(self.emaRssi)
+			linha.append(self.emaRssi[0])
 			linha.append(self.estimPRR)
 			linha.append(self.estimPRR2)
 			linha.append(float(self.mediaSNR))
