@@ -55,6 +55,7 @@ class getRSSI(gr.sync_block):
 		self.gammaHW = gammaHW
 		self.filter = filters
 		self.timeoutML = timeout
+		self.treinaML = True
 
 
 		self.serie=[]
@@ -93,6 +94,7 @@ class getRSSI(gr.sync_block):
 		self.split = 0 # split time for ML
 		self.outPck = 0 # start time for packet time
 		self.intAck = 0 # end time for packet time
+		self.diffTempo = 0.0
 		self.serieTempoTotalAck = []
 		self.serieTempoML = []
 		self.serieTreinoRssi = []
@@ -174,12 +176,12 @@ class getRSSI(gr.sync_block):
 			if self.outPck == 0:
 				self.outPck = datetime.datetime.now() # muda o tipo de integer para datetime
 			self.intAck = datetime.datetime.now()
-			diffTempo = self.intAck - self.outPck
+			self.diffTempo = self.intAck - self.outPck
 			# print "\n ----- \nTempo p receber ack: "
-			# print (diffTempo)
+			# print (self.diffTempo)
 			# print "\n"
 
-			self.serieTempoTotalAck.append(diffTempo.microseconds/1000.0) # adiciona os milisegundos do tempo de recebimento de acks
+			self.serieTempoTotalAck.append(self.diffTempo.microseconds/1000.0) # adiciona os milisegundos do tempo de recebimento de acks
 
 			self.calcPRR(1)
 			self.calcLQE()
@@ -244,32 +246,31 @@ class getRSSI(gr.sync_block):
 
 		# Coletar: rssi, prr, snr, prr2, tx entrega, latencia, potencia, variacao tx entrega, variacao prr
 
-		if self.ackCount > 0:
-			calcTxE = (float(self.ackCount)/self.geralSendOrder)*100.0
-			calcRel = float(self.geralSends)/self.ackCount
-		else:
-			calcTxE = 0.0
-			calcRel = 0.0
+		if self.treinaML == True : # setado na linha 58
+			if self.ackCount > 0:
+				calcTxE = (float(self.ackCount)/self.geralSendOrder)*100.0
+				calcRel = float(self.geralSends)/self.ackCount
+			else:
+				calcTxE = 0.0
+				calcRel = 0.0
 
-		linha=[]
+			linha=[]
 
-		linha.append(self.estimRssi)
-		linha.append(self.estimPRR)
-		#self.serieTreinoPRR2.append(self.estimPRR2)
-		linha.append(float(self.mediaSNR))
-		linha.append(calcTxE)
-		linha.append(calcRel)
+			linha.append(self.estimRssi)
+			linha.append(self.estimPRR)
+			linha.append(self.estimPRR2)
+			linha.append(float(self.mediaSNR))
+			linha.append(calcTxE) # Taxa de entrega
+			linha.append(calcRel) # Relacao
+			linha.append(self.diffTempo)
 
-		self.matrix.append(linha)
+			self.matrix.append(linha)
 
-
-		#TODO: Falta adicionar append para latencia e Potencia
-
-
-
+			self.method = 4 # força usar PRR2 (para conseguir calcular PRR2). setar valor manualmente na linha 545
 
 
-
+			#TODO: Falta adicionar append para latencia e Potencia
+		# Fim_if
 
 
 
@@ -537,7 +538,10 @@ class getRSSI(gr.sync_block):
 			#print "Proposed mode in use - under development - the tx gain is constant"
 			#This sets the gain
 			#gTx=float(self.gainTx)
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2))
+			if self.treinaML == True : # setado na linha 58
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(0.0)) #setar aqui o valor
+			else:
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2))
 
 		elif self.method == 5:
 			#####################################################
@@ -768,9 +772,9 @@ class getRSSI(gr.sync_block):
 			calcTxE = 0.0
 			calcRel = 0.0
 
-
-		dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'snr', 'txentrega', 'relacao'])
-		dft.to_csv('saidaTraces.csv')
+		if self.treinaML == True :
+			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia'])
+			dft.to_csv('saidaTraces.csv')
 
 
 

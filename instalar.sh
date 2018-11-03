@@ -158,10 +158,11 @@ echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n
 sleep $pausa
 
 cd ~ ;
-echo "\n Atualizando PIP e instalando scikit-learn... \n"
+echo "\n Atualizando PIP e instalando scikit-learn e pandas... \n"
 sleep $pausa
 sudo pip install --upgrade pip ;
 sudo pip install -U scikit-learn ;
+sudo pip install -U pandas ;
 
 cd ~ ;
 chmod +x recompilarMac.sh ;
