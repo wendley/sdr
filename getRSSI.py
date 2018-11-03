@@ -104,7 +104,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
 		self.treinaML = True
-		self.forcaLQE = 0.25 # Valor forçado para estimativa (usado na coleta dos dados)
+		self.forcaLQE = 1.00 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
@@ -785,6 +785,7 @@ class getRSSI(gr.sync_block):
 			dft.to_csv('traces.csv',mode='a')
 
 
+		linha=[]
 
 		print "\n============================================================== "
 		agora = datetime.datetime.now()
@@ -816,6 +817,19 @@ class getRSSI(gr.sync_block):
 		print "-   Taxa de entrega: %6.2f percent" %(calcTxE)
 		print "-   Tempo medio de recebimento de acks: %6.2f" %(numpy.mean(self.serieTempoTotalAck))
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
+
+		linha.append(agora.strftime("%d/%m/%Y - %H:%M:%S"))
+		linha.append(self.method)
+		linha.append(self.geralSendOrder)
+		linha.append(self.geralSends)
+		linha.append(self.ackCount)
+		linha.append(self.geralSends - self.geralSendOrder)
+		linha.append(calcRel)
+		linha.append(calcTxE)
+		linha.append(numpy.mean(self.serieTempoTotalAck))
+		linha.append(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
+
+
 
 		if self.method == 7: #LQL
 			print "-   ------------------------------------"
