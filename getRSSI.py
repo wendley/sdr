@@ -782,7 +782,7 @@ class getRSSI(gr.sync_block):
 
 		if self.treinaML == True :
 			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia-ms','potencia'])
-			dft.to_csv('traces.csv')
+			dft.to_csv('traces.csv',mode='a')
 
 
 
