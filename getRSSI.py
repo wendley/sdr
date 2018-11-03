@@ -55,8 +55,6 @@ class getRSSI(gr.sync_block):
 		self.gammaHW = gammaHW
 		self.filter = filters
 		self.timeoutML = timeout
-		self.treinaML = True
-
 
 		self.serie=[]
 		self.seriePRR=[]
@@ -97,6 +95,7 @@ class getRSSI(gr.sync_block):
 		self.diffTempo = 0.0
 		self.serieTempoTotalAck = []
 		self.serieTempoML = []
+
 		self.serieTreinoRssi = []
 		self.serieTreinoPRR = []
 		self.serieTreinoPRR2 = []
@@ -104,6 +103,9 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoTxEntrega = []
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
+		self.treinaML = True
+		self.forcaLQE = 0.0 # Valor forçado para estimativa (usado na coleta dos dados)
+
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
 
@@ -255,6 +257,7 @@ class getRSSI(gr.sync_block):
 				calcRel = 0.0
 
 			linha=[]
+			potencia = 44.0*(1-self.forcaLQE)+45 # calculo usado no powerControl
 
 			linha.append(self.emaRssi)
 			linha.append(self.estimPRR)
@@ -262,7 +265,8 @@ class getRSSI(gr.sync_block):
 			linha.append(float(self.mediaSNR))
 			linha.append(calcTxE) # Taxa de entrega
 			linha.append(calcRel) # Relacao
-			linha.append(self.diffTempo.microseconds/1000.0)
+			linha.append(self.diffTempo.microseconds/1000.0) # miliseconds
+			linha.append(potencia)
 
 			self.matrix.append(linha)
 
@@ -539,7 +543,7 @@ class getRSSI(gr.sync_block):
 			#This sets the gain
 			#gTx=float(self.gainTx)
 			if self.treinaML == True : # setado na linha 58
-				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(0.0)) #setar aqui o valor
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.forcaLQE)) #setar aqui o valor
 			else:
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2))
 
@@ -773,8 +777,8 @@ class getRSSI(gr.sync_block):
 			calcRel = 0.0
 
 		if self.treinaML == True :
-			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia-ms'])
-			dft.to_csv('saidaTraces.csv')
+			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia-ms','potencia'])
+			dft.to_csv('traces.csv')
 
 
 
