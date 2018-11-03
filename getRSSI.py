@@ -104,7 +104,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
 		self.treinaML = True
-		self.forcaLQE = 1.00 # Valor forçado para estimativa (usado na coleta dos dados)
+		self.forcaLQE = 0.0 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
@@ -828,6 +828,9 @@ class getRSSI(gr.sync_block):
 		linha.append(calcTxE)
 		linha.append(numpy.mean(self.serieTempoTotalAck))
 		linha.append(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
+
+		dfstat=pd.DataFrame(linha,columns=['timestamp', 'method', 'enviosSolicitados', 'enviosEfetivos', 'acksRecebidos', 'retransmissoes','relacao','taxaEntrega','tempoMedioRecebAck','desvioPadraoAck'])
+		dfstat.to_csv('estatisticas.csv',mode='a')
 
 
 
