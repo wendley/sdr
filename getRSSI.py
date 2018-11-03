@@ -256,6 +256,8 @@ class getRSSI(gr.sync_block):
 				calcTxE = 0.0
 				calcRel = 0.0
 
+			if calcRel > 1000 : calcRel = calcRel/1000
+
 			linha=[]
 			potencia = 44.0*(1-self.forcaLQE)+45 # calculo usado no powerControl
 
@@ -269,6 +271,7 @@ class getRSSI(gr.sync_block):
 				linha.append(self.diffTempo)
 			else:
 				linha.append(self.diffTempo.microseconds/1000.0) # miliseconds
+			self.diffTempo = 99999 #para evitar leituras de tempo repetidas
 			linha.append(potencia)
 
 			self.matrix.append(linha)
