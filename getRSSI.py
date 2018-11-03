@@ -26,6 +26,7 @@
 
 import numpy, pmt, time, datetime
 import pandas as pd
+import os
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
@@ -104,7 +105,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
 		self.treinaML = True
-		self.forcaLQE = 0.0 # Valor forçado para estimativa (usado na coleta dos dados)
+		self.forcaLQE = 0.50 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
@@ -829,8 +830,15 @@ class getRSSI(gr.sync_block):
 		linha.append(numpy.mean(self.serieTempoTotalAck))
 		linha.append(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
 
-		dfstat=pd.DataFrame(linha,columns=['timestamp', 'method', 'enviosSolicitados', 'enviosEfetivos', 'acksRecebidos', 'retransmissoes','relacao','taxaEntrega','tempoMedioRecebAck','desvioPadraoAck'])
-		dfstat.to_csv('estatisticas.csv',mode='a')
+		matr = []
+		matr.append(linha)
+
+		dfstat=pd.DataFrame(matr,columns=['timestamp', 'method', 'enviosSolicitados', 'enviosEfetivos', 'acksRecebidos', 'retransmissoes','relacao','taxaEntrega','tempoMedioRecebAck','desvioPadraoAck'])
+		# if file does not exist write header
+		if not os.path.isfile('estatisticas.csv'):
+		   dfstat.to_csv('estatisticas.csv',mode='a')
+		else: # else it exists so append without writing the header
+		   dfstat.to_csv('estatisticas.csv',mode='a', header=False)
 
 
 
