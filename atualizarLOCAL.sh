@@ -6,9 +6,9 @@ NOW=$(date +"%d/%m/%Y") ;
 
 cd ~/Dropbox/Documentos/PhD/Codigos/;
 
-cp /gr-lqe/python/getRSSI.py sdr/ ;
-cp /gr-lqe/grc/lqe_getRSSI.xml sdr/ ;
-cp /gr-lqe/python/powerControl.py sdr/ ;
+cp gr-lqe/python/getRSSI.py sdr/ ;
+cp gr-lqe/grc/lqe_getRSSI.xml sdr/ ;
+cp gr-lqe/python/powerControl.py sdr/ ;
 
 cd ~/Dropbox/Documentos/PhD/Codigos/sdr/;
 git add . ;
