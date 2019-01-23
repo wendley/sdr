@@ -1,0 +1,48 @@
+ Fluxo no jFed
+
+- Login (PEM certificate)
+
+No Nó TX:
+- Upload instalar.sh (dir 'SDR')
+- No terminal: chmod +x InstalarNo0.sh
+- Executar com ./instalar.sh 0
+- Executar: grcc -e TXOnlyLQE.grc
+
+No Nó RX:
+- Upload instalar.sh (dir 'SDR')
+- No terminal: chmod +x InstalarNo1.sh
+- Executar com ./instalar.sh 1
+- Executar: grcc -e RXOnly.grc
+
+_______________________________________
+Para atualizar:
+
+ rodar atualizarLOCAL.sh (localmente)
+
+ rodar recompilarLQE.sh remotamente, para reinstalar gr-lqe
+ rodar recompilarMar.sh remotamente, para reinstalar gr-802154
+ rodar clone.sh remotamente para baixar os arquivos da pasta sdr
+
+
+=======================================
+=======================================
+
+CENÁRIOS DE AVALIAÇÃO DO EXPERIMENTO:
+
+1 - Sem ruído artificial
+2 - Com ruído art, fonte prox Rx
+    (fazer estudo da posicao da fonte de ruido)
+
+a - KLE
+b - PRR
+c - LQL
+d - PRR2
+e - LQR3
+
+i - Com tráfego regular (intervalo constante)
+ii - Com tráfego irregular (intervalos pseudoaleatórios)
+
+I - single sender
+II - multiple senders
+
+
