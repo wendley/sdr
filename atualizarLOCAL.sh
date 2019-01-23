@@ -4,13 +4,13 @@
 
 NOW=$(date +"%d/%m/%Y") ;
 
-cdsdr; # alias Linux: alias cdsdr='cd ~/Dropbox/Documentos/PhD/Codigos/sdr/'
+cd ~/Dropbox/Documentos/PhD/Codigos/;
 
-cp ../gr-lqe/python/getRSSI.py sdr/ ;
-cp ../gr-lqe/grc/lqe_getRSSI.xml sdr/ ;
-cp ../gr-lqe/python/powerControl.py sdr/ ;
+cp /gr-lqe/python/getRSSI.py sdr/ ;
+cp /gr-lqe/grc/lqe_getRSSI.xml sdr/ ;
+cp /gr-lqe/python/powerControl.py sdr/ ;
 
-cdsdr;
+cd ~/Dropbox/Documentos/PhD/Codigos/sdr/;
 git add . ;
 git commit -m "atualizacao de $NOW" ;
 git push;
