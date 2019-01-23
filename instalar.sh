@@ -1,6 +1,6 @@
 #!/bin/sh
 # Shell script para instalar GR-Foo, GR-802.15.4, GR-LQE etc.
-# Wendley S. Silva – wendley@ufc.br - Ago/2018
+# Wendley S. Silva – wendley@ufc.br - Jan/2019
 # ------
 # Usar da seguinte forma:
 # ./instalar 0   ou    ./instalar 1 etc.

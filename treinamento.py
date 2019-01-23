@@ -18,6 +18,10 @@ df=pd.read_csv(ifile,header=0)
 
 colunas=['rssi','prr','snr']
 
+# TODO: Adicionar RMSE em todos os algoritmos,
+# TODO: organizar saída para melhor coleta (copiar e colar)
+# TODO: mais casas decimais na acurácia dos cross validation
+
 # err=np.abs(estim-y_test)
 
 # Embaralhar:
@@ -376,6 +380,7 @@ print diff
 
 print "r2 score: %f" % r2_score(y_test, estim2)
 print "mse: %f" % mean_squared_error(y_test, estim2)
+print "rmse: %f" % sqrt(mean_squared_error(y_test, estim2))
 print "mae: %f" % mean_absolute_error(y_test, estim2)
 print "explained variance score: %f" % explained_variance_score(y_test, estim2)
 print "\n------------------------------\n"
