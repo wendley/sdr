@@ -141,7 +141,7 @@ class getRSSI(gr.sync_block):
 		self.clf = dt.DecisionTreeRegressor()
 
 		self.startT = time.time()
-		adwin = Adwin(0.01) # Padrao
+		self.adwin = Adwin(0.01) # Padrao
 
 	def work(self, input_items, output_items):
 		assert (False)
@@ -657,7 +657,7 @@ class getRSSI(gr.sync_block):
 				# del(self.tempML[0])
 				del(self.serieTarget[0])
 
-			if (adwin.update(data)): # SE DETECTAR CONCEPT DRIFT
+			if (self.adwin.update(data)): # SE DETECTAR CONCEPT DRIFT
 				self.serieML = []
 				self.treinar = True
 				self.contaConceptDrift += 1
