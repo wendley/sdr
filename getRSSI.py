@@ -27,11 +27,13 @@
 import numpy, pmt, time, datetime
 import pandas as pd
 import os
+import math
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
 #from sklearn import svm # Support Vector Machine
 from sklearn import tree as dt # DecisionTreeRegressor
+from pyadwin import Adwin
 
 
 class getRSSI(gr.sync_block):
@@ -849,10 +851,10 @@ class getRSSI(gr.sync_block):
 		elif self.method == 8: #LQM3
 			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
-			print "-   Tamanho serie erro ML LQR3: %d entradas " %(len(self.serieErroLQM3))
-			print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
-			print "-   Tempo medio para processar LQR3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
-			print "-   Desvio padrao do tempo para processar LQR3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
+			print "-   Tamanho serie erro ML LQM3: %d entradas " %(len(self.serieErroLQM3))
+			print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
+			print "-   Tempo medio para processar LQM3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
+			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
 
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
