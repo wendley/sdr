@@ -112,6 +112,8 @@ class getRSSI(gr.sync_block):
 
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
+		self.contaConceptDrift = 0
+		self.treinar == True
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
 		self.fnRSSIKalman="/home/wendley/Experimentos/SerieRSSIKalman.txt"
@@ -642,18 +644,28 @@ class getRSSI(gr.sync_block):
 
 			# TIME CONTROL : RECURSO DE REDUÇÃO TEMPORAL DA SERIE:
 			timeControl = True #True para ativar ou False para desativar
-
-			if timeControl :
-				if elapsed > self.timeoutML: # se decorridos mais de xx segundo, a serie eh reduzida pela metade, apagando as entradas mais antigas
-					self.serieML = self.serieML[-(len(self.serieML)/2):]
-					self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
-					self.contaReducao += 1
-
-			if len(self.serieML) >= 20: # Arbitrary value to training
-				del(self.serieML[0])
+			#
+			# if timeControl :
+			# 	if elapsed > self.timeoutML: # se decorridos mais de xx segundo, a serie eh reduzida pela metade, apagando as entradas mais antigas
+			# 		self.serieML = self.serieML[-(len(self.serieML)/2):]
+			# 		self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
+			# 		self.contaReducao += 1
+			#
+			if len(self.serieML) >= 30: # Arbitrary MAX value to training
+				del(self.serieML[0]) # Apaga a entrada mais antiga
 				# del(self.tempML[0])
 				del(self.serieTarget[0])
 
+			if (adwin.update(data)): # SE DETECTAR CONCEPT DRIFT
+				self.serieML = []
+				self.treinar == True
+				self.contaConceptDrift += 1
+
+			if len(self.serieML)>=10 :
+				if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
+					self.treinar == True
+				else:
+					self.treinar == False
 
 
 			self.tempML.append(self.estimPRR)
@@ -681,7 +693,8 @@ class getRSSI(gr.sync_block):
 				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
 				# print(self.serieTarget)
 				tempo1 = datetime.datetime.now()
-				self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+				if self.treinar == True :
+					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
@@ -855,6 +868,7 @@ class getRSSI(gr.sync_block):
 			print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Tempo medio para processar LQM3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
 			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
+			print "-   Qtde de concept drift detectado: %6.2f" %(self.contaConceptDrift)
 
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
