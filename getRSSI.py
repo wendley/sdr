@@ -141,6 +141,7 @@ class getRSSI(gr.sync_block):
 		self.clf = dt.DecisionTreeRegressor()
 
 		self.startT = time.time()
+		adwin = Adwin(0.01) # Padrao
 
 	def work(self, input_items, output_items):
 		assert (False)
