@@ -113,7 +113,7 @@ class getRSSI(gr.sync_block):
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
 		self.contaConceptDrift = 0
-		self.treinar == True
+		self.treinar = True
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
 		self.fnRSSIKalman="/home/wendley/Experimentos/SerieRSSIKalman.txt"
@@ -658,14 +658,14 @@ class getRSSI(gr.sync_block):
 
 			if (adwin.update(data)): # SE DETECTAR CONCEPT DRIFT
 				self.serieML = []
-				self.treinar == True
+				self.treinar = True
 				self.contaConceptDrift += 1
 
 			if len(self.serieML)>=10 :
 				if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
-					self.treinar == True
+					self.treinar = True
 				else:
-					self.treinar == False
+					self.treinar = False
 
 
 			self.tempML.append(self.estimPRR)
