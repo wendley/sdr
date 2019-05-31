@@ -11,6 +11,7 @@ if [ $# -lt 1 ]; then
    exit 1
 fi
 
+sudo ifconfig ens3 mtu 1400 up
 
 git clone https://github.com/wendley/sdr.git ;
 cd sdr ;
@@ -20,8 +21,9 @@ mkdir Experimentos ;
 
 pausa=2
 
-
+echo "\n ------------------------------\n"
 echo "\n Descomprimindo os arquivos... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 tar -vzxf CodesGr1.tar.gz ;
 
@@ -73,16 +75,13 @@ esac
 
 compilar()
 {
-  mkdir build ;
-  cd build ;
-  cmake .. ;
-  make ;
-  sudo make install ;
-  sudo ldconfig ;
+  mkdir build ; cd build ; cmake .. ; make ; sudo make install ; sudo ldconfig ;
 }
 
 ### GR-FOO ###
+echo "\n ------------------------------\n"
 echo "\n Instalando GR-FOO-2016... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 
 cd ~ ;
@@ -92,7 +91,9 @@ compilar ; #funcao compilar
 
 
 ### GR-IEEE802-15-4 - versão WY ###
+echo "\n ------------------------------\n"
 echo "\n Instalando GR-IEEE802-15-4 versao Wy... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 
 #cd ~ ; cd gr-802154-wy ; mkdir build ; cd build ; cmake .. ; make ; sudo make install ; sudo ldconfig ;
@@ -102,7 +103,9 @@ compilar ; #funcao compilar
 
 
 ### GR-EVENTSTREAM ###
+echo "\n ------------------------------\n"
 echo "\n Instalando GR-EVENTSTREAM... \n"
+echo "\n ------------------------------\n"
 # Dependencias: BOOST e PKG-CONFIG
 # sudo apt-get install libboost-all-dev
 # sudo apt-get install pkg-config
@@ -115,7 +118,9 @@ compilar ; #funcao compilar
 
 
 ### GR-UHDGPS ###
+echo "\n ------------------------------\n"
 echo "\n Instalando GR-UHDGPS... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 
 cd ~ ;
@@ -124,7 +129,9 @@ compilar ; #funcao compilar
 
 
 ### GR-LQE ###
+echo "\n ------------------------------\n"
 echo "\n Instalando GR-LQE... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 
 cd ~ ;
@@ -133,7 +140,9 @@ compilar ; #funcao compilar
 
 
 ### COMPILANDO GR-802-15-4 ###
+echo "\n ------------------------------\n"
 echo "\n Compilando ieee802_15_4_PHY.grc... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 
 cd ~ ;
@@ -154,11 +163,15 @@ grcc ieee802_15_4_OQPSK_PHY.grc ;
 # grcc TrafficGenHier.grc ;
 
 ### Conclusao ###
+echo "\n ------------------------------\n"
 echo "\n . \n .. \n ... \n Descompressao e compilacao concluidos \n ... \n .. \n ."
+echo "\n ------------------------------\n"
 sleep $pausa
 
 cd ~ ;
+echo "\n ------------------------------\n"
 echo "\n Atualizando PIP e instalando scikit-learn e pandas... \n"
+echo "\n ------------------------------\n"
 sleep $pausa
 sudo pip install --upgrade pip ;
 sudo pip install -U scikit-learn ;

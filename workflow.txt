@@ -5,13 +5,13 @@
 No Nó TX:
 - Upload instalar.sh (dir 'SDR')
 - No terminal: chmod +x InstalarNo0.sh
-- Executar com ./instalar.sh 0
+- Executar com ./instalar.sh 1
 - Executar: grcc -e TXOnlyLQE.grc
 
 No Nó RX:
 - Upload instalar.sh (dir 'SDR')
 - No terminal: chmod +x InstalarNo1.sh
-- Executar com ./instalar.sh 1
+- Executar com ./instalar.sh 0
 - Executar: grcc -e RXOnly.grc
 
 _______________________________________
