@@ -583,10 +583,22 @@ class getRSSI(gr.sync_block):
 			# in wireless networks." Ad Hoc Networking Workshop (MED-HOC-NET), 2013 12th Annual Mediterranean. IEEE, 2013.
 			#####################################################
 
-			if len(self.serieLQL) >= 20: # Arbitrary value to training
+			if len(self.serieLQL) >= 30: # Arbitrary value to training
 				del(self.serieLQL[0])
 				# del(self.tempML[0])
 				del(self.serieTargetLQL[0])
+
+			if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
+				self.serieLQL = []
+				self.serieTargetLQL = []
+				self.treinar = True
+				self.contaConceptDrift += 1
+
+			if len(self.serieLQL)>=10 :
+				if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
+					self.treinar = True
+				else:
+					self.treinar = False
 
 			#self.tempLQL.append(self.estimPRR)
 			self.tempLQL.append(self.estimRssi)
@@ -614,7 +626,8 @@ class getRSSI(gr.sync_block):
 				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
 				# print(self.serieTargetLQL)
 
-				self.clf.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
+				if self.treinar == True :
+					self.clf.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieLQL = self.serieLQL[-1]
 				self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				self.estimSVMRLQL = float(self.clf.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
