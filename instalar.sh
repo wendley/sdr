@@ -189,3 +189,17 @@ chmod +x clone.sh ;
 #
 # cd ~/ ;
 # rm sdr/ -rf ;
+
+###########################################
+#
+## INSTALACAO DO PY-ADWIN - CONCEPT drift
+#
+###########################################
+
+cd ~ ;
+echo "\n ------------------------------\n"
+echo "\n Instalando pyAdwin - Concept Drift Detection... \n"
+echo "\n ------------------------------\n"
+
+git clone https://github.com/rsdevigo/pyAdwin.git ;
+cd pyAdwin && sudo python setup.py install
