@@ -30,7 +30,8 @@ import os
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
-from sklearn import svm
+#from sklearn import svm # Support Vector Machine
+from sklearn import tree as dt # DecisionTreeRegressor
 
 
 class getRSSI(gr.sync_block):
@@ -74,7 +75,7 @@ class getRSSI(gr.sync_block):
 		self.serieTargetLQL=[] # For Foresee
 		self.finalSerieML = []
 		self.finalSerieLQL = []
-		self.serieErroSVMR = []
+		self.serieErroLQM3 = []
 		self.serieErroSVMRLQL = []
 		self.ackCount = 0
 		self.sendedPacks = 0
@@ -132,7 +133,8 @@ class getRSSI(gr.sync_block):
 		self.set_msg_handler(pmt.intern("sendPacks"), self.handlerSendPack)
 		self.set_msg_handler(pmt.intern("sendOrder"), self.handlerSendOrder)
 
-		self.clf = svm.SVR()
+		# self.clf = svm.SVR()
+		self.clf = dt.DecisionTreeRegressor()
 
 		self.startT = time.time()
 
@@ -626,14 +628,14 @@ class getRSSI(gr.sync_block):
 
 		elif self.method == 8:
 
-			##########################################################
-			# #													   # #
-			# #													   # #
-			# # PROPOSTA - Machine Learning - LQR3				   # #
-			# # Link Quality Estimator using SVR with triple input # #
-			# #													   # #
-			# #													   # #
-			##########################################################
+			###########################################################
+			# #													    # #
+			# #													    # #
+			# # PROPOSTA - Machine Learning - LQM3				    # #
+			# # Link Quality Estimator using M.L. with triple input # #
+			# #													    # #
+			# #													    # #
+			###########################################################
 
 			self.split = time.time()
 			elapsed = self.split - self.startT
@@ -658,7 +660,7 @@ class getRSSI(gr.sync_block):
 			self.tempML.append(self.estimRssi)
 			self.tempML.append(self.mediaSNR)
 			self.serieML.append(list(self.tempML))
-			self.serieML.append(list(self.tempML)) # Duplicar append para ter dois targets com as mesmas entradas
+			self.serieML.append(list(self.tempML)) # Duplicar append para ter dois targets com as mesmas entradas MULTI-LABEL TARGET
 			self.tempML=[]
 			self.serieTarget.append(self.estimRssi) # Target 1
 			self.serieTarget.append(self.estimPRR2) # Target 2
@@ -687,12 +689,12 @@ class getRSSI(gr.sync_block):
 				tempo2 = datetime.datetime.now()
 				diferenca = tempo2-tempo1 # para calcular o tempo de processamento da ML
 
-				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona em miliseconds
+				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
 
-				erroSVMR = numpy.abs(self.estimSVMR - self.serieTarget[-1])
-				self.serieErroSVMR.append(erroSVMR)
-				# print "DEBUG - ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
-				# print "DEBUG - ERRO do SVMR: %f" %erroSVMR
+				erroML = numpy.abs(self.estimSVMR - self.serieTarget[-1])
+				self.serieErroLQM3.append(erroML)
+				# print "DEBUG - ESTIMATIVA GERADA PELO LQM3: %f" %self.estimSVMR
+				# print "DEBUG - ERRO do LQM3: %f" %erroML
 
 
 			#---------------
@@ -846,10 +848,10 @@ class getRSSI(gr.sync_block):
 			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQL: %6.2f percent" %(numpy.mean(self.serieErroSVMRLQL))
 			print "-   Tamanho serie erro ML LQL: %d entradas " %(len(self.serieErroSVMRLQL))
-		elif self.method == 8: #LQR3
+		elif self.method == 8: #LQM3
 			print "-   ------------------------------------"
-			print "-   Erro medio Machine Learning LQR3: %6.2f percent" %(numpy.mean(self.serieErroSVMR))
-			print "-   Tamanho serie erro ML LQR3: %d entradas " %(len(self.serieErroSVMR))
+			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
+			print "-   Tamanho serie erro ML LQR3: %d entradas " %(len(self.serieErroLQM3))
 			print "-   Qtde de reducoes da serie LQR3: %d " %(self.contaReducao)
 			print "-   Tempo medio para processar LQR3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
 			print "-   Desvio padrao do tempo para processar LQR3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
