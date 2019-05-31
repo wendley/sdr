@@ -657,7 +657,7 @@ class getRSSI(gr.sync_block):
 				# del(self.tempML[0])
 				del(self.serieTarget[0])
 
-			if (self.adwin.update(data)): # SE DETECTAR CONCEPT DRIFT
+			if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
 				self.serieML = []
 				self.treinar = True
 				self.contaConceptDrift += 1
