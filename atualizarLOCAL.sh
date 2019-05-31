@@ -4,13 +4,13 @@
 
 NOW=$(date +"%d/%m/%Y") ;
 
-cd ~/MEGA/MegaCloud/Documentos/PhD/Codigos/;
+# cd ~/MEGA/MegaCloud/Documentos/PhD/Codigos/sdr;
 
-cp gr-lqe/python/getRSSI.py sdr/ ;
-cp gr-lqe/grc/lqe_getRSSI.xml sdr/ ;
-cp gr-lqe/python/powerControl.py sdr/ ;
+# cp gr-lqe/python/getRSSI.py sdr/ ;
+# cp gr-lqe/grc/lqe_getRSSI.xml sdr/ ;
+# cp gr-lqe/python/powerControl.py sdr/ ;
 
-cd ~/MEGA/MegaCloud/Documentos/PhD/Codigos/sdr/;
+# cd ~/MEGA/MegaCloud/Documentos/PhD/Codigos/sdr/;
 git add . ;
 git commit -m "atualizacao de $NOW" ;
 git push;

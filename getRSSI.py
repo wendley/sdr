@@ -105,7 +105,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoTxEntrega = []
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
-		self.treinaML = True
+		self.treinaML = False # True para treinamento
 		self.forcaLQE = 1.0 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
@@ -242,9 +242,7 @@ class getRSSI(gr.sync_block):
 		#####################################################
 		# #												  # #
 		# #												  # #
-		# #												  # #
-		# #		 	PARA COLETA DE DADOS P ML 			  # #
-		# #												  # #
+		# #	 PARA COLETA DE DADOS PARA ESCOLHA DO ML      # #
 		# #												  # #
 		# #												  # #
 		#####################################################
@@ -281,7 +279,7 @@ class getRSSI(gr.sync_block):
 
 
 			#TODO: Falta adicionar append para latencia e Potencia
-		# Fim_if
+		# Fim_if da COLETA
 
 
 
@@ -810,7 +808,7 @@ class getRSSI(gr.sync_block):
 		elif self.method == 7:
 			print "        LQE: LQL"
 		elif self.method == 8:
-			print "        LQE: LQR3"
+			print "        LQE: LQM3"
 
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)
