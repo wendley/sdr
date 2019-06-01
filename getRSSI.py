@@ -672,11 +672,11 @@ class getRSSI(gr.sync_block):
 				# del(self.tempML[0])
 				del(self.serieTarget[0])
 
-			# if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
-			# 	self.serieML = []
-			# 	self.serieTarget = []
-			# 	self.treinar = True
-			# 	self.contaConceptDrift += 1
+			if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
+				self.serieML = []
+				self.serieTarget = []
+				self.treinar = True
+				self.contaConceptDrift += 1
 
 			if len(self.serieML)>=10 :
 				if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
