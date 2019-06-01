@@ -111,10 +111,11 @@ class getRSSI(gr.sync_block):
 		self.treinaML = False # True para treinamento
 		self.forcaLQE = 1.0 # Valor forçado para estimativa (usado na coleta dos dados)
 
-		self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
+		#self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
 		self.contaConceptDrift = 0
 		self.treinar = True
+		self.contaTreinos = 0
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
 		self.fnRSSIKalman="/home/wendley/Experimentos/SerieRSSIKalman.txt"
@@ -629,6 +630,7 @@ class getRSSI(gr.sync_block):
 				# print(self.serieTargetLQL)
 
 				if self.treinar == True :
+					self.contaTreinos =+1
 					self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieLQL = self.serieLQL[-1]
 				self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
@@ -711,6 +713,7 @@ class getRSSI(gr.sync_block):
 				# print(self.serieTarget)
 				tempo1 = datetime.datetime.now()
 				if self.treinar == True :
+					self.contaTreinos =+1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
@@ -882,9 +885,10 @@ class getRSSI(gr.sync_block):
 			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
 			print "-   Tamanho serie erro ML LQM3: %d entradas " %(len(self.serieErroLQM3))
-			print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Tempo medio para processar LQM3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
 			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
+			# print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
+			print "-   Qtde de treinos da serie LQM3: %d " %(self.contaTreinos)
 			print "-   Qtde de concept drift detectado: %6.2f" %(self.contaConceptDrift)
 
 		print "============================================================== \n"
