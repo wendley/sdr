@@ -114,7 +114,7 @@ class getRSSI(gr.sync_block):
 		#self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
 		self.contaConceptDrift = 0
-		self.treinar = True
+		self.treinar = False
 		self.contaTreinos = 0
 
 		self.fnRSSI="/home/wendley/Experimentos/SerieRSSI.txt"
