@@ -636,7 +636,7 @@ class getRSSI(gr.sync_block):
 				# print(self.serieTargetLQL)
 
 				if self.treinar == True :
-					self.contaTreinos =+1
+					self.contaTreinos +=1
 					self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieLQL = self.serieLQL[-1]
 				self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
@@ -686,11 +686,18 @@ class getRSSI(gr.sync_block):
 				self.treinar = True
 				self.contaConceptDrift += 1
 
-			if len(self.serieML)>=10 :
-				if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
-					self.treinar = True
+
+			if len(self.serieLQL)>=10 :
+				if (self.geralSends%10==0 and len(Self.serieLQL)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
+					self.treinar = True								# depois so retreina se houver detecção de concept drift
 				else:
 					self.treinar = False
+
+			# if len(self.serieLQL)>=10 :
+			# 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
+			# 		self.treinar = True
+			# 	else:
+			# 		self.treinar = False
 
 
 			self.tempML.append(self.estimPRR)
@@ -719,7 +726,7 @@ class getRSSI(gr.sync_block):
 				# print(self.serieTarget)
 				tempo1 = datetime.datetime.now()
 				if self.treinar == True :
-					self.contaTreinos =+1
+					self.contaTreinos +=1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
