@@ -598,10 +598,16 @@ class getRSSI(gr.sync_block):
 			# 	self.contaConceptDrift += 1
 
 			if len(self.serieLQL)>=10 :
-				if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
-					self.treinar = True
+				if (self.geralSends%10==0 and len(Self.serieLQL)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
+					self.treinar = True								# depois so retreina se houver detecção de concept drift
 				else:
 					self.treinar = False
+
+			# if len(self.serieLQL)>=10 :
+			# 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
+			# 		self.treinar = True
+			# 	else:
+			# 		self.treinar = False
 
 			#self.tempLQL.append(self.estimPRR)
 			self.tempLQL.append(self.estimRssi)
