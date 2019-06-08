@@ -627,7 +627,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET-LQL -----------"
 			#print(self.serieTargetLQL)
 			# estimSVMRLQL = 0.0 #
-			if len(self.serieLQL) >= 4:
+			if len(self.serieLQL) >= 5:
 				self.finalSerieLQL=numpy.array(self.serieLQL)
 				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
 				# print(self.finalSerieLQL)
@@ -717,7 +717,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #:
-			if len(self.serieML) >= 4:
+			if len(self.serieML) >= 5:
 				self.finalSerieML=numpy.array(self.serieML)
 				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
 				# print(self.finalSerieML)
