@@ -686,6 +686,7 @@ class getRSSI(gr.sync_block):
 				self.treinar = True
 				self.contaConceptDrift += 1
 
+			@TODO: ttrr (0)
 
 			if len(self.serieML)>=10 :
 				if (self.geralSends%10==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
@@ -693,12 +694,14 @@ class getRSSI(gr.sync_block):
 				else:
 					self.treinar = False
 
+			#FIXME: corrigir
+
 			# if len(self.serieML)>=10 :
 			# 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
 			# 		self.treinar = True
 			# 	else:
 			# 		self.treinar = False
-
+# TODO: um teste
 
 			self.tempML.append(self.estimPRR)
 			self.tempML.append(self.estimRssi)
@@ -709,7 +712,7 @@ class getRSSI(gr.sync_block):
 			#self.serieTarget.append(self.estimRssi) # Target 1
 			self.serieTarget.append(self.estimPRR2) # Target 2
 			self.finalSerieML = numpy.array(self.serieML)
-
+#NOTE: observa
 			#SVMR
 
 			# print "DEBUG: ---------- IMPRIMINDO SERIE-ML -----------"
