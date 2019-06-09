@@ -651,7 +651,7 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
-		@profile
+		#@profile # TODO: Testar o Memory_profile (0) Pode limitar tam arvore
 		elif self.method == 8:
 
 			###########################################################
