@@ -651,7 +651,7 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
-		@profile
+		#@profile # TODO: Testar o Memory_profile (0) Pode limitar tam arvore
 		elif self.method == 8:
 
 			###########################################################
@@ -723,7 +723,7 @@ class getRSSI(gr.sync_block):
 				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
 				# print(self.serieTarget)
 				tempo1 = datetime.datetime.now()
-				if self.treinar == True : 		# TODO: Treinar o LQM3
+				if self.treinar == True : 		# TODO: Libera para treinar o LQM3
 					self.contaTreinos +=1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
