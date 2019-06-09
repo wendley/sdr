@@ -25,16 +25,16 @@
 
 
 import numpy, pmt, time, datetime
-import pandas as pd
+# import pandas as pd
 import os
 import math
 from numpy import convolve
 from gnuradio import gr
 from gnuradio import uhd
 #from sklearn import svm # Support Vector Machine
-from sklearn import tree as dt # DecisionTreeRegressor
-from sklearn import linear_model # Para LQL
-from pyadwin import Adwin
+# from sklearn import tree as dt # DecisionTreeRegressor
+# from sklearn import linear_model # Para LQL
+# from pyadwin import Adwin
 
 
 class getRSSI(gr.sync_block):
@@ -144,7 +144,7 @@ class getRSSI(gr.sync_block):
 		self.reg = linear_model.BayesianRidge() # LQL
 
 		self.startT = time.time()
-		self.adwin = Adwin(0.01) # Padrao
+		# self.adwin = Adwin(0.01) # Padrao
 
 	def work(self, input_items, output_items):
 		assert (False)
