@@ -586,7 +586,7 @@ class getRSSI(gr.sync_block):
 			# in wireless networks." Ad Hoc Networking Workshop (MED-HOC-NET), 2013 12th Annual Mediterranean. IEEE, 2013.
 			#####################################################
 
-			if len(self.serieLQL) >= 30: # Arbitrary value to training
+			if len(self.serieLQL) >= 40: # Arbitrary value to training
 				del(self.serieLQL[0])
 				# del(self.tempML[0])
 				del(self.serieTargetLQL[0])
@@ -651,13 +651,13 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
-
+		@profile
 		elif self.method == 8:
 
 			###########################################################
 			# #													    # #
 			# #													    # #
-			# # PROPOSTA - Machine Learning - LQM3				    # #
+			# # NOTE: PROPOSTA - Machine Learning - LQM3	        # #
 			# # Link Quality Estimator using M.L. with triple input # #
 			# #													    # #
 			# #													    # #
@@ -675,7 +675,7 @@ class getRSSI(gr.sync_block):
 			# 		self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
 			# 		self.contaReducao += 1
 			#
-			if len(self.serieML) >= 30: # Arbitrary MAX value to training
+			if len(self.serieML) >= 40: # Arbitrary MAX value to training
 				del(self.serieML[0]) # Apaga a entrada mais antiga
 				# del(self.tempML[0])
 				del(self.serieTarget[0])
@@ -686,22 +686,18 @@ class getRSSI(gr.sync_block):
 				self.treinar = True
 				self.contaConceptDrift += 1
 
-			@TODO: ttrr (0)
-
 			if len(self.serieML)>=10 :
 				if (self.geralSends%10==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
-					self.treinar = True								# depois so retreina se houver detecção de concept drift
+					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
 				else:
 					self.treinar = False
 
-			#FIXME: corrigir
 
 			# if len(self.serieML)>=10 :
 			# 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
 			# 		self.treinar = True
 			# 	else:
 			# 		self.treinar = False
-# TODO: um teste
 
 			self.tempML.append(self.estimPRR)
 			self.tempML.append(self.estimRssi)
@@ -712,8 +708,7 @@ class getRSSI(gr.sync_block):
 			#self.serieTarget.append(self.estimRssi) # Target 1
 			self.serieTarget.append(self.estimPRR2) # Target 2
 			self.finalSerieML = numpy.array(self.serieML)
-#NOTE: observa
-			#SVMR
+
 
 			# print "DEBUG: ---------- IMPRIMINDO SERIE-ML -----------"
 			# print(self.serieML)
@@ -728,7 +723,7 @@ class getRSSI(gr.sync_block):
 				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
 				# print(self.serieTarget)
 				tempo1 = datetime.datetime.now()
-				if self.treinar == True :
+				if self.treinar == True : 		# TODO: Treinar o LQM3
 					self.contaTreinos +=1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 				self.finalSerieML = self.serieML[-1]
