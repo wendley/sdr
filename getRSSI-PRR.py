@@ -140,8 +140,8 @@ class getRSSI(gr.sync_block):
 		self.set_msg_handler(pmt.intern("sendOrder"), self.handlerSendOrder)
 
 		# self.clf = svm.SVR()
-		self.clf = dt.DecisionTreeRegressor() # LQM3
-		self.reg = linear_model.BayesianRidge() # LQL
+		# self.clf = dt.DecisionTreeRegressor() # LQM3
+		# self.reg = linear_model.BayesianRidge() # LQL
 
 		self.startT = time.time()
 		# self.adwin = Adwin(0.01) # Padrao
@@ -586,73 +586,74 @@ class getRSSI(gr.sync_block):
 			# in wireless networks." Ad Hoc Networking Workshop (MED-HOC-NET), 2013 12th Annual Mediterranean. IEEE, 2013.
 			#####################################################
 
-			if len(self.serieLQL) >= 40: # Arbitrary value to training
-				del(self.serieLQL[0])
-				# del(self.tempML[0])
-				del(self.serieTargetLQL[0])
+			# if len(self.serieLQL) >= 40: # Arbitrary value to training
+			# 	del(self.serieLQL[0])
+			# 	# del(self.tempML[0])
+			# 	del(self.serieTargetLQL[0])
 
-			# if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
-			# 	self.serieLQL = []
-			# 	self.serieTargetLQL = []
-			# 	self.treinar = True
-			# 	self.contaConceptDrift += 1
-
-			if len(self.serieLQL)>=10 :
-				if (self.geralSends%10==0 and len(Self.serieLQL)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
-					self.treinar = True								# depois so retreina se houver detecção de concept drift
-				else:
-					self.treinar = False
+			# # if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
+			# # 	self.serieLQL = []
+			# # 	self.serieTargetLQL = []
+			# # 	self.treinar = True
+			# # 	self.contaConceptDrift += 1
 
 			# if len(self.serieLQL)>=10 :
-			# 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
-			# 		self.treinar = True
+			# 	if (self.geralSends%10==0 and len(Self.serieLQL)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
+			# 		self.treinar = True								# depois so retreina se houver detecção de concept drift
 			# 	else:
 			# 		self.treinar = False
 
-			#self.tempLQL.append(self.estimPRR)
-			self.tempLQL.append(self.estimRssi)
-			self.tempLQL.append(self.mediaSNR)
-			self.serieLQL.append(list(self.tempLQL))
-			#self.serieLQL.append(list(self.tempLQL)) # Duplicar append para ter dois targets com as mesmas entradas
-			self.tempLQL=[]
-			self.serieTargetLQL.append(self.estimPRR) # Target 1
-			#self.serieTarget.append(self.estimPRR2) # Target 2
-			self.finalSerieLQL = numpy.array(self.serieLQL)
+			# # if len(self.serieLQL)>=10 :
+			# # 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
+			# # 		self.treinar = True
+			# # 	else:
+			# # 		self.treinar = False
+
+			# #self.tempLQL.append(self.estimPRR)
+			# self.tempLQL.append(self.estimRssi)
+			# self.tempLQL.append(self.mediaSNR)
+			# self.serieLQL.append(list(self.tempLQL))
+			# #self.serieLQL.append(list(self.tempLQL)) # Duplicar append para ter dois targets com as mesmas entradas
+			# self.tempLQL=[]
+			# self.serieTargetLQL.append(self.estimPRR) # Target 1
+			# #self.serieTarget.append(self.estimPRR2) # Target 2
+			# self.finalSerieLQL = numpy.array(self.serieLQL)
 
 
-			#SVMR
+			# #SVMR
 
-			# print "DEBUG: ---------- IMPRIMINDO SERIE-LQL -----------"
-			# print(self.serieLQL)
-			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET-LQL -----------"
-			#print(self.serieTargetLQL)
-			# estimSVMRLQL = 0.0 #
-			if len(self.serieLQL) >= 5:
-				self.finalSerieLQL=numpy.array(self.serieLQL)
-				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
-				# print(self.finalSerieLQL)
+			# # print "DEBUG: ---------- IMPRIMINDO SERIE-LQL -----------"
+			# # print(self.serieLQL)
+			# #print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET-LQL -----------"
+			# #print(self.serieTargetLQL)
+			# # estimSVMRLQL = 0.0 #
+			# if len(self.serieLQL) >= 5:
+			# 	self.finalSerieLQL=numpy.array(self.serieLQL)
+			# 	# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
+			# 	# print(self.finalSerieLQL)
 
-				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
-				# print(self.serieTargetLQL)
+			# 	# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
+			# 	# print(self.serieTargetLQL)
 
-				if self.treinar == True :
-					self.contaTreinos +=1
-					self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
-				self.finalSerieLQL = self.serieLQL[-1]
-				self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-				self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
-				erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
-				self.serieErroSVMRLQL.append(erroSVMRLQL)
-				# print "DEBUG - ESTIMATIVA GERADA PELA ML-SVMR-LQL: %f" %self.estimSVMRLQL
-				# print "DEBUG - ERRO do SVMR: %f" %erroSVMRLQL
+			# 	if self.treinar == True :
+			# 		self.contaTreinos +=1
+			# 		self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
+			# 	self.finalSerieLQL = self.serieLQL[-1]
+			# 	self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			# 	self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
+			# 	erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
+			# 	self.serieErroSVMRLQL.append(erroSVMRLQL)
+			# 	# print "DEBUG - ESTIMATIVA GERADA PELA ML-SVMR-LQL: %f" %self.estimSVMRLQL
+			# 	# print "DEBUG - ERRO do SVMR: %f" %erroSVMRLQL
 
 
-			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMRLQL
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
+			# # print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMRLQL
+			# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
 		#@profile # TODO: Testar o Memory_profile (0) Pode limitar tam arvore
 		elif self.method == 8:
+			print "Ok"
 
 			###########################################################
 			# #													    # #
@@ -663,89 +664,89 @@ class getRSSI(gr.sync_block):
 			# #													    # #
 			###########################################################
 
-			self.split = time.time()
-			elapsed = self.split - self.startT
+			# self.split = time.time()
+			# elapsed = self.split - self.startT
 
-			# TIME CONTROL : RECURSO DE REDUÇÃO TEMPORAL DA SERIE:
-			timeControl = True #True para ativar ou False para desativar
-			#
-			# if timeControl :
-			# 	if elapsed > self.timeoutML: # se decorridos mais de xx segundo, a serie eh reduzida pela metade, apagando as entradas mais antigas
-			# 		self.serieML = self.serieML[-(len(self.serieML)/2):]
-			# 		self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
-			# 		self.contaReducao += 1
-			#
-			if len(self.serieML) >= 40: # Arbitrary MAX value to training
-				del(self.serieML[0]) # Apaga a entrada mais antiga
-				del(self.serieTarget[0])
+			# # TIME CONTROL : RECURSO DE REDUÇÃO TEMPORAL DA SERIE:
+			# timeControl = True #True para ativar ou False para desativar
+			# #
+			# # if timeControl :
+			# # 	if elapsed > self.timeoutML: # se decorridos mais de xx segundo, a serie eh reduzida pela metade, apagando as entradas mais antigas
+			# # 		self.serieML = self.serieML[-(len(self.serieML)/2):]
+			# # 		self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
+			# # 		self.contaReducao += 1
+			# #
+			# if len(self.serieML) >= 40: # Arbitrary MAX value to training
+			# 	del(self.serieML[0]) # Apaga a entrada mais antiga
+			# 	del(self.serieTarget[0])
 
-			if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
-				self.serieML = []
-				self.serieTarget = []
-				self.treinar = True
-				self.contaConceptDrift += 1
-
-			if len(self.serieML)>=10 :
-				if (self.geralSends%10==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
-					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
-				else:
-					self.treinar = False
-
+			# # if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
+			# # 	self.serieML = []
+			# # 	self.serieTarget = []
+			# # 	self.treinar = True
+			# # 	self.contaConceptDrift += 1
 
 			# if len(self.serieML)>=10 :
-			# 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
-			# 		self.treinar = True
+			# 	if (self.geralSends%10==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
+			# 		self.treinar = True								  # e depois so retreina se houver detecção de concept drift
 			# 	else:
 			# 		self.treinar = False
 
-			self.tempML.append(self.estimPRR)
-			self.tempML.append(self.estimRssi)
-			self.tempML.append(self.mediaSNR)
-			self.serieML.append(list(self.tempML))
-			#self.serieML.append(list(self.tempML)) # Duplicar append para ter dois targets com as mesmas entradas MULTI-LABEL TARGET
-			self.tempML=[]
-			#self.serieTarget.append(self.estimRssi) # Target 1
-			self.serieTarget.append(self.estimPRR2) # Target 2
-			self.finalSerieML = numpy.array(self.serieML)
+
+			# # if len(self.serieML)>=10 :
+			# # 	if (self.geralSends%30==0): # So habilita para treinar e retreinar a cada 30 entradas
+			# # 		self.treinar = True
+			# # 	else:
+			# # 		self.treinar = False
+
+			# self.tempML.append(self.estimPRR)
+			# self.tempML.append(self.estimRssi)
+			# self.tempML.append(self.mediaSNR)
+			# self.serieML.append(list(self.tempML))
+			# #self.serieML.append(list(self.tempML)) # Duplicar append para ter dois targets com as mesmas entradas MULTI-LABEL TARGET
+			# self.tempML=[]
+			# #self.serieTarget.append(self.estimRssi) # Target 1
+			# self.serieTarget.append(self.estimPRR2) # Target 2
+			# self.finalSerieML = numpy.array(self.serieML)
 
 
-			# print "DEBUG: ---------- IMPRIMINDO SERIE-ML -----------"
-			# print(self.serieML)
-			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
-			#print(self.serieTarget)
-			# estimSVMR = 0.0 #:
-			if len(self.serieML) >= 5:
-				self.finalSerieML=numpy.array(self.serieML)
-				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
-				# print(self.finalSerieML)
+			# # print "DEBUG: ---------- IMPRIMINDO SERIE-ML -----------"
+			# # print(self.serieML)
+			# #print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
+			# #print(self.serieTarget)
+			# # estimSVMR = 0.0 #:
+			# if len(self.serieML) >= 5:
+			# 	self.finalSerieML=numpy.array(self.serieML)
+			# 	# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
+			# 	# print(self.finalSerieML)
 
-				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
-				# print(self.serieTarget)
-				tempo1 = datetime.datetime.now()
-				if self.treinar == True : 		# TODO: Libera para treinar o LQM3
-					self.contaTreinos +=1
-					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
-				self.finalSerieML = self.serieML[-1]
-				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
+			# 	# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
+			# 	# print(self.serieTarget)
+			# 	tempo1 = datetime.datetime.now()
+			# 	if self.treinar == True : 		# TODO: Libera para treinar o LQM3
+			# 		self.contaTreinos +=1
+			# 		self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+			# 	self.finalSerieML = self.serieML[-1]
+			# 	self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			# 	self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 
-				tempo2 = datetime.datetime.now()
-				diferenca = tempo2-tempo1 # para calcular o tempo de processamento da ML
+			# 	tempo2 = datetime.datetime.now()
+			# 	diferenca = tempo2-tempo1 # para calcular o tempo de processamento da ML
 
-				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
+			# 	self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
 
-				erroML = numpy.abs(self.estimSVMR - self.serieTarget[-1])
-				self.serieErroLQM3.append(erroML)
-				# print "DEBUG - ESTIMATIVA GERADA PELO LQM3: %f" %self.estimSVMR
-				# print "DEBUG - ERRO do LQM3: %f" %erroML
+			# 	erroML = numpy.abs(self.estimSVMR - self.serieTarget[-1])
+			# 	self.serieErroLQM3.append(erroML)
+			# 	# print "DEBUG - ESTIMATIVA GERADA PELO LQM3: %f" %self.estimSVMR
+			# 	# print "DEBUG - ERRO do LQM3: %f" %erroML
 
 
-			#---------------
+			# #---------------
 
-			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
+			# # print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
+			# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
-			self.startT = time.time()
+			# self.startT = time.time()
 
 
 
