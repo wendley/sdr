@@ -580,6 +580,7 @@ class getRSSI(gr.sync_block):
 
 
 		elif self.method == 7:
+			pass
 			#####################################################
 			# LQL - Link Quality Learning --- era Foresee 4C (like)
 			# [REF:] Di Caro, Gianni A., et al. "Online supervised incremental learning of link quality estimates
