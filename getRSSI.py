@@ -659,12 +659,13 @@ class getRSSI(gr.sync_block):
 			# #													    # #
 			# # NOTE: PROPOSTA - Machine Learning - LQM3	        # #
 			# # Link Quality Estimator using M.L. with triple input # #
-			# #													    # #
+			# # NOTE: Usar .format								    # #
 			# #													    # #
 			###########################################################
 
 			self.split = time.time()
 			elapsed = self.split - self.startT
+
 
 			# TIME CONTROL : RECURSO DE REDUÇÃO TEMPORAL DA SERIE:
 			timeControl = True #True para ativar ou False para desativar
@@ -679,14 +680,14 @@ class getRSSI(gr.sync_block):
 				del(self.serieML[0]) # Apaga a entrada mais antiga
 				del(self.serieTarget[0])
 
-			if (self.adwin.update(self.emaRssi)): # SE DETECTAR CONCEPT DRIFT
-				self.serieML = []
-				self.serieTarget = []
+			if (self.adwin.update(self.emaRssi)): # NOTE: SE DETECTAR CONCEPT DRIFT
+				# self.serieML = []
+				# self.serieTarget = []
 				self.treinar = True
 				self.contaConceptDrift += 1
 
-			if len(self.serieML)>=10 :
-				if (self.geralSends%10==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
+			if len(self.serieML)>=20 :
+				if (self.geralSends%20==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
 					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
 				else:
 					self.treinar = False

@@ -18,6 +18,8 @@ cp powerControl.py gr-lqe/python ;
 cp lqe_getRSSI.xml gr-lqe/grc ;
 
 
+# rm getRSSI.py; mv getRSSI-PRR.py getRSSI.py; cp getRSSI.py gr-lqe/python ; cd ~ ; cd gr-lqe ; cd build ; sudo make uninstall ; sudo make install ; sudo ldconfig ;
+
 sleep $pausa
 echo "\n Removendo GR-LQE... \n"
 
