@@ -765,7 +765,7 @@ class getRSSI(gr.sync_block):
 
 				self.startT = time.time()
 			else:
-				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR) # while sequence < 20
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
 
 
 
