@@ -728,9 +728,9 @@ class getRSSI(gr.sync_block):
 				tempo1 = datetime.datetime.now()
 				if self.treinar == True : 		# TODO: Libera para treinar o LQM3
 					self.contaTreinos +=1
-					estTemp = self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
-					self.profund = estTemp.get_depth(self)
-					self.folhas = estTemp.get_n_leaves(self)
+					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+					self.profund = self.clf.get_depth()
+					self.folhas = self.clf.get_n_leaves()
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
