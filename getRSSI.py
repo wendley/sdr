@@ -690,6 +690,8 @@ class getRSSI(gr.sync_block):
 				if len(self.serieML) >= 41: # Arbitrary MAX value to training
 					del(self.serieML[0]) # Apaga a entrada mais antiga
 					del(self.serieTarget[0]) # Apaga a entrada mais antiga
+			else:
+				self.treinar = False
 
 			
 
