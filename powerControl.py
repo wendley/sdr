@@ -123,7 +123,7 @@ class powerControl(gr.sync_block):
 
         dfstat=pd.DataFrame(matr,columns=['timestamp','avgGain','std','length'])
         # if file does not exist write header
-        if not os.path.isfile('resultPower.csv'):
-           dfstat.to_csv('resultPower.csv',mode='a')
+        if not os.path.isfile('resultPower2.csv'):
+           dfstat.to_csv('resultPower2.csv',mode='a')
         else: # else it exists so append without writing the header
-           dfstat.to_csv('resultPower.csv',mode='a', header=False)
+           dfstat.to_csv('resultPower2.csv',mode='a', header=False)
