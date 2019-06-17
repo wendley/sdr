@@ -685,12 +685,12 @@ class getRSSI(gr.sync_block):
 			#
 
 			if len(self.serieML)>=20 :
-				if (self.geralSends%20==0 and self.geralSends<=200): # So habilita para treinar e retreinar a cada 20 entradas e ate o tam max 40
+				if (self.geralSends%20==0 and self.geralSends<=40): # So habilita para treinar e retreinar a cada 20 entradas e ate o tam max 40
 					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
 				else:
 					self.treinar = False
 
-				if len(self.serieML) >= 201: # Arbitrary MAX value to training
+				if len(self.serieML) >= 41: # Arbitrary MAX value to training
 					del(self.serieML[0]) # Apaga a entrada mais antiga
 					del(self.serieTarget[0]) # Apaga a entrada mais antiga
 			else:
@@ -748,9 +748,9 @@ class getRSSI(gr.sync_block):
 					# self.folhas = self.clf.get_n_leaves() #P ython3
 					folhas = numpy.sum(numpy.logical_and(self.clf.tree_.children_left == -1,self.clf.tree_.children_right == -1))
 					self.folhas.append(folhas)
-					self.timestr = time.strftime("%Y%m%d-%H%M%S")
-        			filename = "fileTrain"+self.timestr+".joblib"
-        			joblib.dump(self.clf,filename)
+					# self.timestr = time.strftime("%Y%m%d-%H%M%S")
+     #    			filename = "fileTrain"+self.timestr+".joblib"
+     #    			joblib.dump(self.clf,filename)
 
 				# self.finalSerieML = self.serieML[-1]
 				# self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
@@ -772,15 +772,12 @@ class getRSSI(gr.sync_block):
 				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
 				self.startT = time.time()
-			# else:
-			# print "\n ------------- \n ---------- \n Tamanho serie finalSerieML: "
-			# print len(self.finalSerieML)
+
 
 			self.finalSerieML = self.serieML[-1]
 			self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 
-			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
-				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
+			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie		
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
 
