@@ -728,6 +728,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #:
+			self.clf = load('fileTrain.joblib')
 
 			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
@@ -746,18 +747,18 @@ class getRSSI(gr.sync_block):
 					# self.folhas = self.clf.get_n_leaves() #P ython3
 					folhas = numpy.sum(numpy.logical_and(self.clf.tree_.children_left == -1,self.clf.tree_.children_right == -1))
 					self.folhas.append(folhas)
-					# self.timestr = time.strftime("%Y%m%d-%H%M%S")
-        			filename = "fileTrain.joblib"
+					timestr = time.strftime("%Y%m%d-%H%M%S")
+        			filename = "fileTrain"+timestr+".joblib"
         			joblib.dump(self.clf,filename)
 
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				
-				if self.treinado == True : 
-					self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
+				# if self.treinado == True : 
+				# self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 
 				tempo2 = datetime.datetime.now()
-				diferenca = tempo2-tempo1 # para calcular o tempo de processamento da ML
+				diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
 
 				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
 
@@ -765,16 +766,15 @@ class getRSSI(gr.sync_block):
 				self.serieErroLQM3.append(erroML)
 				# print "DEBUG - ESTIMATIVA GERADA PELO LQM3: %f" %self.estimSVMR
 				# print "DEBUG - ERRO do LQM3: %f" %erroML
-
-
 				#---------------
-
 				# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
-				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
+				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
 				self.startT = time.time()
-			else:
-				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
+			# else:
+			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
+				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
 
 
