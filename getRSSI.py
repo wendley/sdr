@@ -901,6 +901,12 @@ class getRSSI(gr.sync_block):
 			# print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Qtde de treinos da serie LQM3: %d " %(self.contaTreinos)
 			print "-   Qtde de concept drift detectado: %6.2f" %(self.contaConceptDrift)
+			print "-   Parametros da ML: "
+			print self.clf.get_params(self)
+			print "\n-   Depth da ML: "
+			print self.clf.get_depth(self)
+			print "\n-   Leaves da ML: "
+			print self.clf.get_n_leaves(self)
 
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck

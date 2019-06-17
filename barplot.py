@@ -62,6 +62,7 @@ ax.set_xlim(-0.3,4.6)
 # ax.set_xticklabels(ax.get_xticklabels())
 # ax.right_ax.set_ylabel('Ratio')
 ax2.set_ylabel('Delivery (%)')
+ax.yaxis.grid(True, which='major', linestyle=':')
 
 # bars = ax.patches
 # patterns =('/', '+', 'x','-','//','O','o','\\','\\\\')
@@ -76,8 +77,8 @@ ax2.set_ylabel('Delivery (%)')
 # for bar, hatch in zip(bars, hatches):
 #     bar.set_hatch(hatch)
 
-ax.legend(loc=(.75,.92),frameon = False)
-ax2.legend(loc=(.75,.88),frameon = False)
+ax.legend(loc=(.75,.94),frameon = False)
+ax2.legend(loc=(.75,.90),frameon = False)
 # ax.right_ax.legend(loc=(.5,.05), frameon = False)
 ax2.set_xticklabels(df['LQE'])
 # plt.grid()
