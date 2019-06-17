@@ -680,9 +680,18 @@ class getRSSI(gr.sync_block):
 			# 		self.serieTarget = self.serieTarget[-(len(self.serieTarget)/2):]
 			# 		self.contaReducao += 1
 			#
-			if len(self.serieML) >= 40: # Arbitrary MAX value to training
-				del(self.serieML[0]) # Apaga a entrada mais antiga
-				del(self.serieTarget[0])
+
+			if len(self.serieML)>=20 :
+				if (self.geralSends%20==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 20 entradas e ate o tam max 40
+					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
+				else:
+					self.treinar = False
+
+				if len(self.serieML) >= 41: # Arbitrary MAX value to training
+					del(self.serieML[0]) # Apaga a entrada mais antiga
+					del(self.serieTarget[0])
+
+			
 
 			if (self.adwin.update(self.emaRssi)): # NOTE: SE DETECTAR CONCEPT DRIFT
 				# self.serieML = []
@@ -690,11 +699,7 @@ class getRSSI(gr.sync_block):
 				self.treinar = True
 				self.contaConceptDrift += 1
 
-			if len(self.serieML)>=20 :
-				if (self.geralSends%20==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 10 entradas e ate o tam max 40
-					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
-				else:
-					self.treinar = False
+
 
 
 			# if len(self.serieML)>=10 :
