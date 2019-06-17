@@ -144,7 +144,7 @@ class getRSSI(gr.sync_block):
 		self.set_msg_handler(pmt.intern("sendOrder"), self.handlerSendOrder)
 
 		# self.clf = svm.SVR()
-		self.clf = dt.DecisionTreeRegressor(max_depth=8) # LQM3
+		self.clf = dt.DecisionTreeRegressor()# max_depth=8) # LQM3
 		self.reg = linear_model.BayesianRidge() # LQL
 
 		self.startT = time.time()
