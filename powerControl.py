@@ -19,7 +19,7 @@
 # Boston, MA 02110-1301, USA.
 #
 
-import numpy, pmt, time
+import numpy, pmt, time, datetime
 import pandas as pd
 from gnuradio import gr
 from gnuradio import uhd
@@ -110,6 +110,8 @@ class powerControl(gr.sync_block):
 
         # ARQUIVOS CSV FORMATO PANDAS FRAME:
         linha = []
+
+        agora = datetime.datetime.now()
 
         linha.append(agora.strftime("%d/%m/%Y - %H:%M:%S")) #timestamp
         linha.append(numpy.mean(self.serieGain, dtype=numpy.float64)) #Média dos ganhos das transmissões

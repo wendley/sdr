@@ -938,7 +938,7 @@ class getRSSI(gr.sync_block):
 		linha.append(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64)) #desvioPadraoAck
 		linha.append(self.contaTreinos) #qtde Treinos LQM3
 		linha.append(self.contaConceptDrift) #qtde concept drift detectado
-		linha.append(max(self.profund)) # max depth ML Tree
+		linha.append(self.profund) # max depth ML Tree
 		linha.append(max(self.folhas)) # max leaves ML Tree
 
 		matr = []
