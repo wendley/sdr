@@ -150,6 +150,9 @@ class getRSSI(gr.sync_block):
 		self.clf = dt.DecisionTreeRegressor()# max_depth=8) # LQM3
 		self.reg = linear_model.BayesianRidge() # LQL
 
+		self.clf = joblib.load('fileTrain.joblib')
+		self.profund.append(self.clf.tree_.max_depth)
+
 		self.startT = time.time()
 		self.adwin = Adwin(0.01) # Padrao
 
@@ -730,7 +733,6 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #:
-			self.clf = joblib.load('fileTrain.joblib')
 
 			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
