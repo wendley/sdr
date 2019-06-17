@@ -682,14 +682,14 @@ class getRSSI(gr.sync_block):
 			#
 
 			if len(self.serieML)>=20 :
-				if (self.geralSends%20==0 and len(self.serieML)<=40): # So habilita para treinar e retreinar a cada 20 entradas e ate o tam max 40
+				if (self.geralSends%20==0 and self.geralSends<=40): # So habilita para treinar e retreinar a cada 20 entradas e ate o tam max 40
 					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
 				else:
 					self.treinar = False
 
 				if len(self.serieML) >= 41: # Arbitrary MAX value to training
 					del(self.serieML[0]) # Apaga a entrada mais antiga
-					del(self.serieTarget[0])
+					del(self.serieTarget[0]) # Apaga a entrada mais antiga
 
 			
 
@@ -732,7 +732,7 @@ class getRSSI(gr.sync_block):
 				# print "---------- IMPRIMINDO SERIE-TARGET-ML-ARRAY -----------"
 				# print(self.serieTarget)
 				tempo1 = datetime.datetime.now()
-				if self.treinar == True : 		# TODO: Libera para treinar o LQM3
+				if self.treinar == True : 		# TODO: Liberado para treinar o LQM3
 					self.contaTreinos +=1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 					# self.profund = self.clf.get_depth() # Python3
