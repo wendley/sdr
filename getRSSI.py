@@ -33,7 +33,7 @@ from gnuradio import gr
 from gnuradio import uhd
 #from sklearn import svm # Support Vector Machine
 from sklearn import tree as dt # DecisionTreeRegressor
-from sklearn.dt import DecisionTreeRegressor
+from sklearn.tree import DecisionTreeRegressor
 from sklearn import linear_model # Para LQL
 from pyadwin import Adwin
 
