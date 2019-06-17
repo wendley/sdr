@@ -686,7 +686,8 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serieML)>=20 :
 				if (self.geralSends%20==0 and self.geralSends<=40): # So habilita para treinar e retreinar a cada 20 entradas e ate o tam max 40
-					self.treinar = True								  # e depois so retreina se houver detecção de concept drift
+					# self.treinar = True								  # e depois so retreina se houver detecção de concept drift
+					pass
 				else:
 					self.treinar = False
 
