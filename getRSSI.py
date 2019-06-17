@@ -751,8 +751,8 @@ class getRSSI(gr.sync_block):
         			filename = "fileTrain"+timestr+".joblib"
         			joblib.dump(self.clf,filename)
 
-				self.finalSerieML = self.serieML[-1]
-				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+				# self.finalSerieML = self.serieML[-1]
+				# self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				
 				# if self.treinado == True : 
 				# self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
@@ -772,8 +772,12 @@ class getRSSI(gr.sync_block):
 
 				self.startT = time.time()
 			# else:
-			print "\n ------------- \n ---------- \n Tamanho serie finalSerieML: "
-			print len(self.finalSerieML)
+			# print "\n ------------- \n ---------- \n Tamanho serie finalSerieML: "
+			# print len(self.finalSerieML)
+
+			self.finalSerieML = self.serieML[-1]
+			self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			
 			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
