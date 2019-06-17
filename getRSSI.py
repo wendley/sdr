@@ -745,8 +745,8 @@ class getRSSI(gr.sync_block):
 					# self.folhas = self.clf.get_n_leaves() #P ython3
 					folhas = numpy.sum(numpy.logical_and(self.clf.tree_.children_left == -1,self.clf.tree_.children_right == -1))
 					self.folhas.append(folhas)
-					timestr = time.strftime("%Y%m%d-%H%M%S")
-        			filename = "fileTrain-"+timestr+".joblib"
+					self.timestr = time.strftime("%Y%m%d-%H%M%S")
+        			filename = "fileTrain"+self.timestr+".joblib"
         			joblib.dump(self.clf,filename)
 
 				self.finalSerieML = self.serieML[-1]
