@@ -900,28 +900,6 @@ class getRSSI(gr.sync_block):
 		print "-   Tempo medio de recebimento de acks: %6.2f" %(numpy.mean(self.serieTempoTotalAck))
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
 
-		linha.append(agora.strftime("%d/%m/%Y - %H:%M:%S"))
-		linha.append(self.method)
-		linha.append(self.geralSendOrder)
-		linha.append(self.geralSends)
-		linha.append(self.ackCount)
-		linha.append(self.geralSends - self.geralSendOrder)
-		linha.append(calcRel)
-		linha.append(calcTxE)
-		linha.append(numpy.mean(self.serieTempoTotalAck))
-		linha.append(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
-
-		matr = []
-		matr.append(linha)
-
-		dfstat=pd.DataFrame(matr,columns=['timestamp', 'method', 'enviosSolicitados', 'enviosEfetivos', 'acksRecebidos', 'retransmissoes','relacao','taxaEntrega','tempoMedioRecebAck','desvioPadraoAck'])
-		# if file does not exist write header
-		if not os.path.isfile('estatisticas.csv'):
-		   dfstat.to_csv('estatisticas.csv',mode='a')
-		else: # else it exists so append without writing the header
-		   dfstat.to_csv('estatisticas.csv',mode='a', header=False)
-
-
 
 		if self.method == 7: #LQL
 			print "-   ------------------------------------"
@@ -945,6 +923,34 @@ class getRSSI(gr.sync_block):
 
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
+
+		# ARQUIVOS CSV FORMATO PANDAS FRAME:
+
+		linha.append(agora.strftime("%d/%m/%Y - %H:%M:%S")) #timestamp
+		linha.append(self.method)
+		linha.append(self.geralSendOrder) #enviosSolicitados
+		linha.append(self.geralSends) #enviosEfetivos
+		linha.append(self.ackCount) #acksRecebidos
+		linha.append(self.geralSends - self.geralSendOrder) #retransmissoes
+		linha.append(calcRel) #relacao
+		linha.append(calcTxE) #taxaEntrega
+		linha.append(numpy.mean(self.serieTempoTotalAck)) #tempoMedioRecebAck
+		linha.append(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64)) #desvioPadraoAck
+		linha.append(self.contaTreinos) #qtde Treinos LQM3
+		linha.append(self.contaConceptDrift) #qtde concept drift detectado
+		linha.append(max(self.profund)) # max depth ML Tree
+		linha.append(max(self.folhas)) # max leaves ML Tree
+
+		matr = []
+		matr.append(linha)
+
+		dfstat=pd.DataFrame(matr,columns=['timestamp', 'method', 'enviosSolicitados', 'enviosEfetivos', 
+			'acksRecebidos', 'retransmissoes','relacao','taxaEntrega','tempoMedioRecebAck','desvioPadraoAck','treinos','conceptDrift','depth','folhas'])
+		# if file does not exist write header
+		if not os.path.isfile('resultLQE.csv'):
+		   dfstat.to_csv('resultLQE.csv',mode='a')
+		else: # else it exists so append without writing the header
+		   dfstat.to_csv('resultLQE.csv',mode='a', header=False)
 
 
 	def holtwinters(self, y, alpha, beta, gamma, c, debug=False):

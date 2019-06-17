@@ -19,7 +19,8 @@
 # Boston, MA 02110-1301, USA.
 #
 
-import numpy, pmt
+import numpy, pmt, time
+import pandas as pd
 from gnuradio import gr
 from gnuradio import uhd
 
@@ -106,3 +107,21 @@ class powerControl(gr.sync_block):
         print "-   Desvio padrão: %6.2f" %(numpy.std(self.serieGain))
         print "-   Tamanho da amostra: %d" %len(self.serieGain)
         print "============================================================== \n"
+
+        # ARQUIVOS CSV FORMATO PANDAS FRAME:
+        linha = []
+
+        linha.append(agora.strftime("%d/%m/%Y - %H:%M:%S")) #timestamp
+        linha.append(numpy.mean(self.serieGain, dtype=numpy.float64)) #Média dos ganhos das transmissões
+        linha.append(numpy.std(self.serieGain, dtype=numpy.float64)) #desvioPadraoAck
+        linha.append(len(self.serieGain)) #qtde Treinos LQM3
+
+        matr = []
+        matr.append(linha)
+
+        dfstat=pd.DataFrame(matr,columns=['timestamp','avgGain','std','length'])
+        # if file does not exist write header
+        if not os.path.isfile('resultPowerControl.csv'):
+           dfstat.to_csv('resultPowerControl.csv',mode='a')
+        else: # else it exists so append without writing the header
+           dfstat.to_csv('resultPowerControl.csv',mode='a', header=False)
