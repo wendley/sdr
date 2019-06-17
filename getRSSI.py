@@ -612,12 +612,12 @@ class getRSSI(gr.sync_block):
 			# 	self.serieErroSVMRLQL.append(erroSVMRLQL)
 
 			# 	self.timestr = time.strftime("%Y%m%d-%H%M%S") # Se quiser salvar o arquivo de treinamento .joblib
-    		#	filename = "fileTrainLQL"+self.timestr+".joblib"
-    		#	joblib.dump(self.reg,filename)
+			#	filename = "fileTrainLQL"+self.timestr+".joblib"
+			#	joblib.dump(self.reg,filename)
 
-    		self.finalSerieLQL = self.serieLQL[-1]
-    		self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-    		self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
+			self.finalSerieLQL = self.serieLQL[-1]
+			self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
