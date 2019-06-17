@@ -36,6 +36,7 @@ from sklearn import tree as dt # DecisionTreeRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import linear_model # Para LQL
+from sklearn.externals import joblib
 from pyadwin import Adwin
 
 
