@@ -100,8 +100,8 @@ class getRSSI(gr.sync_block):
 		self.outPck = 0 # start time for packet time
 		self.intAck = 0 # end time for packet time
 		self.diffTempo = 0.0
-		self.profund = 0
-		self.folhas = 0
+		self.profund = []
+		self.folhas = []
 		self.serieTempoTotalAck = []
 		self.serieTempoML = []
 
@@ -730,9 +730,11 @@ class getRSSI(gr.sync_block):
 				if self.treinar == True : 		# TODO: Libera para treinar o LQM3
 					self.contaTreinos +=1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
-					# self.profund = self.clf.get_depth()
-					self.profund = self.clf.tree_.max_depth
-					# self.folhas = self.clf.get_n_leaves()
+					# self.profund = self.clf.get_depth() # Python3
+					self.profund.append(self.clf.tree_.max_depth)
+					# self.folhas = self.clf.get_n_leaves() #P ython3
+					self.folhas.append(self.clf.n_leaves)
+
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
@@ -910,8 +912,10 @@ class getRSSI(gr.sync_block):
 			print "-   Qtde de concept drift detectado: %6.2f" %(self.contaConceptDrift)
 			print "-   Parametros da ML: "
 			print self.clf.get_params(self)
-			print "\n-   Depth da ML: %d " %(self.profund)
-			print "\n-   Leaves da ML: %d " %(self.folhas)
+			print "\n-   Depth da ML: " 
+			print self.profund
+			print "\n-   Leaves da ML: " 
+			print self.folhas
 
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
