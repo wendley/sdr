@@ -113,6 +113,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
 		self.treinaML = False # True para treinamento
+		self.treinado = False
 		self.forcaLQE = 1.0 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		#self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
@@ -726,6 +727,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #:
+
 			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
 				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
@@ -737,6 +739,7 @@ class getRSSI(gr.sync_block):
 				if self.treinar == True : 		# TODO: Liberado para treinar o LQM3
 					self.contaTreinos +=1
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
+					self.treinado = True # para identificar que já houve 1 treinamento
 					# self.profund = self.clf.get_depth() # Python3
 					self.profund.append(self.clf.tree_.max_depth)
 					# self.folhas = self.clf.get_n_leaves() #P ython3
@@ -745,7 +748,9 @@ class getRSSI(gr.sync_block):
 
 				self.finalSerieML = self.serieML[-1]
 				self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-				self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
+				
+				if self.treinado == True : 
+					self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 
 				tempo2 = datetime.datetime.now()
 				diferenca = tempo2-tempo1 # para calcular o tempo de processamento da ML
