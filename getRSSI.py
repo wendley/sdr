@@ -585,7 +585,7 @@ class getRSSI(gr.sync_block):
 				del(self.serieTargetLQL[0])
 
 
-			if (self.geralSends%20==0 and len(self.geralSends)>=20) :
+			if (self.geralSends%20==0 and self.geralSends>=20) :
 				if (self.geralSends%10==0 and len(self.serieLQL)<=maxValue): # So habilita para treinar e retreinar a cada 10 entradas e ate o MaxValue
 					self.treinar = True	
 				else:
