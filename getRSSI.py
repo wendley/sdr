@@ -726,7 +726,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #:
-			if len(self.serieML) >= 5:
+			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
 				# print "---------- IMPRIMINDO SERIE-ML-ARRAY -----------"
 				# print(self.finalSerieML)
@@ -758,12 +758,14 @@ class getRSSI(gr.sync_block):
 				# print "DEBUG - ERRO do LQM3: %f" %erroML
 
 
-			#---------------
+				#---------------
 
-			# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
+				# print "ESTIMATIVA GERADA PELA ML-SVMR: %f" %self.estimSVMR
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
-			self.startT = time.time()
+				self.startT = time.time()
+			else:
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR) # while sequence < 20
 
 
 
