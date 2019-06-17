@@ -728,7 +728,7 @@ class getRSSI(gr.sync_block):
 			#print "DEBUG: ---------- IMPRIMINDO SERIE-TARGET -----------"
 			#print(self.serieTarget)
 			# estimSVMR = 0.0 #:
-			self.clf = load('fileTrain.joblib')
+			self.clf = joblib.load('fileTrain.joblib')
 
 			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
