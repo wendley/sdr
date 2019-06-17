@@ -830,7 +830,7 @@ class getRSSI(gr.sync_block):
 		print "-   Desvio padrao do tempo de recebimento de acks: %6.2f" %(numpy.std(self.serieTempoTotalAck, dtype=numpy.float64))
 
 
-		if self.method == 7: #LQL
+		if self.method == 77: #LQL OLD
 			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQL: %6.2f percent" %(numpy.mean(self.serieErroSVMRLQL))
 			print "-   Tamanho serie erro ML LQL: %d entradas " %(len(self.serieErroSVMRLQL))
