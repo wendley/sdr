@@ -904,9 +904,9 @@ class getRSSI(gr.sync_block):
 			print "-   Parametros da ML: "
 			print self.clf.get_params(self)
 			print "\n-   Depth da ML: "
-			print self.clf.get_depth(self)
+			print self.clf.get_depth()
 			print "\n-   Leaves da ML: "
-			print self.clf.get_n_leaves(self)
+			print self.clf.get_n_leaves()
 
 		print "============================================================== \n"
 		#print self.serieTempoTotalAck
