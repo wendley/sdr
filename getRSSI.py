@@ -129,6 +129,7 @@ class getRSSI(gr.sync_block):
 		self.fnPRRRssi="/home/wendley/Experimentos/SeriePRRRssi.txt"
 		self.fnPRR2levels="/home/wendley/Experimentos/SeriePRR2levels.txt"
 		self.fnPRR2="/home/wendley/Experimentos/SeriePRR2.txt"
+		self.timestr = ""
 
 		self.message_port_register_in(pmt.intern("RSSIin"))
 		self.message_port_register_in(pmt.intern("Ackin"))
@@ -747,8 +748,8 @@ class getRSSI(gr.sync_block):
 					# self.folhas = self.clf.get_n_leaves() #P ython3
 					folhas = numpy.sum(numpy.logical_and(self.clf.tree_.children_left == -1,self.clf.tree_.children_right == -1))
 					self.folhas.append(folhas)
-					timestr = time.strftime("%Y%m%d-%H%M%S")
-        			filename = "fileTrain"+timestr+".joblib"
+					self.timestr = time.strftime("%Y%m%d-%H%M%S")
+        			filename = "fileTrain"+self.timestr+".joblib"
         			joblib.dump(self.clf,filename)
 
 				# self.finalSerieML = self.serieML[-1]
@@ -777,7 +778,7 @@ class getRSSI(gr.sync_block):
 
 			self.finalSerieML = self.serieML[-1]
 			self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-			
+
 			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
