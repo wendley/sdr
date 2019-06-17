@@ -939,7 +939,7 @@ class getRSSI(gr.sync_block):
 		linha.append(self.contaTreinos) #qtde Treinos LQM3
 		linha.append(self.contaConceptDrift) #qtde concept drift detectado
 		linha.append(self.profund) # max depth ML Tree
-		linha.append(max(self.folhas)) # max leaves ML Tree
+		linha.append(self.folhas) # max leaves ML Tree
 
 		matr = []
 		matr.append(linha)
