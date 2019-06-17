@@ -772,6 +772,8 @@ class getRSSI(gr.sync_block):
 
 				self.startT = time.time()
 			# else:
+			print "\n ------------- \n ---------- \n Tamanho serie finalSerieML: "
+			print len(self.finalSerieML)
 			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie
 				# self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR)) # while sequence < 20
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
