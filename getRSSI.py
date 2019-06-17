@@ -151,7 +151,7 @@ class getRSSI(gr.sync_block):
 		self.reg = linear_model.BayesianRidge() # LQL
 
 		self.clf = joblib.load('fileTrain.joblib')
-		self.reg = joblib.load('fileTrainLQL2.joblib')
+		self.reg = joblib.load('fileTrainLQL.joblib')
 
 		self.profund.append(self.clf.tree_.max_depth)
 
@@ -875,10 +875,10 @@ class getRSSI(gr.sync_block):
 		dfstat=pd.DataFrame(matr,columns=['timestamp', 'method', 'enviosSolicitados', 'enviosEfetivos', 
 			'acksRecebidos', 'retransmissoes','relacao','taxaEntrega','tempoMedioRecebAck','desvioPadraoAck','treinos','conceptDrift','depth','folhas'])
 		# if file does not exist write header
-		if not os.path.isfile('resultLQE2.csv'):
-		   dfstat.to_csv('resultLQE2.csv',mode='a')
+		if not os.path.isfile('resultLQE.csv'):
+		   dfstat.to_csv('resultLQE.csv',mode='a')
 		else: # else it exists so append without writing the header
-		   dfstat.to_csv('resultLQE2.csv',mode='a', header=False)
+		   dfstat.to_csv('resultLQE.csv',mode='a', header=False)
 
 
 	def holtwinters(self, y, alpha, beta, gamma, c, debug=False):
