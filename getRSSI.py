@@ -733,7 +733,7 @@ class getRSSI(gr.sync_block):
 					# self.profund = self.clf.get_depth() # Python3
 					self.profund.append(self.clf.tree_.max_depth)
 					# self.folhas = self.clf.get_n_leaves() #P ython3
-					folhas = numpy.sum(np.logical_and(self.clf.tree_.children_left == -1,self.clf.tree_.children_right == -1))
+					folhas = numpy.sum(numpy.logical_and(self.clf.tree_.children_left == -1,self.clf.tree_.children_right == -1))
 					self.folhas.append(folhas)
 
 				self.finalSerieML = self.serieML[-1]
