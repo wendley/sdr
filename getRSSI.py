@@ -144,7 +144,7 @@ class getRSSI(gr.sync_block):
 		self.set_msg_handler(pmt.intern("sendOrder"), self.handlerSendOrder)
 
 		# self.clf = svm.SVR()
-		self.clf = dt.DecisionTreeRegressor() # LQM3
+		self.clf = dt.DecisionTreeRegressor(max_depth=8) # LQM3
 		self.reg = linear_model.BayesianRidge() # LQL
 
 		self.startT = time.time()
@@ -729,7 +729,7 @@ class getRSSI(gr.sync_block):
 				tempo1 = datetime.datetime.now()
 				if self.treinar == True : 		# TODO: Libera para treinar o LQM3
 					self.contaTreinos +=1
-					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]).get_depth() # Treina com todos os dados da serie, exceto o último
+					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 					# self.profund = self.clf.get_depth()
 					# self.folhas = self.clf.get_n_leaves()
 				self.finalSerieML = self.serieML[-1]
