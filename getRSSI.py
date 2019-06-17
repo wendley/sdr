@@ -616,7 +616,7 @@ class getRSSI(gr.sync_block):
     		#	joblib.dump(self.reg,filename)
 
     		self.finalSerieLQL = self.serieLQL[-1]
-			self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+    		self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
     		self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
