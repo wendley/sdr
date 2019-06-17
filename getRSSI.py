@@ -661,7 +661,6 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
-		#@profile # TODO: Testar o Memory_profile (0) Pode limitar tam arvore
 		elif self.method == 8:
 
 			###########################################################
@@ -702,11 +701,9 @@ class getRSSI(gr.sync_block):
 
 			
 
-			if (self.adwin.update(self.emaRssi)): # NOTE: SE DETECTAR CONCEPT DRIFT
-				# self.serieML = []
-				# self.serieTarget = []
-				self.treinar = True
-				self.contaConceptDrift += 1
+			# if (self.adwin.update(self.emaRssi)): # NOTE: SE DETECTAR CONCEPT DRIFT - Comentar se quiser desativar Conc. Drift
+			# 	self.treinar = True
+			# 	self.contaConceptDrift += 1
 
 
 
