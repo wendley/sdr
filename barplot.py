@@ -5,6 +5,7 @@ import datetime
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
+import matplotlib.ticker as ticker
 import pandas as pd
 import seaborn as sns
 import numpy as np
@@ -47,9 +48,10 @@ df=pd.read_csv(ifile,header=0)
 #     horizontalalignment='right'
 # )
 # plt.legend(loc='upper left')
-errors=df[['errTxEntrega','errRelacao']]
+errors=df[['errTxEntrega','errRelacao','errGain-Index']]
 errors.rename({"errTxEntrega":"TxEntrega"}, axis="columns", inplace=True)
 errors.rename({"errRelacao":"Relacao"}, axis="columns", inplace=True)
+errors.rename({"errGain-Index":"Gain-Index"}, axis="columns", inplace=True)
 hat = ("/",".")
 
 # ax=df[['TxEntrega','Relacao']].plot.bar(yerr=errors, capsize=3, secondary_y= 'Relacao', legend=True, width=0.7, rot= 0)
@@ -59,10 +61,13 @@ ax2 = df['Relacao'].plot(yerr=errors, capsize=3, secondary_y=True, kind="bar", w
 ax.set_ylabel('Delivery (%)')
 ax.set_ylim(50,105)
 ax.set_xlim(-0.3,4.6)
+
+ax.tick_params(axis='y',which='minor', color='k')
 # ax.set_xticklabels(ax.get_xticklabels())
 # ax.right_ax.set_ylabel('Ratio')
-ax2.set_ylabel('Delivery (%)')
-ax.yaxis.grid(True, which='major', linestyle=':')
+ax2.set_ylabel('Ratio')
+ax.yaxis.grid(True, which='minor', linestyle=':',alpha=0.9)
+ax.yaxis.set_minor_locator(ticker.MultipleLocator(5))
 
 # bars = ax.patches
 # patterns =('/', '+', 'x','-','//','O','o','\\','\\\\')
@@ -77,8 +82,8 @@ ax.yaxis.grid(True, which='major', linestyle=':')
 # for bar, hatch in zip(bars, hatches):
 #     bar.set_hatch(hatch)
 
-ax.legend(loc=(.75,.94),frameon = False)
-ax2.legend(loc=(.75,.90),frameon = False)
+ax.legend(['Delivery'],loc=(.75,.94),frameon = False)
+ax2.legend(['Ratio'],loc=(.75,.90),frameon = False)
 # ax.right_ax.legend(loc=(.5,.05), frameon = False)
 ax2.set_xticklabels(df['LQE'])
 # plt.grid()
