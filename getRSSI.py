@@ -662,7 +662,7 @@ class getRSSI(gr.sync_block):
 			
 			# NOTE: CONCEPT DRIFT - Se detectar, retreina a ML
 
-			concDrift = False # False se quiser desativar Conc. Drift
+			concDrift = True # False se quiser desativar Conc. Drift
 			if concDrift == True :
 				if (self.adwin.update(self.emaRssi)): 
 					self.treinar = True
