@@ -660,10 +660,13 @@ class getRSSI(gr.sync_block):
 				self.treinar = False
 
 			
-			# SE DETECTAR CONCEPT DRIFT, RETREINAR A ML
-			if (self.adwin.update(self.emaRssi)): # NOTE: SE DETECTAR CONCEPT DRIFT - Comentar se quiser desativar Conc. Drift
-				self.treinar = True
-				self.contaConceptDrift += 1
+			# NOTE: CONCEPT DRIFT - Se detectar, retreina a ML
+
+			concDrift = False # False se quiser desativar Conc. Drift
+			if concDrift == True :
+				if (self.adwin.update(self.emaRssi)): 
+					self.treinar = True
+					self.contaConceptDrift += 1
 
 
 			# if len(self.serieML)>=10 : # Usado apenas para treinamento inicial (depois faz o load .joblib e retreina quando detecta concept drift)
