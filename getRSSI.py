@@ -714,6 +714,18 @@ class getRSSI(gr.sync_block):
 			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie		
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
+			prediction, bias, contributions = ti.predict(rf, instances)
+
+			for i in range(len(instances)):
+				print "Instance", i
+				print "Bias (trainset mean)", biases[i]
+				print "Feature contributions:"
+				for c, feature in sorted(zip(contributions[i], 
+			    	boston.feature_names), 
+			    	key=lambda x: -abs(x[0])):
+			        print feature, round(c, 2)
+			    print "-"*20
+
 
 
 	def sma(self, values, window): # Simple Moving Average
