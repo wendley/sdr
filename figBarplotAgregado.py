@@ -11,6 +11,8 @@ import seaborn as sns
 import numpy as np
 from tkinter import *
 
+# VIEW: Exemplo [1] @test (1)
+
 # ifile="/home/wendley/MEGA/MegaCloud/Documentos/PhD/Codigos/sdr-data/traces/traces-03112018-Cen1a4.csv"
 ifile="../sdr-data/traces/Agregado.csv"
 df=pd.read_csv(ifile,header=0)
@@ -48,6 +50,7 @@ df=pd.read_csv(ifile,header=0)
 #     horizontalalignment='right'
 # )
 # plt.legend(loc='upper left')
+
 errors=df[['errTxEntrega','errRelacao','errGain-Index']]
 errors.rename({"errTxEntrega":"TxEntrega"}, axis="columns", inplace=True)
 errors.rename({"errRelacao":"Relacao"}, axis="columns", inplace=True)
