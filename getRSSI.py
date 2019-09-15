@@ -595,7 +595,7 @@ class getRSSI(gr.sync_block):
 			self.tempLQL.append(self.mediaSNR)
 			self.serieLQL.append(list(self.tempLQL))
 			self.tempLQL=[]
-			self.serieTargetLQL.append(self.estimPRR) # Target
+			self.serieTargetLQL.append(self.estimPRR2) # Target
 			self.finalSerieLQL = numpy.array(self.serieLQL)
 
 			if len(self.serieLQL) >= 20: # Somente usado para treinar a primeira vez
@@ -615,9 +615,9 @@ class getRSSI(gr.sync_block):
 				filename = "fileTrainLQL2.joblib"
 				joblib.dump(self.reg,filename)
 
-			self.finalSerieLQL = self.serieLQL[-1]
-			self.finalSerieLQL = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-			self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
+			# self.finalSerieLQL = self.serieLQL[-1] # Descomentar essas 3 linhas se o grande if anterior estiver comentado
+			# self.finalSerieLQL = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			# self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
