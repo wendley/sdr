@@ -598,25 +598,25 @@ class getRSSI(gr.sync_block):
 			self.serieTargetLQL.append(self.estimPRR) # Target
 			self.finalSerieLQL = numpy.array(self.serieLQL)
 
-			# if len(self.serieLQL) >= 20: # Somente usado para treinar a primeira vez
-			# 	self.finalSerieLQL=numpy.array(self.serieLQL)
+			if len(self.serieLQL) >= 20: # Somente usado para treinar a primeira vez
+				self.finalSerieLQL=numpy.array(self.serieLQL)
 
-			# 	if self.treinar == True :
-			# 		self.contaTreinos +=1
-			# 		self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
-			# 	self.finalSerieLQL = self.serieLQL[-1]
-			# 	self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-			# 	self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
-			# 	erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
-			# 	self.serieErroSVMRLQL.append(erroSVMRLQL)
+				if self.treinar == True :
+					self.contaTreinos +=1
+					self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
+				self.finalSerieLQL = self.serieLQL[-1]
+				self.finalSerieLQL = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+				self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
+				erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
+				self.serieErroSVMRLQL.append(erroSVMRLQL)
 
-			# 	# self.timestr = time.strftime("%Y%m%d-%H%M%S") # Se quiser salvar o arquivo de treinamento .joblib
-			# 	# filename = "fileTrainLQL"+self.timestr+".joblib"
-			# 	filename = "fileTrainLQL2.joblib"
-			# 	joblib.dump(self.reg,filename)
+				# self.timestr = time.strftime("%Y%m%d-%H%M%S") # Se quiser salvar o arquivo de treinamento .joblib
+				# filename = "fileTrainLQL"+self.timestr+".joblib"
+				filename = "fileTrainLQL2.joblib"
+				joblib.dump(self.reg,filename)
 
 			self.finalSerieLQL = self.serieLQL[-1]
-			self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			self.finalSerieLQL = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
 			self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
