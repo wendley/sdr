@@ -590,7 +590,7 @@ class getRSSI(gr.sync_block):
 				else:
 					self.treinar = False
 
-			#self.tempLQL.append(self.estimPRR)
+			self.tempLQL.append(self.estimPRR)
 			self.tempLQL.append(self.estimRssi)
 			self.tempLQL.append(self.mediaSNR)
 			self.serieLQL.append(list(self.tempLQL))
