@@ -595,7 +595,7 @@ class getRSSI(gr.sync_block):
 			self.tempLQL.append(self.mediaSNR)
 			self.serieLQL.append(list(self.tempLQL))
 			self.tempLQL=[]
-			self.serieTargetLQL.append(self.estimPRR2) # Target
+			self.serieTargetLQL.append(self.estimPRR) # Target
 			self.finalSerieLQL = numpy.array(self.serieLQL)
 
 			if len(self.serieLQL) >= 20: # Somente usado para treinar a primeira vez
