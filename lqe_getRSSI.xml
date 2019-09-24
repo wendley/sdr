@@ -51,7 +51,7 @@
     </option>
 
     <option>
-      <name>PRR 2 levels - without RSSI</name>
+      <name>ETX</name> <!-- Previously - PRR 2 levels - without RSSI -->
       <key>5</key>
     </option>
 

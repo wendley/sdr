@@ -101,6 +101,8 @@ class getRSSI(gr.sync_block):
 		self.outPck = 0 # start time for packet time
 		self.intAck = 0 # end time for packet time
 		self.diffTempo = 0.0
+		#self.ETX = 0.0 # ETX (1 to 6, because 6 is the max resends)
+		self.estimETX = 0.0 # ETX (0 to 1)
 		self.profund = []
 		self.folhas = []
 		self.serieTempoTotalAck = []
@@ -556,10 +558,21 @@ class getRSSI(gr.sync_block):
 
 		elif self.method == 5:
 			#####################################################
-			# PRR 2 levels without RSSI
+			# NOTE: ETX -  Expected Transmission Count (ETX) --- Previously: PRR 2 levels without RSSI
+			# COUTO, D. S. J. D., AGUAYO, D., BICKET, J., AND MORRIS, R. 2003. A high-throughput path metric for multihop
+			# wireless routing. In Proceedings of the 9th Annual International Conference on Mobile Computing and
+			# Networking (MobiCom ’03). ACM, 134–146.
+			# https://pdos.lcs.mit.edu/papers/grid:decouto-phd/thesis.pdf
+			# https://en.wikipedia.org/wiki/Expected_transmission_count
 			#####################################################
 
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2levels))
+			#self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2levels)) # Previously: PRR 2 levels without RSSI
+			self.ETX = float(self.geralSends)/self.ackCount
+			estimETX = (self.ETX - 6)/(-5.0) # Convertion to 0 --- 1 range
+			print "ETX estim ----- : %d" % (estimETX)
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(estimETX))
+
+
 
 
 		elif self.method == 6:
