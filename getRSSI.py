@@ -874,7 +874,7 @@ class getRSSI(gr.sync_block):
 			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
 			print "-   Tamanho serie erro ML LQM3: %d entradas " %(len(self.serieErroLQM3))
 			# print "-   Tempo medio para processar LQM3: %6.3f seconds" %(numpy.mean(self.serieTempoML))
-			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
+			# print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
 			# print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Qtde de treinos da serie LQM3: %d " %(self.contaTreinos)
 			print "-   Qtde de concept drift detectado: %6.2f" %(self.contaConceptDrift)
