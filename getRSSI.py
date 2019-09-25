@@ -389,7 +389,7 @@ class getRSSI(gr.sync_block):
 
 			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels
 				self.geralLPRR = self.preEMA(self.serieLACK, self.serieLPCK, self.window*4) # PRR from long range
-				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
+				# print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
 
 
