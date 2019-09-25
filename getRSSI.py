@@ -679,7 +679,7 @@ class getRSSI(gr.sync_block):
 			
 			# NOTE: CONCEPT DRIFT - Se detectar, retreina a ML
 
-			concDrift = True # False se quiser desativar Conc. Drift
+			concDrift = False # False se quiser desativar Conc. Drift
 			if concDrift == True :
 				if (self.adwin.update(self.emaRssi)): 
 					self.treinar = True
@@ -843,7 +843,7 @@ class getRSSI(gr.sync_block):
 		elif self.method == 4:
 			print "        LQE: PRR2 - full"
 		elif self.method == 5:
-			print "        LQE: PRR2 - sem RSSI"
+			print "        LQE: ETX" #OLD PRR2 - sem RSSI"
 		elif self.method == 6:
 			print "        LQE: Traditional PRR+RSSI"
 		elif self.method == 7:
