@@ -702,10 +702,11 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
-				tempo1 = datetime.datetime.now()
+				
 
 				if self.treinar == True : 		# TODO: Liberado para treinar o LQM3
 					self.contaTreinos +=1
+					tempo1 = datetime.datetime.now()
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 					self.treinado = True # para identificar que já houve 1 treinamento
 					# self.profund = self.clf.get_depth() # Python3
@@ -717,10 +718,10 @@ class getRSSI(gr.sync_block):
     				# filename = "fileTrain"+self.timestr+".joblib"
     				# joblib.dump(self.clf,filename)
 
-				tempo2 = datetime.datetime.now()
-				diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
-				print "Diferenca tempo -----------"
-				print (diferenca.seconds,":",diferenca.microseconds)
+					tempo2 = datetime.datetime.now()
+					diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
+					print "Diferenca tempo -----------"
+					print (diferenca.seconds,":",diferenca.microseconds)
 
 				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
 
