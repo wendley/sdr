@@ -379,7 +379,7 @@ class getRSSI(gr.sync_block):
 
 			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels
 				self.geralLPRR = sum(self.serieLACK)/float(sum(self.serieLPCK)) # PRR from long range
-				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
+				# print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
 
 
@@ -874,8 +874,6 @@ class getRSSI(gr.sync_block):
 			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
 			print "-   Tamanho serie erro ML LQM3: %d entradas " %(len(self.serieErroLQM3))
 			# print "-   Tempo medio para processar LQM3: %6.3f seconds" %(numpy.mean(self.serieTempoML))
-			print "-   Tempo para processar LQM3: " 
-			print (self.serieTempoML)
 			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
 			# print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Qtde de treinos da serie LQM3: %d " %(self.contaTreinos)
