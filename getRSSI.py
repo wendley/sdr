@@ -572,8 +572,8 @@ class getRSSI(gr.sync_block):
 			else:
 				self.ETX = 6
 			estimETX = (self.ETX - 6)/(-5.0) # Convertion to 0 --- 1 range
-			print "ETX raw value ----- : %d" % (self.ETX)
-			print "ETX estimation ----- : %d" % (estimETX)
+			print "ETX raw value ----- : %6.2f" % (self.ETX)
+			print "ETX estimation ----- : %6.2f" % (estimETX)
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(estimETX))
 
 
