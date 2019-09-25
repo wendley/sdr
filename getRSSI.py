@@ -721,8 +721,10 @@ class getRSSI(gr.sync_block):
 					tempo2 = datetime.datetime.now()
 					diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
 					print "Diferenca tempo -----------"
+					print diferenca
 					print (diferenca.seconds,":",diferenca.microseconds)
-					self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
+					# self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
+					self.serieTempoML.append(diferenca) #adiciona o tempo na serie em miliseconds
 
 				erroML = numpy.abs(self.estimSVMR - self.serieTarget[-1])
 				self.serieErroLQM3.append(erroML)
@@ -871,7 +873,7 @@ class getRSSI(gr.sync_block):
 			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
 			print "-   Tamanho serie erro ML LQM3: %d entradas " %(len(self.serieErroLQM3))
-			print "-   Tempo medio para processar LQM3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
+			print "-   Tempo medio para processar LQM3: %6.3f seconds" %(numpy.mean(self.serieTempoML))
 			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
 			# print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Qtde de treinos da serie LQM3: %d " %(self.contaTreinos)
