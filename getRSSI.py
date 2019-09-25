@@ -719,6 +719,8 @@ class getRSSI(gr.sync_block):
 
 				tempo2 = datetime.datetime.now()
 				diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
+				print "Diferenca tempo -----------"
+				print (diferenca.seconds,":",diferenca.microseconds)
 
 				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
 
