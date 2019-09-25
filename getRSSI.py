@@ -567,9 +567,12 @@ class getRSSI(gr.sync_block):
 			#####################################################
 
 			#self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2levels)) # Previously: PRR 2 levels without RSSI
-			self.ETX = float(self.geralSends)/self.ackCount
+			if self.ackCount > 0:
+				self.ETX = float(self.geralSends)/self.ackCount
+			else:
+				self.ETX = 6
 			estimETX = (self.ETX - 6)/(-5.0) # Convertion to 0 --- 1 range
-			print "ETX estim ----- : %d" % (estimETX)
+			print "ETX estimation ----- : %d" % (estimETX)
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(estimETX))
 
 
