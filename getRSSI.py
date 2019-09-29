@@ -101,6 +101,8 @@ class getRSSI(gr.sync_block):
 		self.outPck = 0 # start time for packet time
 		self.intAck = 0 # end time for packet time
 		self.diffTempo = 0.0
+		#self.ETX = 0.0 # ETX (1 to 6, because 6 is the max resends)
+		self.estimETX = 0.0 # ETX (0 to 1)
 		self.profund = []
 		self.folhas = []
 		self.serieTempoTotalAck = []
@@ -377,7 +379,7 @@ class getRSSI(gr.sync_block):
 
 			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels
 				self.geralLPRR = sum(self.serieLACK)/float(sum(self.serieLPCK)) # PRR from long range
-				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
+				# print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
 
 
@@ -387,7 +389,7 @@ class getRSSI(gr.sync_block):
 
 			if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels
 				self.geralLPRR = self.preEMA(self.serieLACK, self.serieLPCK, self.window*4) # PRR from long range
-				print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
+				# print "\n--------- \nLONG PRR: %2.4f\n---------\n" % (float(self.geralLPRR))
 				# print "\n--------- \nLONG PRR LENGTH: %2.4f\n---------\n" % (float(len(self.serieLACK)))
 
 
@@ -556,10 +558,25 @@ class getRSSI(gr.sync_block):
 
 		elif self.method == 5:
 			#####################################################
-			# PRR 2 levels without RSSI
+			# NOTE: ETX -  Expected Transmission Count (ETX) --- Previously: PRR 2 levels without RSSI
+			# COUTO, D. S. J. D., AGUAYO, D., BICKET, J., AND MORRIS, R. 2003. A high-throughput path metric for multihop
+			# wireless routing. In Proceedings of the 9th Annual International Conference on Mobile Computing and
+			# Networking (MobiCom ’03). ACM, 134–146.
+			# https://pdos.lcs.mit.edu/papers/grid:decouto-phd/thesis.pdf
+			# https://en.wikipedia.org/wiki/Expected_transmission_count
 			#####################################################
 
-			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2levels))
+			#self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2levels)) # Previously: PRR 2 levels without RSSI
+			if self.ackCount > 0:
+				self.ETX = float(self.geralSends)/self.ackCount
+			else:
+				self.ETX = 6
+			estimETX = (self.ETX - 6)/(-5.0) # Convertion to 0 --- 1 range
+			print "ETX raw value ----- : %6.2f" % (self.ETX)
+			print "ETX estimation ----- : %6.2f" % (estimETX)
+			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(estimETX))
+
+
 
 
 		elif self.method == 6:
@@ -590,7 +607,7 @@ class getRSSI(gr.sync_block):
 				else:
 					self.treinar = False
 
-			#self.tempLQL.append(self.estimPRR)
+			self.tempLQL.append(self.estimPRR)
 			self.tempLQL.append(self.estimRssi)
 			self.tempLQL.append(self.mediaSNR)
 			self.serieLQL.append(list(self.tempLQL))
@@ -598,26 +615,26 @@ class getRSSI(gr.sync_block):
 			self.serieTargetLQL.append(self.estimPRR) # Target
 			self.finalSerieLQL = numpy.array(self.serieLQL)
 
-			# if len(self.serieLQL) >= 20: # Somente usado para treinar a primeira vez
-			# 	self.finalSerieLQL=numpy.array(self.serieLQL)
+			if len(self.serieLQL) >= 20: # Somente usado para treinar a primeira vez
+				self.finalSerieLQL=numpy.array(self.serieLQL)
 
-			# 	if self.treinar == True :
-			# 		self.contaTreinos +=1
-			# 		self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
-			# 	self.finalSerieLQL = self.serieLQL[-1]
-			# 	self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-			# 	self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
-			# 	erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
-			# 	self.serieErroSVMRLQL.append(erroSVMRLQL)
+				if self.treinar == True :
+					self.contaTreinos +=1
+					self.reg.fit(self.serieLQL[:-1],self.serieTargetLQL[:-1]) # Treina com todos os dados da serie, exceto o último
+				self.finalSerieLQL = self.serieLQL[-1]
+				self.finalSerieLQL = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+				self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL)) # Predizer somente o ultimo valor da serie
+				erroSVMRLQL = numpy.abs(self.estimSVMRLQL - self.serieTargetLQL[-1])
+				self.serieErroSVMRLQL.append(erroSVMRLQL)
 
-			# 	# self.timestr = time.strftime("%Y%m%d-%H%M%S") # Se quiser salvar o arquivo de treinamento .joblib
-			# 	# filename = "fileTrainLQL"+self.timestr+".joblib"
-			# 	filename = "fileTrainLQL2.joblib"
-			# 	joblib.dump(self.reg,filename)
+				# self.timestr = time.strftime("%Y%m%d-%H%M%S") # Se quiser salvar o arquivo de treinamento .joblib
+				# filename = "fileTrainLQL"+self.timestr+".joblib"
+				filename = "fileTrainLQL2.joblib"
+				joblib.dump(self.reg,filename)
 
-			self.finalSerieLQL = self.serieLQL[-1]
-			self.finalSerieLQL = numpy.arange(2).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
-			self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
+			# self.finalSerieLQL = self.serieLQL[-1] # Descomentar essas 3 linhas se o grande if anterior estiver comentado
+			# self.finalSerieLQL = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			# self.estimSVMRLQL = float(self.reg.predict(self.finalSerieLQL))
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
@@ -662,7 +679,7 @@ class getRSSI(gr.sync_block):
 			
 			# NOTE: CONCEPT DRIFT - Se detectar, retreina a ML
 
-			concDrift = True # False se quiser desativar Conc. Drift
+			concDrift = False # False se quiser desativar Conc. Drift
 			if concDrift == True :
 				if (self.adwin.update(self.emaRssi)): 
 					self.treinar = True
@@ -685,10 +702,11 @@ class getRSSI(gr.sync_block):
 
 			if len(self.serieML) >= 20:
 				self.finalSerieML=numpy.array(self.serieML)
-				tempo1 = datetime.datetime.now()
+				
 
 				if self.treinar == True : 		# TODO: Liberado para treinar o LQM3
 					self.contaTreinos +=1
+					tempo1 = datetime.datetime.now()
 					self.clf.fit(self.serieML[:-1],self.serieTarget[:-1]) # Treina com todos os dados da serie, exceto o último
 					self.treinado = True # para identificar que já houve 1 treinamento
 					# self.profund = self.clf.get_depth() # Python3
@@ -700,10 +718,13 @@ class getRSSI(gr.sync_block):
     				# filename = "fileTrain"+self.timestr+".joblib"
     				# joblib.dump(self.clf,filename)
 
-				tempo2 = datetime.datetime.now()
-				diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
-
-				self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
+					tempo2 = datetime.datetime.now()
+					diferenca = tempo2-tempo1 # para calcular o tempo de treinamento da ML
+					print "Diferenca tempo -----------"
+					print diferenca
+					print (diferenca.seconds,":",diferenca.microseconds)
+					# self.serieTempoML.append((diferenca.microseconds/1000.0)) #adiciona o tempo na serie em miliseconds
+					self.serieTempoML.append(diferenca) #adiciona o tempo na serie em miliseconds
 
 				erroML = numpy.abs(self.estimSVMR - self.serieTarget[-1])
 				self.serieErroLQM3.append(erroML)
@@ -826,7 +847,7 @@ class getRSSI(gr.sync_block):
 		elif self.method == 4:
 			print "        LQE: PRR2 - full"
 		elif self.method == 5:
-			print "        LQE: PRR2 - sem RSSI"
+			print "        LQE: ETX" #OLD PRR2 - sem RSSI"
 		elif self.method == 6:
 			print "        LQE: Traditional PRR+RSSI"
 		elif self.method == 7:
@@ -852,8 +873,8 @@ class getRSSI(gr.sync_block):
 			print "-   ------------------------------------"
 			print "-   Erro medio Machine Learning LQM3: %6.2f percent" %(numpy.mean(self.serieErroLQM3))
 			print "-   Tamanho serie erro ML LQM3: %d entradas " %(len(self.serieErroLQM3))
-			print "-   Tempo medio para processar LQM3: %6.2f miliseconds" %(numpy.mean(self.serieTempoML))
-			print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
+			# print "-   Tempo medio para processar LQM3: %6.3f seconds" %(numpy.mean(self.serieTempoML))
+			# print "-   Desvio padrao do tempo para processar LQM3: %6.2f" %(numpy.std(self.serieTempoML, dtype=numpy.float64))
 			# print "-   Qtde de reducoes da serie LQM3: %d " %(self.contaReducao)
 			print "-   Qtde de treinos da serie LQM3: %d " %(self.contaTreinos)
 			print "-   Qtde de concept drift detectado: %6.2f" %(self.contaConceptDrift)
