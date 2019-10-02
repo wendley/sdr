@@ -115,7 +115,7 @@ class getRSSI(gr.sync_block):
 		self.serieTreinoTxEntrega = []
 		self.serieTreinoRelacao = []
 		self.matrix = [] # Para treinamento ML
-		self.treinaML = False # True para treinamento
+		self.treinaML = True # True para treinamento (coleta de dados / traces. Usar estimador PRR2)
 		self.treinado = False
 		self.forcaLQE = 1.0 # Valor forçado para estimativa (usado na coleta dos dados)
 
@@ -271,7 +271,7 @@ class getRSSI(gr.sync_block):
 
 		# Coletar: rssi, prr, snr, prr2, tx entrega, latencia, potencia, variacao tx entrega, variacao prr
 
-		if self.treinaML == True : # setado na linha 58
+		if self.treinaML == True : # setado na linha 118
 			if self.ackCount > 0:
 				calcTxE = (float(self.ackCount)/self.geralSendOrder)*100.0
 				calcRel = self.geralSends/(self.ackCount*1.0) # to force float
@@ -551,8 +551,8 @@ class getRSSI(gr.sync_block):
 			#print "Proposed mode in use - under development - the tx gain is constant"
 			#This sets the gain
 			#gTx=float(self.gainTx)
-			if self.treinaML == True : # setado na linha 116
-				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.forcaLQE)) #setar aqui o valor
+			if self.treinaML == True : # setado na linha 118
+				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.forcaLQE)) #seta o valor
 			else:
 				self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimPRR2))
 
