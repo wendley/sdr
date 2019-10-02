@@ -117,7 +117,7 @@ class getRSSI(gr.sync_block):
 		self.matrix = [] # Para treinamento ML
 		self.treinaML = True # True para treinamento (coleta de dados / traces. Usar estimador PRR2)
 		self.treinado = False
-		self.forcaLQE = 0.7 # Valor forçado para estimativa (usado na coleta dos dados)
+		self.forcaLQE = 0.6 # Valor forçado para estimativa (usado na coleta dos dados)
 
 		#self.contaReducao = 0 # Conta a qtde vezes que a serie para LQR3 foi reduzida
 		self.cont999 = 1 # contagem para evitar duas impressoes das estatisticas
