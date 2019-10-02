@@ -294,13 +294,12 @@ class getRSSI(gr.sync_block):
 				linha.append(self.diffTempo.microseconds/1000.0) # miliseconds
 			self.diffTempo = 999 #para evitar leituras de tempo repetidas
 			linha.append(potencia)
+			linha.append(self.forcaLQE)
 
 			self.matrix.append(linha)
 
-			self.method = 4 # força usar PRR2 (para conseguir calcular PRR2). setar valor manualmente na linha 545
+			self.method = 4 # força usar PRR2 (para conseguir calcular PRR2). setar valor manualmente na linha 556
 
-
-			#TODO: Falta adicionar append para latencia e Potencia
 		# Fim_if da COLETA
 
 
@@ -827,7 +826,7 @@ class getRSSI(gr.sync_block):
 			calcRel = 0.0
 
 		if self.treinaML == True :
-			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia-ms','potencia'])
+			dft=pd.DataFrame(self.matrix,columns=['rssi', 'prr', 'prr2', 'snr', 'txentrega', 'relacao','latencia-ms','potencia','estimation'])
 			dft.to_csv('traces.csv',mode='a')
 
 
