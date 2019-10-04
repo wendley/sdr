@@ -1,0 +1,139 @@
+
+=============================
+
+
+Em execucao, aguarde...
+TARGET -- tx entrega...
+['txentrega']
+
+------------------------------
+
+Cross validation com shuffle split
+Target: 
+['txentrega']
+
+------------------------------
+
+LinearR
+Trainning time:
+0:00:00.097034
+
+------------------------------
+
+/usr/local/lib/python2.7/dist-packages/sklearn/utils/validation.py:761: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py:196: FutureWarning: The default value of gamma will change from 'auto' to 'scale' in version 0.22 to account better for unscaled features. Set gamma explicitly to 'auto' or 'scale' to avoid this warning.
+  "avoid this warning.", FutureWarning)
+SVR
+Trainning time:
+0:00:55.248257
+
+------------------------------
+
+/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py:931: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  "the number of iterations.", ConvergenceWarning)
+LinSVR
+Trainning time:
+0:00:02.643606
+
+------------------------------
+
+NuSVR
+Trainning time:
+0:00:12.155007
+
+------------------------------
+
+KNN
+Trainning time:
+0:00:03.628800
+
+------------------------------
+
+DecTreeReg
+Trainning time:
+0:00:00.222895
+
+------------------------------
+
+/usr/local/lib/python2.7/dist-packages/sklearn/neural_network/multilayer_perceptron.py:1316: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+NNET
+Trainning time:
+0:00:35.481988
+
+------------------------------
+
+GBE
+Trainning time:
+0:00:01.899155
+
+------------------------------
+
+['LinearR', 'SVR', 'LinSVR', 'NuSVR', 'KNN', 'DecTreeReg', 'NNET', 'GBE']
+
+=============================
+
+
+Em execucao, aguarde...
+TARGET -- diff tx entrega...
+['diff-txentrega']
+
+------------------------------
+
+Cross validation com shuffle split
+Target: 
+['diff-txentrega']
+
+------------------------------
+
+LinearR
+Trainning time:
+0:00:00.092084
+
+------------------------------
+
+SVR
+Trainning time:
+0:00:38.724130
+
+------------------------------
+
+LinSVR
+Trainning time:
+0:00:01.560290
+
+------------------------------
+
+NuSVR
+Trainning time:
+0:00:25.573601
+
+------------------------------
+
+KNN
+Trainning time:
+0:00:03.608385
+
+------------------------------
+
+DecTreeReg
+Trainning time:
+0:00:00.297218
+
+------------------------------
+
+NNET
+Trainning time:
+0:00:26.068061
+
+------------------------------
+
+GBE
+Trainning time:
+0:00:01.631010
+
+------------------------------
+
+['LinearR', 'SVR', 'LinSVR', 'NuSVR', 'KNN', 'DecTreeReg', 'NNET', 'GBE']
+[Finished in 209.6s]

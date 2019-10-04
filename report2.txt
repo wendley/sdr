@@ -1,0 +1,74 @@
+
+=============================
+
+
+Em execucao, aguarde...
+TARGET -- prr2...
+['prr2']
+
+------------------------------
+
+Cross validation com shuffle split
+Target: 
+['prr2']
+
+------------------------------
+
+LinearR
+Trainning time:
+0:00:00.095253
+
+------------------------------
+
+/usr/local/lib/python2.7/dist-packages/sklearn/utils/validation.py:761: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py:196: FutureWarning: The default value of gamma will change from 'auto' to 'scale' in version 0.22 to account better for unscaled features. Set gamma explicitly to 'auto' or 'scale' to avoid this warning.
+  "avoid this warning.", FutureWarning)
+SVR
+Trainning time:
+0:00:17.947654
+
+------------------------------
+
+/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py:931: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  "the number of iterations.", ConvergenceWarning)
+LinSVR
+Trainning time:
+0:00:02.642375
+
+------------------------------
+
+NuSVR
+Trainning time:
+0:00:42.574817
+
+------------------------------
+
+KNN
+Trainning time:
+0:00:03.678463
+
+------------------------------
+
+DecTreeReg
+Trainning time:
+0:00:00.206287
+
+------------------------------
+
+/usr/local/lib/python2.7/dist-packages/sklearn/neural_network/multilayer_perceptron.py:1316: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+NNET
+Trainning time:
+0:00:11.982528
+
+------------------------------
+
+GBE
+Trainning time:
+0:00:01.792798
+
+------------------------------
+
+['LinearR', 'SVR', 'LinSVR', 'NuSVR', 'KNN', 'DecTreeReg', 'NNET', 'GBE']
+[Finished in 81.6s]

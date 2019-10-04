@@ -1,0 +1,105 @@
+('Colunm Name : ', 'rssi')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic         -2.600444
+P-Value                     0.092906
+# Lags Used                42.000000
+# Observations Used     14497.000000
+Critical Value (5%)        -2.861739
+Critical Value (1%)        -3.430801
+Critical Value (10%)       -2.566876
+dtype: float64
+Is the time series stationary? False
+
+
+('Colunm Name : ', 'snr')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic     -1.050835e+01
+P-Value                 1.040041e-18
+# Lags Used             4.200000e+01
+# Observations Used     1.449700e+04
+Critical Value (5%)    -2.861739e+00
+Critical Value (1%)    -3.430801e+00
+Critical Value (10%)   -2.566876e+00
+dtype: float64
+Is the time series stationary? True
+
+
+('Colunm Name : ', 'prr')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic        -19.194540
+P-Value                     0.000000
+# Lags Used                33.000000
+# Observations Used     14506.000000
+Critical Value (5%)        -2.861739
+Critical Value (1%)        -3.430801
+Critical Value (10%)       -2.566876
+dtype: float64
+Is the time series stationary? True
+
+
+('Colunm Name : ', 'txentrega')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic        -47.413929
+P-Value                     0.000000
+# Lags Used                 4.000000
+# Observations Used     14535.000000
+Critical Value (5%)        -2.861739
+Critical Value (1%)        -3.430800
+Critical Value (10%)       -2.566876
+dtype: float64
+Is the time series stationary? True
+
+
+('Colunm Name : ', 'relacao')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic     -6.276482e+00
+P-Value                 3.889352e-08
+# Lags Used             1.300000e+01
+# Observations Used     1.452600e+04
+Critical Value (5%)    -2.861739e+00
+Critical Value (1%)    -3.430800e+00
+Critical Value (10%)   -2.566876e+00
+dtype: float64
+Is the time series stationary? True
+
+
+('Colunm Name : ', 'latencia-ms')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic     -1.037128e+01
+P-Value                 2.260698e-18
+# Lags Used             4.200000e+01
+# Observations Used     1.449700e+04
+Critical Value (5%)    -2.861739e+00
+Critical Value (1%)    -3.430801e+00
+Critical Value (10%)   -2.566876e+00
+dtype: float64
+Is the time series stationary? True
+
+
+('Colunm Name : ', 'potencia')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic         -1.133474
+P-Value                     0.701540
+# Lags Used                 0.000000
+# Observations Used     14539.000000
+Critical Value (5%)        -2.861739
+Critical Value (1%)        -3.430800
+Critical Value (10%)       -2.566876
+dtype: float64
+Is the time series stationary? False
+
+
+('Colunm Name : ', 'diff-txentrega')
+Augmented Dickey-Fuller Test Results:
+ADF Test Statistic       -120.579641
+P-Value                     0.000000
+# Lags Used                 0.000000
+# Observations Used     14539.000000
+Critical Value (5%)        -2.861739
+Critical Value (1%)        -3.430800
+Critical Value (10%)       -2.566876
+dtype: float64
+Is the time series stationary? True
+
+
+[Finished in 37.2s]

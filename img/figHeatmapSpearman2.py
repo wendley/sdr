@@ -11,7 +11,7 @@ import numpy as np
 from Tkinter import *
 
 # ifile="/home/wendley/MEGA/MegaCloud/Documentos/PhD/Codigos/sdr-data/traces/traces-03112018-Cen1a4.csv"
-ifile="../../sdr-data/traces2.csv"
+ifile="../../sdr-data/traces5.csv"
 df=pd.read_csv(ifile,header=0,index_col=0)
 
 # Remove coluna 'unnamed'
