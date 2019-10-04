@@ -692,9 +692,28 @@ class getRSSI(gr.sync_block):
 			# 	else:
 			# 		self.treinar = False
 
+			# -------------------------
+			# INPUTS:
+			# -------------------------
+
+			#['rssi','prr','snr','latencia-ms','relacao'] # inputs
+
 			self.tempML.append(self.estimPRR)
 			self.tempML.append(self.estimRssi)
-			self.tempML.append(self.mediaSNR)
+			self.tempML.append(float(self.mediaSNR))
+
+			if self.diffTempo == 0.0 or self.diffTempo == 999:
+				self.tempML.append(self.diffTempo)
+			else:
+				self.tempML.append(self.diffTempo.microseconds/1000.0) # miliseconds
+			self.diffTempo = 999 #para evitar leituras de tempo repetidas
+
+			if self.ackCount > 0:
+				calcRel = self.geralSends/(self.ackCount*1.0) # to force float
+			else:
+				calcRel = 0.0
+			self.tempML.append(calcRel) # Relacao
+
 			self.serieML.append(list(self.tempML))
 			self.tempML=[]
 			self.serieTarget.append(self.estimPRR2) # Target
@@ -731,7 +750,7 @@ class getRSSI(gr.sync_block):
 				self.startT = time.time()
 
 			self.finalSerieML = self.serieML[-1]
-			self.finalSerieML = numpy.arange(3).reshape(1,-1) # Para duas entradas, usar 	self.finalSerieML = numpy.arange(2).reshape(1,-1)
+			self.finalSerieML = numpy.arange(5).reshape(1,-1) # Para duas entradas, usar self.finalSerieML = numpy.arange(2).reshape(1,-1)
 			self.estimSVMR = float(self.clf.predict(self.finalSerieML)) # Predizer somente o ultimo valor da serie		
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMR))
 
