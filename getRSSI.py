@@ -314,7 +314,7 @@ class getRSSI(gr.sync_block):
 
 		# Cria janela móvel limitada (para não extrapolar a memória) para cálculo das médias
 
-		if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8: # PRR 2 levels (short and long range)
+		if self.method == 4 or self.method == 5 or self.method == 7 or self.method == 8 or self.method == 9: # PRR 2 levels (short and long range)
 
 			if type == 1: # Acionado por um ack recebido (handlerAck)
 				self.serieACK.append(1)
@@ -638,7 +638,7 @@ class getRSSI(gr.sync_block):
 			self.message_port_pub(pmt.intern("estimation"),pmt.from_double(self.estimSVMRLQL))
 
 
-		elif self.method == 8:
+		elif self.method == 8 or self.method == 9: # 8 with Concept drift ---- 9 without concept drift
 
 			###########################################################
 			# #													    # #
@@ -679,7 +679,11 @@ class getRSSI(gr.sync_block):
 			
 			# NOTE: CONCEPT DRIFT - Se detectar, retreina a ML
 
-			concDrift = True # False se quiser desativar Conc. Drift
+			if self.method == 8 :
+				concDrift = True
+			elif self.method == 9 :
+				concDrift = False
+
 			if concDrift == True :
 				if (self.adwin.update(self.emaRssi)): 
 					self.treinar = True
@@ -872,7 +876,9 @@ class getRSSI(gr.sync_block):
 		elif self.method == 7:
 			print "        LQE: LQL"
 		elif self.method == 8:
-			print "        LQE: LQM3"
+			print "        LQE: LQM3 with Concept Drift"
+		elif self.method == 9:
+			print "        LQE: LQM3 without Conc Drift"
 
 		print "\n-   Envios solicitados: %d" %(self.geralSendOrder)
 		print "-   Total de envios efetivos: %d" % (self.geralSends)

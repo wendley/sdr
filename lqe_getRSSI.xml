@@ -66,8 +66,13 @@
     </option>
 
     <option>
-      <name>LQM3</name>
+      <name>LQM3 with CD</name>
       <key>8</key>
+    </option>
+
+    <option>
+      <name>LQM3 without CD</name>
+      <key>9</key>
     </option>
 
   </param>
