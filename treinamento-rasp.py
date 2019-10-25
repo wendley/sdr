@@ -43,6 +43,8 @@ for c in range(0,1):
     # Embaralhar:
     # arq=df.sample(frac=1).reset_index(drop=True)
 
+    arq=df
+
     Xc=arq.loc[:,colunas] # Xc - X completo
     yc=arq.loc[:,target]
 
@@ -488,16 +490,10 @@ if salvarJoblib == 0:
 
 
 
-# apt-get update ;
-# apt-get install git ;
-# git clone https://github.com/wendley/sdr.git ;
-# apt-get install python-scipy ; 
-# apt-get install python-pandas ;
+apt-get update ; apt-get install git ; git clone https://github.com/wendley/sdr.git ; apt-get install python-scipy ; 
+apt-get install python-pandas ; pip install --upgrade pip ; pip install scikit-learn==0.20.0 ; 
 
-# pip install --upgrade pip ;
-# pip install -U scikit-learn==0.20.0 ;
-
-# Optionally:
-# pip install numpy==1.10.4
-# pip install pandas==0.23.1
-# pip show numpy
+Optionally:
+pip install numpy==1.10.4
+pip install pandas==0.23.1
+pip show numpy
