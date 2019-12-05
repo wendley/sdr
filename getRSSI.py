@@ -628,7 +628,7 @@ class getRSSI(gr.sync_block):
 				self.serieErroSVMRLQL.append(erroSVMRLQL)
 
 				# self.timestr = time.strftime("%Y%m%d-%H%M%S") # Se quiser salvar o arquivo de treinamento .joblib
-				# filename = "fileTrainLQL"+self.timestr+".joblib"
+				# filename = "fileTrainLQL"+self.itmestr+".joblib"
 				filename = "fileTrainLQL2.joblib"
 				joblib.dump(self.reg,filename)
 
